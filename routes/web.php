@@ -21,6 +21,9 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+Route::get('acc-success', function () {
+    return view('auth/acc-success');
+})->name('acc-success');
 
 
 

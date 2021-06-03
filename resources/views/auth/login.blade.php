@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('resources/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/media.css') }}">
 
 </head>
 
@@ -19,20 +20,21 @@
     <section class="section-login">
         <div class="row p-0 w-100">
             <div class="col-sm-12 col-md-6 p-0">
-                <div class="login-leftSide">
-                    <div class="img-leftSide position-relative">
+                <div class="login-leftSide position-relative">
+                    <div class="img-leftSide">
                         <img src="{{URL::asset('resources/assets/images/right-img-auth.png')}}" class="img-fluid"
                             alt="login-image">
                     </div>
-                    <div class="position-absolute">
-                        <p class="desc-text">أقرب ورد لأى مناسبة خاصة لك</p>
+                    <div class="desc-text position-absolute">
+                        <p class="position-absolute" style=" right: 0; bottom: 75px; ">أقرب ورد</p>
+                        <p>لأى مناسبة خاصة لك</p>
                     </div>
                 </div>
 
             </div>
-            <div class="col-sm-12 col-md-6 p-0">
+            <div class="col-sm-12 col-md-6">
                 <div class="container">
-                    <div class="right-side">
+                    <div class="right-side text-right">
                         <div class="logo-login">
                             <img src="{{URL::asset('resources/assets/images/logo.png')}}" class="img-fluid" alt="logo">
                         </div>
@@ -40,9 +42,13 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <h3>تسجيل الدخول</h3>
-                            <input type="email" name="email" placeholder="البريد الإلكتروني">
-                            <input type="password" name="password" placeholder="كلمة المرور">
-                            <a href="{{ route('password.request') }}" class="forget-password text-danger">هل نسيت كلمة المرور؟</a>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="البريد الإلكتروني">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" placeholder="كلمة المرور">
+                            </div>
+                            <a href="{{ route('password.request') }}" class="forget-password"> نسيت كلمة المرور؟</a>
                             <button type="submit" class="fixed-style-btn btn">تسجيل الدخول</button>
                             <p class="dt-acc">ليس لديك حساب ! <a href="{{route('register')}}" class="create-acc">أنشئ حساب</a></p>
                         </form>
