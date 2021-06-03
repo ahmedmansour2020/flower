@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\UtilController;
+use App\Http\Resources\ProductResource;
+use App\Models\ItemImage;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\ProductResource;
 
 class ProductController extends Controller
 {
@@ -16,13 +18,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $user=Auth::user();
-        if(request()->ajax()){
-            $products=Product::all()->where('user_id',$user->id);
-            $products=ProductResource::collection($products);
+        $title = "منتجاتي";
+        $user = Auth::user();
+        if (request()->ajax()) {
+            $products = Product::all()->where('user_id', $user->id);
+            $products = ProductResource::collection($products);
 
             return datatables()->of($products)->addIndexColumn()->make(true);
         }
+        return view('admin.show.products', compact('title'));
     }
 
     /**
@@ -32,7 +36,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $title = "إضافة منتج";
+        $action = "add";
+        return view('admin.add.product', compact('title', 'action'));
     }
 
     /**
@@ -43,7 +49,27 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Product();
+        $user = Auth::user();
+        $item->user_id = $user->id;
+        $item->name = $request->name;
+        $item->description = $request->description;
+        $item->qty = $request->qty;
+        $item->price = $request->price;
+        $item->save();
+        $util = new UtilController();
+        if ($request->hasfile('images')) {
+            $index = 0;
+            foreach ($request->file('images') as $image) {
+                if ($index == 0) {
+                    $util->add_image($item->id, 'product', $image, $index, 1);
+                } else {
+                    $util->add_image($item->id, 'product', $image, $index);
+                }
+                $index++;
+            }
+        }
+        return redirect()->back()->with('success', 'تم إضافة المنتج بنجاح');
     }
 
     /**
@@ -54,7 +80,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $title = "تعديل بيانات منتج";
+        $action = "update";
+        $item = new ProductResource(Product::find($id));
+
+        return view('admin.add.product', compact('title', 'action', 'item'));
     }
 
     /**
@@ -77,7 +107,27 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Product::find($id);
+        $item->name = $request->name;
+        $item->description = $request->description;
+        $item->qty = $request->qty;
+        $item->price = $request->price;
+        $item->save();
+        ItemImage::where('item_id', $item->id)->where('item_type', 'product')->delete();
+        $util = new UtilController();
+
+        if ($request->hasfile('images')) {
+            $index = 0;
+            foreach ($request->file('images') as $image) {
+                if ($index == 0) {
+                    $util->add_image($item->id, 'product', $image, $index, 1);
+                } else {
+                    $util->add_image($item->id, 'product', $image, $index);
+                }
+                $index++;
+            }
+        }
+        return redirect()->back()->with('success', 'تم تعديل المنتج بنجاح');
     }
 
     /**
