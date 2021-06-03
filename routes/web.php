@@ -23,6 +23,10 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::get('/', [HomeController::class, 'to_home'])->name('home');
 
+Route::get('acc-success', function () {
+    return view('auth/acc-success');
+})->name('acc-success');
+
 Route::resource('message', MessageController::class);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {

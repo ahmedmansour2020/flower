@@ -6,3 +6,134 @@
 body {
     font-family: 'Almarai', sans-serif;
 }
+.body-pages {
+    direction: rtl !important;
+}
+/*============================================= Start auth pages  ==============================================*/
+
+/* Start login page */
+.section-login {
+    direction: ltr;
+}
+.img-leftSide img {
+    width: 100%;
+    height: 100vh;
+}
+.desc-text {
+    bottom: 0;
+    right: 0;
+    margin-right: 40px;
+}
+.desc-text p {
+    font-size: 60px;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+.right-side  {
+    text-align: right;
+    direction: rtl;
+    margin-top: 80px;
+}
+.right-side h3 {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #B31D4D;
+}
+.right-side .form-group input {
+    width: 52%;
+    height: 50px;
+    margin: 0 0 20px 0;
+    border: 1px solid #676767;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    outline: none;
+    padding-right: 30px;
+}
+.forget-password {
+    font-size: 20px;
+    font-weight: 700;
+    color: #E80808;
+    margin-bottom: 70px;
+    text-decoration: none !important;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+.forget-password:hover {
+    color: #cc1d1d;
+}
+.fixed-style-btn {
+    display: block;
+    width: 52%;
+    height: 50px;
+    background-color: #81A349;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    outline: none !important;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF !important;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    margin-bottom: 75px;
+}
+.fixed-style-btn:hover{
+    background-color: #769249;
+}
+.dt-acc {
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+}
+.create-acc {
+    font-size: 23px;
+    font-weight: 700;
+    color: #B31D4D !important;
+    padding-right: 20px;
+    text-decoration: none !important;
+}
+/* end login page */
+
+
+/* Start acc-success */
+.acc-success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.acc-success img {
+    width: 13%;
+}
+.acc-success h3 {
+    font-size: 51px;
+    font-weight: 700;
+    color: #84BE44;
+    margin: 50px 0;
+}
+.acc-success p {
+    font-size: 40px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 15px;
+}
+.acc-success span {
+    color: #84BE44;
+}
+
+/* Start acc-success */
