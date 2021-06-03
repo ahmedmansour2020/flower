@@ -1,5 +1,3 @@
-<?php
-App\Http\Controllers\ProductController::arrange_offers_status(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,14 +12,7 @@ App\Http\Controllers\ProductController::arrange_offers_status(); ?>
 </head>
 
 <body>
-
-    @if (isset($home))
-        @include("layouts.navbar-home")
-    @elseif (isset($hasLogin))
-        @include("layouts.navbar-home-login")
-    @else
-        @include("layouts.navbar")
-    @endif
+    @include('layouts.navbar')
 
     @if ($message = Session::get('message'))
         <div class="alert alert-success w-100 text-center hidden">
@@ -29,6 +20,7 @@ App\Http\Controllers\ProductController::arrange_offers_status(); ?>
             <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
+
         </div>
     @endif
     @yield('content')
