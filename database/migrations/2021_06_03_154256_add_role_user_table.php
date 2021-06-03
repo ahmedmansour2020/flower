@@ -16,6 +16,7 @@ class AddRoleUserTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('role_id')->nullable()->after('id')->constrained('roles');
             $table->string('mobile')->nullable()->after('email');
+            $table->integer('status')->default(0);
         });
     }
 
