@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\UtilController;
+use App\Http\Controllers\ImageController;
 use App\Http\Resources\ProductResource;
 use App\Models\ItemImage;
 use App\Models\Product;
@@ -57,7 +57,7 @@ class ProductController extends Controller
         $item->qty = $request->qty;
         $item->price = $request->price;
         $item->save();
-        $util = new UtilController();
+        $util = new ImageController();
         if ($request->hasfile('images')) {
             $index = 0;
             foreach ($request->file('images') as $image) {
@@ -114,7 +114,7 @@ class ProductController extends Controller
         $item->price = $request->price;
         $item->save();
         ItemImage::where('item_id', $item->id)->where('item_type', 'product')->delete();
-        $util = new UtilController();
+        $util = new ImageController();
 
         if ($request->hasfile('images')) {
             $index = 0;

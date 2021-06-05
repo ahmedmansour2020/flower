@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\ItemImage;
 
-class UtilController extends Controller
+class ImageController extends Controller
 {
     public function add_image($item_id, $item_type, $image, $index, $main = 0)
     {
