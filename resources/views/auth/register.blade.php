@@ -68,7 +68,7 @@
 
 </head>
 
-<body>
+<body class="body-login">
     <section class="section-login">
         <div class="row p-0 w-100">
             <div class="col-sm-12 col-md-6 p-0">

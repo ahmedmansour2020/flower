@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="body-pages">
+<body>
 
     <div class="container">
         <div class="row">
