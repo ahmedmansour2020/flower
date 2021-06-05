@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -9,28 +8,27 @@
     <title>@yield('title')</title>
     @include('layouts.header')
     @yield('page_css')
+
 </head>
-
 <body>
-    @include('layouts.navbar')
+    @include("layouts.navbar")
 
-    @if ($message = Session::get('message'))
-        <div class="alert alert-success w-100 text-center hidden">
-            <div id="get_message"> {{ $message }}</div>
-            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-
-        </div>
-    @endif
-    @yield('content')
-
+    {{-- @if ($message = Session::get('message'))
+<div class="alert alert-success w-100 text-center hidden">
+   <div id="get_message" > {{ $message }}</div>
+    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+@endif --}}
+@yield('content')
 
 
 
 
-    @include('layouts.scripts')
-    @yield('page_js')
+
+@include('layouts.scripts')
+@yield('page_js')
+
 </body>
-
 </html>
