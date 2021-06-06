@@ -29,9 +29,6 @@ Route::get('acc-success', function () {
     return view('auth/acc-success');
 })->name('acc-success');
 
-Route::get('navbar', function () {
-    return view('layouts/navbar');
-})->name('navbar');
 
 Route::resource('message', MessageController::class);
 
@@ -42,3 +39,7 @@ Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function 
     Route::resource('product', ProductController::class);
 
 });
+
+Route::get('register-1', function () {
+    return view('auth/register-1');
+})->name('register-1');

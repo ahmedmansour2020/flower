@@ -153,29 +153,29 @@ body {
     width: 10% !important;
 }
 
-.navbar-bg-white .navbar-brand img {
-    width: 75%;
+.navbar .logo {
+    width: 43%;
 }
 
 .link-home {
     font-size: 27px;
     font-weight: 700;
-    color: #306eff;
+    color: #B31D4D !important;
     text-decoration: none !important;
-    margin-right: 80px;
+    margin-right: 0;
     margin-left: 40px;
 }
 
 .search {
     position: relative;
-    width: 40%;
+    width: 50%;
 }
 
 
 .search input {
     width: 100%;
     height: 58px;
-    border: 1px solid #306eff;
+    border: 1px solid #B1B1B1;
     border-radius: 29px;
     -webkit-border-radius: 29px;
     -moz-border-radius: 29px;
@@ -185,14 +185,14 @@ body {
     padding-right: 30px;
     font-size: 23px;
     font-weight: 400;
-    color: #306eff;
+    color: #B31D4D;
     padding-left: 45px;
 }
 
 .search input::placeholder {
     font-size: 23px;
     font-weight: 400;
-    color: #306eff;
+    color: #B1B1B1;
 }
 
 .search-icon {
@@ -204,9 +204,12 @@ body {
 .navbar-bg-white .nav-item {
     list-style: none;
     display: inline-block;
+    margin-left: 10px;
+    margin-right: 50px;
 }
 
-.notifications .dropdown-toggle::after {
+.notifications .dropdown-toggle::after,
+.favorite .dropdown-toggle::after {
     display: none !important;
 }
 
@@ -215,6 +218,74 @@ body {
     padding: 0;
 }
 
+.navbar .dropdown-menu{
+    width: 320px;
+    max-height: 270px;
+    overflow: auto;
+    background: #B31D4D;
+    margin-top: 30px;
+    text-align: right;
+}
 
+.navbar .dropdown-menu a {
+    font-size: 22px;
+    font-weight: 400;
+    color: #FFFFFF;
+    height: 45px;
+    padding-top: 3px;
+    margin-bottom: 10px;
+}
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #860d34;
+}
+.profile-name a.nav-link {
+    font-size: 24px;
+    color: #B31D4D;
+    font-weight: 700;
+}
 
 /* End navbar */
+/* Start register-1 page */
+.create-acc-vendor .form-group input,
+.form-upload input {
+    width: 98%;
+    height: 55px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #000000;
+    outline: none;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    font-size: 25px;
+    font-weight: 400;
+    color: #A8A8A8;
+    margin-left: 5px;
+}
+.create-acc-vendor h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 50px;
+}
+.form-upload input {
+    width: 81%;
+    border-radius: 0 16px 16px 0;
+    -webkit-border-radius: 0 16px 16px 0;
+    -moz-border-radius: 0 16px 16px 0;
+    -ms-border-radius: 0 16px 16px 0;
+    -o-border-radius: 0 16px 16px 0;
+}
+.image-upload {
+    background: #81A349;
+    margin-right: -8px;
+    border-radius: 16px 0 0 16px;
+    color: #fff;
+    height: 55px;
+    width: 17%;
+    border: 1px solid #81A349;
+}
+/* Start register-1 page */
