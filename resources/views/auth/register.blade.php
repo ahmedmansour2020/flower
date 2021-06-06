@@ -41,8 +41,12 @@
 
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <input type="hidden" name="role_id" value="{{App\Http\Controllers\UserController::get_role_id(!isset($from)?'buyer':'')}}"/>
+                            <input type="hidden" name="role_id" value="{{App\Http\Controllers\UserController::get_role_id(isset($from)?'buyer':'')}}"/>
+                            @if(isset($from))
                             <h3>انشاء حساب كتاجر</h3>
+                            @else
+                            <h3>انشاء حساب كمستخدم</h3>
+                            @endif
                             <div class="form-group">
                                 <input type="text" name="name" placeholder="الاسم" required />
                             </div>
