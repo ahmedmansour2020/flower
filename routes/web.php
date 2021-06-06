@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -22,11 +23,13 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::get('/', [HomeController::class, 'to_home'])->name('home');
+Route::get('/register/buyer', [UserController::class, 'buyer_register'])->name('register_buyer');
+Route::get('/register-1', [UserController::class, 'register_1'])->name('register_1');
+Route::post('/register-1/save', [UserController::class, 'save_buyer_info'])->name('save_buyer_info');
 
 Route::get('acc-success', function () {
     return view('auth/acc-success');
 })->name('acc-success');
-
 
 
 Route::resource('message', MessageController::class);

@@ -120,9 +120,9 @@ class ProductController extends Controller
             $index = 0;
             foreach ($request->file('images') as $image) {
                 if ($index == 0) {
-                    $util->add_image($item->id, 'product', $image, $index, 1);
+                    $util->add_image($item->id, 'product', $image, $index , 1);
                 } else {
-                    $util->add_image($item->id, 'product', $image, $index);
+                    $util->add_image($item->id, 'product', $image, $index );
                 }
                 $index++;
             }
