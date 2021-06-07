@@ -45,3 +45,19 @@ Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function 
 Route::get('register-1', function () {
     return view('auth/register-1');
 })->name('register-1');
+
+Route::get('add-product', function () {
+    return view('vendor/add-product');
+})->name('add-product');
+
+Route::get('store-data', function () {
+    return view('vendor/store-data');
+})->name('store-data');
+
+Route::get('product', function () {
+    return view('vendor/product');
+})->name('product');
+
+Route::get('login-data', function () {
+    return view('vendor/login-data');
+})->name('login-data');
