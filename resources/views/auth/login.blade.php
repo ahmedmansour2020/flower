@@ -38,7 +38,44 @@
                         <div class="logo-login">
                             <img src="{{URL::asset('resources/assets/images/logo.png')}}" class="img-fluid" alt="logo">
                         </div>
+                        <div class="w-75">
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success w-100 text-center ">
+                        {{ $message }}
+                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    @endif
+                    @if ($message = Session::get('alert'))
+                    <div class="alert alert-danger w-100 text-center ">
+                        {{ $message }}
+                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    @endif
 
+                    @if ($message = Session::get('error'))
+                    <div class="alert alert-danger ">
+                        {{ $message }}
+                        <button type="button" class="close white-text text-center" data-dismiss="alert"
+                            aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    @endif
+
+                    @if($errors->any())
+                    <div class="alert alert-danger text-center">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div><br />
+                    @endif
+                </div>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <h3>تسجيل الدخول</h3>

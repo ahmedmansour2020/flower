@@ -11,28 +11,38 @@
                     <option value="">بالونات</option>
                 </select>
                 <div class="form-group d-inline-block">
-                    <a href="{{ route('add-product') }}" class="btn btn-add-product">اضافة منتح</a>
+                    <a href="{{ route('product.create') }}" class="btn btn-add-product">اضافة منتج</a>
                 </div>
             </div>
         </div>
+        @foreach($products as $product)
         <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="box-product">
                 <div class="container-image-product">
-                    <img src="{{ URL::asset('resources/assets/images/product-1.png') }}" class="img-fluid" alt="">
-                    <div class="icon-edit"><i class="fas fa-pencil-alt"></i></div>
-                    <div class="discount">
-                        <span>45%</span>
+                    <img src="{{ App\Http\Controllers\ImageController::view_product_image($product->id) }}" class="img-fluid" alt="">
+                    <form id="form-{{$product->id}}" method="post" action="{{route('delete.product')}}">
+                        @csrf
+                    <div class="icon-edit"><a href="{{route('product.show',$product->id)}}"><i class="fas fa-pencil-alt"></i></a>
+                        <input type="hidden" name="id" value="{{$product->id}}" />
+                        <button data-id="{{$product->id}}" class="btn remove"><i class="fas fa-trash text-danger"></i></button>
                     </div>
+                </form>
+                    
+                    @if($product->offer!=null)
+                    <div class="discount">
+                        <span>{{$product->offer}}%</span>
+                    </div>
+                    @endif
                 </div>
                 <div class="row">
                     <div class="col-6">
                         <div class="name-product">
-                            <span>باقه رقم 1</span>
+                            <span>{{$product->name}}</span>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="price-product">
-                            <span>150 ريال</span>
+                            <span>{{$product->price}} ريال</span>
                         </div>
                     </div>
 
@@ -40,124 +50,23 @@
                 </div>
                 <div class="row">
                     <div class="description-product">
-                        <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من محل وردة الخريف</p>
+                        <p>{{$product->description}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box-product">
-                <div class="container-image-product">
-                    <img src="{{ URL::asset('resources/assets/images/product-2.png') }}" class="img-fluid" alt="">
-                    <div class="icon-edit"><i class="fas fa-pencil-alt"></i></div>
-                    <div class="discount">
-                        <span>45%</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="name-product">
-                            <span>باقه رقم 1</span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="price-product">
-                            <span>150 ريال</span>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="row">
-                    <div class="description-product">
-                        <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من محل وردة الخريف</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box-product">
-                <div class="container-image-product">
-                    <img src="{{ URL::asset('resources/assets/images/product-1.png') }}" class="img-fluid" alt="">
-                    <div class="icon-edit"><i class="fas fa-pencil-alt"></i></div>
-                    <div class="discount">
-                        <span>45%</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="name-product">
-                            <span>باقه رقم 1</span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="price-product">
-                            <span>150 ريال</span>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="row">
-                    <div class="description-product">
-                        <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من محل وردة الخريف</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="box-product">
-                <div class="container-image-product">
-                    <img src="{{ URL::asset('resources/assets/images/product-2.png') }}" class="img-fluid" alt="">
-                    <div class="icon-edit"><i class="fas fa-pencil-alt"></i></div>
-                    <div class="discount">
-                        <span>45%</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="name-product">
-                            <span>باقه رقم 1</span>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="price-product">
-                            <span>150 ريال</span>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="row">
-                    <div class="description-product">
-                        <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من محل وردة الخريف</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
         <div class="col-12">
             <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
+                {!!$products->links()!!}
               </nav>
+              
         </div>
     </div>
 </div>
 
 
+@endsection
+@section('page_js')
+<script src="{{ asset('resources/assets/js/products.js')}}"></script>
 @endsection

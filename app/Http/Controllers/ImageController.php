@@ -53,5 +53,13 @@ class ImageController extends Controller
 
         }
     }
+    public static function view_product_image($id){
+        $image=ItemImage::leftJoin('images','images.id','item_images.image_id')->where('item_type','product')->where('item_id',$id)->select('name')->first();
+        if($image){
+            return asset('uploaded/'.$image->name);
+        }else{
+            return null;
+        }
+    }
 
 }

@@ -5,3 +5,4 @@
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ URL::asset('resources/assets/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('resources/assets/css/media.css') }}">
+

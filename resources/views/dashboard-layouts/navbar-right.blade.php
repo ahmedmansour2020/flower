@@ -7,13 +7,13 @@
 
                 </div>
             </a>
-            <a href="{{ route('product') }}" class="link-sub-nav {{(request()->segment(1) == 'product') ? 'active' : ''}}">
+            <a href="{{ route('product.index') }}" class="link-sub-nav {{(request()->segment(1) == 'product') ? 'active' : ''}}">
                 <div class="sub-nav">
                     <img src="{{URL::asset('resources/assets/images/shopping-bag.png')}}" class="img-fluid" alt=""> المنتجات
 
                 </div>
             </a>
-            <a href="{{ route('add-product') }}" class="link-sub-nav {{(request()->segment(1) == 'add-product') ? 'active' : ''}}">
+            <a href="{{ route('product.create') }}" class="link-sub-nav {{(request()->segment(1) == 'add-product') ? 'active' : ''}}">
                 <div class="sub-nav">
                     <img src="{{URL::asset('resources/assets/images/icon-add-product.png')}}" class="img-fluid" alt=""> إضافة منتج
 
@@ -25,12 +25,13 @@
 
                 </div>
             </a>
-            <a href="#" class="link-sub-nav">
+            <a href="#" class="link-sub-nav logout">
                 <div class="sub-nav text-danger">
                     <img src="{{URL::asset('resources/assets/images/icon-exit.png')}}" class="img-fluid" alt=""> تسجيل الخروج
 
                 </div>
             </a>
+
         </nav>
     </div>
 

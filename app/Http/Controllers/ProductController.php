@@ -20,13 +20,8 @@ class ProductController extends Controller
     {
         $title = "منتجاتي";
         $user = Auth::user();
-        if (request()->ajax()) {
-            $products = Product::all()->where('user_id', $user->id);
-            $products = ProductResource::collection($products);
-
-            return datatables()->of($products)->addIndexColumn()->make(true);
-        }
-        return view('admin.show.products', compact('title'));
+        $products=Product::where('user_id',$user->id)->orderBy('id','desc')->paginate(4);
+        return view('vendor.product', compact('title','products'));
     }
 
     /**
@@ -38,7 +33,7 @@ class ProductController extends Controller
     {
         $title = "إضافة منتج";
         $action = "add";
-        return view('admin.add.product', compact('title', 'action'));
+        return view('vendor.add-product', compact('title', 'action'));
     }
 
     /**
@@ -56,6 +51,7 @@ class ProductController extends Controller
         $item->description = $request->description;
         $item->qty = $request->qty;
         $item->price = $request->price;
+        $item->offer = $request->offer;
         $item->save();
         $util = new ImageController();
         if ($request->hasfile('images')) {
@@ -69,7 +65,7 @@ class ProductController extends Controller
                 $index++;
             }
         }
-        return redirect()->back()->with('success', 'تم إضافة المنتج بنجاح');
+        return redirect()->route('product.index')->with('success', 'تم إضافة المنتج بنجاح');
     }
 
     /**
@@ -84,7 +80,7 @@ class ProductController extends Controller
         $action = "update";
         $item = new ProductResource(Product::find($id));
 
-        return view('admin.add.product', compact('title', 'action', 'item'));
+        return view('vendor.add-product', compact('title', 'action', 'item'));
     }
 
     /**
@@ -112,11 +108,12 @@ class ProductController extends Controller
         $item->description = $request->description;
         $item->qty = $request->qty;
         $item->price = $request->price;
+        $item->offer = $request->offer;
         $item->save();
-        ItemImage::where('item_id', $item->id)->where('item_type', 'product')->delete();
-        $util = new ImageController();
-
+        
         if ($request->hasfile('images')) {
+            ItemImage::where('item_id', $item->id)->where('item_type', 'product')->delete();
+            $util = new ImageController();
             $index = 0;
             foreach ($request->file('images') as $image) {
                 if ($index == 0) {
@@ -127,7 +124,7 @@ class ProductController extends Controller
                 $index++;
             }
         }
-        return redirect()->back()->with('success', 'تم تعديل المنتج بنجاح');
+        return redirect()->route('product.index')->with('success', 'تم تعديل المنتج بنجاح');
     }
 
     /**
@@ -136,8 +133,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id=$request->id;
+        ItemImage::where('item_type','product')->where('item_id', $id)->delete();
+        Product::where('id',$id)->delete();
+        return redirect()->back()->with('success','تم حذف المنتج بنجاح');
     }
 }

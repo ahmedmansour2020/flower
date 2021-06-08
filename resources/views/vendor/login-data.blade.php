@@ -4,28 +4,28 @@
 
 
 <div class="col-sm-8 mx-auto">
-    <form action="" method="POST" class="create-acc-vendor store-data mt-5"
+    <form action="{{route('save_login_data')}}" method="POST" class="create-acc-vendor store-data mt-5"
         enctype="multipart/form-data">
 
         @csrf
 
 
         <div class="form-group">
-            <input type="text" placeholder="اسم الدخول" name="" required />
+            <input type="text" placeholder="اسم المستخدم" name="name" required value="{{$user->name}}" />
             <button type="button" class="btn edit-data">تعديل</button>
         </div>
         <div class="form-group">
-            <input type="email" placeholder="البريد الالكترونى" name="" required />
-            <button type="button" class="btn edit-data">تعديل</button>
-
-        </div>
-        <div class="form-group">
-            <input type="text" placeholder="رقم الجوال" required name="" />
+            <input type="email" placeholder="البريد الالكترونى" name="email" required value="{{$user->email}}" />
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="password" placeholder="كلمة المرور" name="">
+            <input type="text" placeholder="رقم الجوال" required name="mobile" value="{{$user->mobile}}" />
+            <button type="button" class="btn edit-data">تعديل</button>
+
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="كلمة المرور" name="password">
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>

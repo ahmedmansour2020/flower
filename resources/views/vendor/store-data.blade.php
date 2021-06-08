@@ -8,14 +8,14 @@
         enctype="multipart/form-data">
 
         @csrf
-
+<input type="hidden" name="edit" value="edit">
 
         <div class="form-group">
-            <input type="text" placeholder="اسم المتجر" name="buyer_name" required />
+            <input type="text" placeholder="اسم المتجر" name="buyer_name" value="{{$user->buyer_name}}" required />
             <button type="button" class="btn edit-data">تعديل</button>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="رقم التواصل" name="mobile" required />
+            <input type="text" placeholder="رقم التواصل" name="mobile" value="{{$user->buyer_mobile}}" required />
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>
@@ -31,37 +31,37 @@
             <button type="button" class="image-upload" id="image-btn1">تحميل الصوره</button>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="الموقع" required name="buyer_site" />
+            <input type="text" placeholder="الموقع" required name="buyer_site" value="{{$user->buyer_site}}" />
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="الواتس اب" name="buyer_whatsapp">
+            <input type="text" placeholder="الواتس اب" name="buyer_whatsapp" value="{{$user->buyer_whatsapp}}">
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="اسناب شات" name="buyer_snapshat">
+            <input type="text" placeholder="اسناب شات" name="buyer_snapshat" value="{{$user->buyer_snapshat}}">
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="الانستغرام" name="buyer_instagram">
+            <input type="text" placeholder="الانستغرام" name="buyer_instagram" value="{{$user->buyer_instagram}}">
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="توتير" name="buyer_twitter">
+            <input type="text" placeholder="توتير" name="buyer_twitter" value="{{$user->buyer_twitter}}">
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="الفيس بوك" name="buyer_facebook">
+            <input type="text" placeholder="الفيس بوك" name="buyer_facebook" value="{{$user->buyer_facebook}}">
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="تيك توك" name="buyer_tiktok">
+            <input type="text" placeholder="تيك توك" name="buyer_tiktok" value="{{$user->buyer_tiktok}}">
             <button type="button" class="btn edit-data">تعديل</button>
 
         </div>

@@ -39,25 +39,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 });
 Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function () {
     Route::resource('product', ProductController::class);
-
+    Route::post('delete/product',[ProductController::class,'destroy'])->name('delete.product');
+    Route::get('store-data', [UserController::class,'edit_user_data'])->name('store-data');
+    Route::get('login-data',[UserController::class,'user_info'] )->name('login-data');
+    Route::post('save_login_data',[UserController::class,'change_user_info'] )->name('save_login_data');
 });
 
-Route::get('register-1', function () {
-    return view('auth/register-1');
-})->name('register-1');
 
-Route::get('add-product', function () {
-    return view('vendor/add-product');
-})->name('add-product');
 
-Route::get('store-data', function () {
-    return view('vendor/store-data');
-})->name('store-data');
-
-Route::get('product', function () {
-    return view('vendor/product');
-})->name('product');
-
-Route::get('login-data', function () {
-    return view('vendor/login-data');
-})->name('login-data');
