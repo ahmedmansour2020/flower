@@ -276,7 +276,6 @@ body {
 
 /* End navbar */
 
-<<<<<<< HEAD
 /* start navbar-right-admin */
 #accordion .card-header {
     padding-right: 20px;
@@ -338,8 +337,6 @@ body {
     color: #81A349;
 }
 /* End navbar-right-admin */
-=======
->>>>>>> 9a6f63faedf393f91fa2da67ffc42d745b75df84
 
 /* Start register-1 page */
 
@@ -665,7 +662,6 @@ footer {
     color: #B1B1B1;
     margin-top: 17px;
 }
-<<<<<<< HEAD
 .nav-pagination {
     display: flex;
     flex-direction: column;
@@ -682,13 +678,15 @@ footer {
     border: 1px solid #88A853;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 li.page-item {
     margin-left: 10px;
 }
 
-element.style {
-}
 .page-item:not(:first-child) .page-link {
     margin-left: -1px;
 }
@@ -775,7 +773,6 @@ element.style {
     margin-bottom: 20px;
 }
 /* End setting-page */
-=======
 
 .close {
     background: transparent !important;
@@ -791,4 +788,3 @@ element.style {
 
 
 /* End product page */
->>>>>>> 9a6f63faedf393f91fa2da67ffc42d745b75df84
