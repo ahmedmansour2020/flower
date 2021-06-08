@@ -61,3 +61,19 @@ Route::get('product', function () {
 Route::get('login-data', function () {
     return view('vendor/login-data');
 })->name('login-data');
+
+Route::get('all-shops', function () {
+    return view('admin/show/all-shops');
+})->name('all-shops');
+
+Route::get('page-users', function () {
+    return view('admin/show/page-users');
+})->name('page-users');
+
+Route::get('page-vendors', function () {
+    return view('admin/show/page-vendors');
+})->name('page-vendors');
+
+Route::get('setting-pages', function () {
+    return view('admin/show/setting-pages');
+})->name('setting-pages');

@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <div class="col-sm-3 col-md-2">
-                <h4 class="title-footer">طرق التواصل</h4>
+                <h4 class="title-footer text-center">طرق التواصل</h4>
                 <ul class="list-footer text-center">
                     <li>
                         <a href="#">

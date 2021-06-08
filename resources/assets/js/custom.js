@@ -40,3 +40,5 @@ $('#image1').on('change', function() {
     $('#image-label1').val(items[items.length - 1]);
 
 })
+
+$('.collapse').collapse()
