@@ -46,12 +46,6 @@ Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function 
 });
 
 
-
-<<<<<<< HEAD
-Route::get('login-data', function () {
-    return view('vendor/login-data');
-})->name('login-data');
-
 Route::get('all-shops', function () {
     return view('admin/show/all-shops');
 })->name('all-shops');
@@ -67,5 +61,3 @@ Route::get('page-vendors', function () {
 Route::get('setting-pages', function () {
     return view('admin/show/setting-pages');
 })->name('setting-pages');
-=======
->>>>>>> 9a6f63faedf393f91fa2da67ffc42d745b75df84

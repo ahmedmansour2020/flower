@@ -27,7 +27,7 @@
                         <button data-id="{{$product->id}}" class="btn remove"><i class="fas fa-trash text-danger"></i></button>
                     </div>
                 </form>
-                    
+
                     @if($product->offer!=null)
                     <div class="discount">
                         <span>{{$product->offer}}%</span>
@@ -57,31 +57,10 @@
         </div>
         @endforeach
         <div class="col-12">
-<<<<<<< HEAD
-            <nav aria-label="Page navigation example" class="nav-pagination">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-=======
             <nav aria-label="Page navigation example">
                 {!!$products->links()!!}
->>>>>>> 9a6f63faedf393f91fa2da67ffc42d745b75df84
               </nav>
-              
+
         </div>
     </div>
 </div>
