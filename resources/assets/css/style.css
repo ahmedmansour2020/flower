@@ -3,38 +3,49 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: "Almarai", sans-serif;
     direction: rtl;
 }
+
 .body-login {
     direction: ltr !important;
 }
+
+
 /*============================================= Start auth pages  ==============================================*/
 
+
 /* Start login page */
+
 .section-login {
     direction: ltr;
 }
+
 .img-leftSide img {
     width: 100%;
     height: 100vh;
 }
+
 .desc-text {
     bottom: 0;
     right: 0;
     margin-right: 40px;
 }
+
 .desc-text p {
     font-size: 60px;
     color: #ffffff;
     font-weight: 700;
 }
+
 .right-side {
     text-align: right;
     direction: rtl;
     margin-top: 80px;
 }
+
 .right-side h3 {
     margin-top: 70px;
     margin-bottom: 70px;
@@ -42,6 +53,7 @@ body {
     font-weight: 700;
     color: #b31d4d;
 }
+
 .right-side .form-group input {
     width: 52%;
     height: 50px;
@@ -55,6 +67,7 @@ body {
     outline: none;
     padding-right: 30px;
 }
+
 .forget-password {
     font-size: 20px;
     font-weight: 700;
@@ -68,9 +81,11 @@ body {
     -ms-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
 }
+
 .forget-password:hover {
     color: #cc1d1d;
 }
+
 .fixed-style-btn {
     display: block;
     width: 52%;
@@ -92,14 +107,17 @@ body {
     -o-transition: all 0.2s ease-in-out;
     margin-bottom: 75px;
 }
+
 .fixed-style-btn:hover {
     background-color: #769249;
 }
+
 .dt-acc {
     font-size: 20px;
     color: #000;
     font-weight: 700;
 }
+
 .create-acc {
     font-size: 23px;
     font-weight: 700;
@@ -107,9 +125,13 @@ body {
     padding-right: 20px;
     text-decoration: none !important;
 }
+
+
 /* end login page */
 
+
 /* Start acc-success */
+
 .acc-success {
     display: flex;
     flex-direction: column;
@@ -117,26 +139,32 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 .acc-success img {
     width: 13%;
 }
+
 .acc-success h3 {
     font-size: 51px;
     font-weight: 700;
     color: #84be44;
     margin: 50px 0;
 }
+
 .acc-success p {
     font-size: 40px;
     font-weight: 400;
     color: #000000;
     margin-bottom: 15px;
 }
+
 .acc-success span {
     color: #84be44;
 }
 
+
 /* Start acc-success */
+
 
 /* Start navbar */
 
@@ -201,6 +229,7 @@ body {
     display: inline-block;
     margin-left: 10px;
 }
+
 .navbar-bg-white .nav-item:first-of-type {
     margin-right: 50px;
 }
@@ -232,18 +261,22 @@ body {
     padding-top: 3px;
     margin-bottom: 10px;
 }
+
 .dropdown-item:focus,
 .dropdown-item:hover {
     background-color: #860d34;
 }
+
 .profile-name a.nav-link {
     font-size: 24px;
     color: #b31d4d;
     font-weight: 700;
 }
 
+
 /* End navbar */
 
+<<<<<<< HEAD
 /* start navbar-right-admin */
 #accordion .card-header {
     padding-right: 20px;
@@ -305,8 +338,11 @@ body {
     color: #81A349;
 }
 /* End navbar-right-admin */
+=======
+>>>>>>> 9a6f63faedf393f91fa2da67ffc42d745b75df84
 
 /* Start register-1 page */
+
 .create-acc-vendor .form-group input,
 .form-upload input,
 .add-product .form-group input {
@@ -326,12 +362,14 @@ body {
     color: #a8a8a8;
     margin-left: 5px;
 }
+
 .create-acc-vendor h2 {
     font-size: 32px;
     font-weight: 700;
     color: #000000;
     margin-bottom: 50px;
 }
+
 .form-upload input {
     width: 81%;
     border-radius: 0 16px 16px 0;
@@ -340,6 +378,7 @@ body {
     -ms-border-radius: 0 16px 16px 0;
     -o-border-radius: 0 16px 16px 0;
 }
+
 .image-upload {
     background: #81a349;
     margin-right: -8px;
@@ -349,7 +388,10 @@ body {
     width: 17%;
     border: 1px solid #81a349;
 }
+
+
 /* Start register-1 page */
+
 
 /* Start aside */
 
@@ -416,25 +458,32 @@ aside {
     font-size: 25px;
 }
 
+
 /* End aside */
 
+
 /* Start footer */
+
 footer {
     background-color: #f0dfe4;
     padding: 80px 0;
 }
+
 .title-footer {
     color: #000000;
     font-size: 24px;
     font-weight: 700;
 }
+
 .list-footer {
     list-style: none;
     padding: 0;
 }
+
 .list-footer li:first-of-type {
     margin-top: 40px;
 }
+
 .list-footer li a {
     font-size: 20px;
     font-weight: 400;
@@ -443,29 +492,55 @@ footer {
     margin-bottom: 28px;
     display: block;
 }
+
+
 /* End footer */
+
 
 /* ======================================= Start pages vendor ============================================= */
 
+
 /* Start add product */
+
 .add-product .form-upload input {
     width: 40%;
     margin-left: 30px;
     border-radius: 16px;
 }
+
+.add-product textarea {
+    width: 52%;
+    height: 80px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #000000;
+    outline: none;
+    font-size: 25px;
+    font-weight: 400;
+    color: #a8a8a8;
+    margin-left: 5px;
+    border-radius: 16px;
+}
+
 .add-product .image-upload {
     border-radius: 16px;
     width: 10%;
 }
+
 .add-product .form-group input {
     width: 52%;
 }
+
+
 /* End add product */
 
+
 /* Start store data */
+
 .store-data .form-group {
     position: relative;
 }
+
 .store-data .edit-data {
     position: absolute;
     top: 3px;
@@ -475,17 +550,23 @@ footer {
     font-weight: 400;
     color: #81a349;
 }
+
+
 /* edit store data */
 
+
 /* Start product page */
+
 .search-products {
     overflow: hidden;
     margin-top: 110px;
     margin-bottom: 50px;
 }
+
 .search-products .form-group {
     float: left;
 }
+
 .btn-add-product {
     background-color: #81a349;
     border-radius: 5px;
@@ -499,6 +580,7 @@ footer {
     color: #ffffff !important;
     padding: 10px 20px;
 }
+
 .categories {
     background: #fff;
     border-radius: 5px;
@@ -509,6 +591,7 @@ footer {
     border: 1px solid #ddd;
     box-shadow: 0px -1px 12px -3px #000;
 }
+
 .container-image-product {
     position: relative;
     margin-bottom: 20px;
@@ -521,11 +604,13 @@ footer {
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
 }
+
 .icon-edit {
     position: absolute;
     top: 5px;
     right: 7px;
 }
+
 .icon-edit i {
     background: #ffffff;
     border-radius: 5px;
@@ -535,11 +620,13 @@ footer {
     padding-top: 11px;
     cursor: pointer;
 }
+
 .discount {
     position: absolute;
     top: 10px;
     left: 7px;
 }
+
 .discount span {
     background-color: #81a349;
     font-size: 12px;
@@ -556,11 +643,13 @@ footer {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+
 .name-product span {
     font-size: 19px;
     font-weight: 400;
     color: #000000;
 }
+
 .price-product span {
     font-size: 23px;
     font-weight: 400;
@@ -569,12 +658,14 @@ footer {
     display: block;
     margin-top: -5px;
 }
+
 .description-product p {
     font-size: 18px;
     font-weight: 400;
     color: #B1B1B1;
     margin-top: 17px;
 }
+<<<<<<< HEAD
 .nav-pagination {
     display: flex;
     flex-direction: column;
@@ -684,3 +775,20 @@ element.style {
     margin-bottom: 20px;
 }
 /* End setting-page */
+=======
+
+.close {
+    background: transparent !important;
+    border: none !important;
+    color: rgba(10, 10, 10, .4) !important;
+    position: absolute !important;
+    left: 10px !important;
+    top: 50%;
+    transform: translateY(-50%) !important;
+    font-size: 30px !important;
+    font-weight: bold !important;
+}
+
+
+/* End product page */
+>>>>>>> 9a6f63faedf393f91fa2da67ffc42d745b75df84

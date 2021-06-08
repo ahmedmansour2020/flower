@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    $(document).on('click', '.logout', function(e) {
+        console.log();
+        e.preventDefault();
+        $('#logout').click();
+    });
     (function($) {
         $.fn.inputFilter = function(inputFilter) {
             return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
