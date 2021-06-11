@@ -15,6 +15,7 @@
 <body>
 
     @include("layouts.navbar")
+    @include("layouts.nav-header")
 
     @if ($message = Session::get('message'))
         <div class="alert alert-success w-100 text-center hidden">
@@ -24,18 +25,15 @@
             </button>
         </div>
     @endif
-    <div class="container">
-        <div class="row">
 
-            @yield('content')
-        </div>
-
-    </div>
+    @yield('content')
 
 
 
 
 
+
+    @include('layouts.footer')
     @include('layouts.scripts')
     @yield('page_js')
 

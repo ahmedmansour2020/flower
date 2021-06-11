@@ -49,14 +49,14 @@
 
             <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                    <a href="#" class="accordion-body accordion-dropdown">رسائل جديده</a>
-                    <a href="#" class="accordion-body accordion-dropdown">البريد الوارد</a>
-                    <a href="#" class="accordion-body accordion-dropdown">كتابة رساله</a>
+                    <a href="{{ route('mail-messages') }}" class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'mail-messages' ? 'accordion-active' : '' }}">رسائل جديده</a>
+                    <a href="{{ route('incoming-mail') }}" class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'incoming-mail' ? 'accordion-active' : '' }}">البريد الوارد</a>
+                    <a href="{{ route('writing-messages') }}" class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'writing-messages' ? 'accordion-active' : '' }}">كتابة رساله</a>
                 </div>
             </div>
 
-            <a href="#"
-                class="link-sub-nav {{ request()->segment(1) == 'add-product' ? 'active' : '' }}">
+            <a href="{{ route('statistics') }}"
+                class="link-sub-nav {{ request()->segment(1) == 'statistics' ? 'active' : '' }}">
                 <div class="sub-nav">
                     <img src="{{ URL::asset('resources/assets/images/icon-statistics.png') }}" class="img-fluid"
                         alt=""> احصائيات

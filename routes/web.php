@@ -61,3 +61,27 @@ Route::get('page-vendors', function () {
 Route::get('setting-pages', function () {
     return view('admin/show/setting-pages');
 })->name('setting-pages');
+
+Route::get('statistics', function () {
+    return view('admin/show/statistics');
+})->name('statistics');
+
+Route::get('mail-messages', function () {
+    return view('admin/show/mail-messages');
+})->name('mail-messages');
+
+Route::get('incoming-mail', function () {
+    return view('admin/show/incoming-mail');
+})->name('incoming-mail');
+
+Route::get('writing-messages', function () {
+    return view('admin/show/writing-messages');
+})->name('writing-messages');
+
+Route::get('vendor-products', function () {
+    return view('home/vendor-products');
+})->name('vendor-products');
+
+Route::get('product-view', function () {
+    return view('home/product-view');
+})->name('product-view');

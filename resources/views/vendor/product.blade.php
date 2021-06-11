@@ -57,7 +57,7 @@
         </div>
         @endforeach
         <div class="col-12">
-            <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation example" class="nav-pagination">
                 {!!$products->links()!!}
               </nav>
 

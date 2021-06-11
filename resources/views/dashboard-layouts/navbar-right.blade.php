@@ -1,7 +1,7 @@
 <aside class="navbar-right">
     <div class="sidebar">
         <nav class="mt-2">
-            <a href="{{ route('store-data') }}" class="link-sub-nav {{(request()->segment(1) == 'store-data') ? 'active' : ''}}">
+            <a href="{{ route('store-data') }}" class="link-sub-nav {{(request()->segment(2) == 'store-data') ? 'active' : ''}}">
                 <div class="sub-nav">
                     <img src="{{URL::asset('resources/assets/images/icon-data.png')}}" class="img-fluid" alt=""> بيانات المتجر
 
@@ -13,13 +13,13 @@
 
                 </div>
             </a>
-            <a href="{{ route('product.create') }}" class="link-sub-nav {{(request()->segment(1) == 'add-product') ? 'active' : ''}}">
+            <a href="{{ route('product.create') }}" class="link-sub-nav {{(request()->segment(1) == 'product') ? 'active' : ''}}">
                 <div class="sub-nav">
                     <img src="{{URL::asset('resources/assets/images/icon-add-product.png')}}" class="img-fluid" alt=""> إضافة منتج
 
                 </div>
             </a>
-            <a href="{{ route('login-data') }}" class="link-sub-nav {{(request()->segment(1) == 'login-data') ? 'active' : ''}}">
+            <a href="{{ route('login-data') }}" class="link-sub-nav {{(request()->segment(2) == 'login-data') ? 'active' : ''}}">
                 <div class="sub-nav">
                     <img src="{{URL::asset('resources/assets/images/icon-data.png')}}" class="img-fluid" alt=""> بيانات الدخول
 
