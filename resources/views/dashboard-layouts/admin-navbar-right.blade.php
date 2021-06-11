@@ -64,7 +64,7 @@
                 </div>
             </a>
 
-            <a href="#" class="link-sub-nav">
+            <a href="#" class="link-sub-nav logout">
                 <div class="sub-nav text-danger">
                     <img src="{{ URL::asset('resources/assets/images/icon-exit.png') }}" class="img-fluid" alt="">
                     تسجيل الخروج

@@ -9,11 +9,16 @@
     <title>@yield('title')</title>
     @include('dashboard-layouts.header')
     @yield('page_css')
-
+    <script>
+    var admin_url = "{{route('home').'/admin'}}";
+    </script>
 </head>
 
 <body>
-
+<form hidden method="post" action="{{ route('logout')}}">
+        @csrf
+        <button type="submit" id="logout"></button>
+    </form>
     @include("dashboard-layouts.navbar")
     <div class="container-fluid">
         <div class="row">

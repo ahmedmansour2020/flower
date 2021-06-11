@@ -1,4 +1,4 @@
-@extends('dashboard-layouts.layout')
+@extends(isset($from)?'dashboard-layouts.layout-admin':'dashboard-layouts.layout')
 @section('title', isset($title) ? $title : '')
 @section('content')
 
@@ -8,7 +8,8 @@
         enctype="multipart/form-data">
 
         @csrf
-<input type="hidden" name="edit" value="edit">
+        <input type="hidden" name="edit" value="edit">
+        <input type="hidden" name="id" value="{{isset($from)?$user->id:0}}">
 
         <div class="form-group">
             <input type="text" placeholder="اسم المتجر" name="buyer_name" value="{{$user->buyer_name}}" required />

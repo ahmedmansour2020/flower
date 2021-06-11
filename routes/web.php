@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -35,7 +36,9 @@ Route::get('acc-success', function () {
 Route::resource('message', MessageController::class);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
-
+    Route::get('all-shops', [AdminController::class,'all_shops'])->name('all-shops');
+    Route::post('change_buyer_membership_status',[AdminController::class,'change_buyer_membership_status'])->name('change_buyer_membership_status');
+    Route::get('byerinfo/{id}',[AdminController::class,'edit_user_data']);
 });
 Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function () {
     Route::resource('product', ProductController::class);
@@ -46,9 +49,6 @@ Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function 
 });
 
 
-Route::get('all-shops', function () {
-    return view('admin/show/all-shops');
-})->name('all-shops');
 
 Route::get('page-users', function () {
     return view('admin/show/page-users');

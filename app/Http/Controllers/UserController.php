@@ -26,8 +26,13 @@ class UserController extends Controller
     }
     public function save_buyer_info(Request $request)
     {
+        $id=$request->id;
+        if($id!=0){
+            $user = User::find($id);
+        }else{
+            $user = User::find(Auth::user()->id);
+        }
 
-        $user = User::find(Auth::user()->id);
         $user->buyer_name = $request->buyer_name;
         $user->buyer_mobile = $request->mobile;
         $user->buyer_site = $request->buyer_site;

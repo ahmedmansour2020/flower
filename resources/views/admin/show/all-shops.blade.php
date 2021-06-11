@@ -1,8 +1,11 @@
 @extends('dashboard-layouts.layout-admin')
 @section('title', isset($title) ? $title : '')
+@section('page_css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css"/>
+@endsection
 @section('content')
 
-    <table class="table-management table-responsive products w-100 dataTable no-footer" id="datatable-activated" role="grid"
+    <table class="table-management table-responsive products w-100 dataTable no-footer" id="shops" role="grid"
         style="width: 1352px;">
         <thead>
             <tr role="row">
@@ -16,22 +19,15 @@
         </thead>
         <tbody>
 
-            <tr role="row" class="odd">
+            <!-- <tr role="row" class="odd">
                 <td>ورده الخريف</td>
                 <td>01284482569</td>
                 <td><button type="button" class="btn btn-success">تعديل</button></td>
                 <td><button type="button" class="btn btn-danger">ايقاف</button></td>
                 <td><button type="button" class="btn btn-primary">تفعيل</button></td>
                 <td>باقى شهر</td>
-            </tr>
-            <tr role="row" class="even">
-                <td>ورده الخريف</td>
-                <td>01284482569</td>
-                <td><button type="button" class="btn btn-success">تعديل</button></td>
-                <td><button type="button" class="btn btn-danger">ايقاف</button></td>
-                <td><button type="button" class="btn btn-primary">تفعيل</button></td>
-                <td>باقى شهر</td>
-            </tr>
+            </tr> -->
+
         </tbody>
     </table>
 
@@ -59,4 +55,12 @@
 
 
 
+@endsection
+@section('page_js')
+<script>
+var change_buyer_membership_status="{{route('change_buyer_membership_status')}}";
+</script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('resources/assets/js/shops.js')}}"></script>
 @endsection
