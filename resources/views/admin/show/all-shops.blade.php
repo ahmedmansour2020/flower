@@ -19,15 +19,7 @@
         </thead>
         <tbody>
 
-            <!-- <tr role="row" class="odd">
-                <td>ورده الخريف</td>
-                <td>01284482569</td>
-                <td><button type="button" class="btn btn-success">تعديل</button></td>
-                <td><button type="button" class="btn btn-danger">ايقاف</button></td>
-                <td><button type="button" class="btn btn-primary">تفعيل</button></td>
-                <td>باقى شهر</td>
-            </tr> -->
-
+    
         </tbody>
     </table>
 

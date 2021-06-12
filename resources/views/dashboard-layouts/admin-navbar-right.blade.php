@@ -23,8 +23,8 @@
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                    <a href="{{ route('page-users') }}" class="accordion-body accordion-dropdown {{ request()->segment(1) == 'page-users' ? 'accordion-active' : '' }}">مستخدم</a>
-                    <a href="{{ route('page-vendors') }}" class="accordion-body accordion-dropdown {{ request()->segment(1) == 'page-vendors' ? 'accordion-active' : '' }}">تاجر</a>
+                    <a href="{{ route('page_user_vendor','users') }}" class="accordion-body accordion-dropdown {{ request()->segment(1) == 'page-users' ? 'accordion-active' : '' }}">مستخدم</a>
+                    <a href="{{ route('page_user_vendor','buyers') }}" class="accordion-body accordion-dropdown {{ request()->segment(1) == 'page-vendors' ? 'accordion-active' : '' }}">تاجر</a>
                 </div>
             </div>
 

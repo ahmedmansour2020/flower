@@ -22,7 +22,7 @@
             <div class="col-sm-12 col-md-6 p-0">
                 <div class="login-leftSide position-relative">
                     <div class="img-leftSide">
-                        <img src="{{URL::asset('resources/assets/images/right-img-auth.png')}}" class="img-fluid"
+                        <img src="{{App\Http\Controllers\SettingController::get_login_image()!=null?App\Http\Controllers\SettingController::get_login_image():URL::asset('resources/assets/images/right-img-auth.png')}}" class="img-fluid"
                             alt="login-image">
                     </div>
                     <div class="desc-text position-absolute">

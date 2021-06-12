@@ -1,8 +1,10 @@
 @extends('dashboard-layouts.layout-admin')
 @section('title', isset($title) ? $title : '')
 @section('content')
-
-    <table class="table-management table-responsive products w-100 dataTable no-footer" id="datatable-activated" role="grid"
+@section('page_css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css"/>
+@endsection
+    <table id="{{$type}}" class="table-management table-responsive products w-100 dataTable no-footer" id="datatable-activated" role="grid"
         style="width: 1352px;">
         <thead>
             <tr role="row">
@@ -15,20 +17,7 @@
         </thead>
         <tbody>
 
-            <tr role="row" class="odd">
-                <td>معتز سمير</td>
-                <td>01284482569</td>
-                <td>moatazsamir@gmail.com</td>
-                <td><button type="button" class="btn btn-success">تعديل</button></td>
-                <td><button type="button" class="btn btn-danger">حذف</button></td>
-            </tr>
-            <tr role="row" class="even">
-                <td>معتز سمير</td>
-                <td>01284482569</td>
-                <td>moatazsamir@gmail.com</td>
-                <td><button type="button" class="btn btn-success">تعديل</button></td>
-                <td><button type="button" class="btn btn-danger">حذف</button></td>
-            </tr>
+       
         </tbody>
     </table>
 
@@ -56,4 +45,13 @@
 
 
 
+@endsection
+@section('page_js')
+<script>
+var type="{{$type}}";
+var delete_user="{{route('delete_user')}}";
+</script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('resources/assets/js/users.js')}}"></script>
 @endsection
