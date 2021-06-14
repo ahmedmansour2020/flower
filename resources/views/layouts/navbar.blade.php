@@ -10,30 +10,84 @@
         </div>
     </form>
     <ul>
-        <li class="nav-item notifications  dropdown">
-            <a class="nav-link notifications dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+        <li class="nav-item dropdown notifications">
+            <a class="nav-link notifications dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{{ URL::asset('resources/assets/images/notifications.png') }}" alt="">
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">تم التسجيل في الموقع بنجاح</a>
-                <a class="dropdown-item" href="#">تم تغير كلمة المرور بنجاح</a>
-            </div>
-        </li>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>                <a class="dropdown-item" href="#">تم التسجيل في الموقع بنجاح</a>              </li>
+              <li>                <a class="dropdown-item" href="#">تم التسجيل في الموقع بنجاح</a>              </li>
+            </ul>
+          </li>
+
+
         <li class="nav-item favorite ">
             <a class="nav-link" href="#" role="button">
                 <img src="{{ URL::asset('resources/assets/images/valentines-heart.png') }}" alt="">
             </a>
         </li>
-        <li class="nav-item dropdown profile-name">
-            <a class="nav-link  dropdown-toggle d-inline-block " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                معتز سمير
+
+
+        <li class="nav-item dropdown profile-name notifications">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-envelope icon-messages"></i>
             </a>
 
-            <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#"><i class="fas fa-user-alt pl-2 "></i>حسابي </a>
-            </div>
-        </li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"> تم تغير الاسم كما تريد هل ...... </a></li>
+            </ul>
+          </li>
+
+
+        <li class="nav-item btn-login-home">
+            <a href="{{ route('login-data') }}">تسجيل الدخول</a>
+          </li>
+        <li class="nav-item btn-register-home">
+            <a href="{{ route('register') }}">حساب جديد</a>
+          </li>
 
     </ul>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="ltr">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+              <p>"لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+            </p>
+            </div>
+            <div class="modal-footer btn-map">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#contactUs">تواصل معنا</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="modal fade" id="contactUs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="ltr">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            <div class="modal-body ">
+              <form action="" method="">
+                  @csrf
+                  <div class="form-group">
+                      <input type="email" class="w-100 d-block text-end" placeholder="البريد الالكترونى">
+                      <input type="text" class="w-100 d-block text-end" placeholder="العنوان">
+                      <textarea name="" id="" cols="30" class="w-100 d-block text-end" placeholder="الرساله"></textarea>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer btn-map">
+              <button type="button">ارسال</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </nav>

@@ -12,6 +12,110 @@ body {
 .body-login {
     direction: ltr !important;
 }
+/* Start home page */
+.text-slider {
+    top: 100px;
+    right: 300px;
+}
+.text-slider h3 {
+    font-size: 55px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+.text-slider p {
+    font-size: 23px;
+    font-weight: 400;
+    color: #ffffff;
+    width: 57%;
+    line-height: 2;
+}
+.text-slider button{
+    background: #81A349;
+    border: 1px solid #81A349;
+    width: 100px;
+    height: 47px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 400;
+}
+.filter-location select {
+    width: 100% !important;
+}
+.filte-price input {
+    width: 35% !important;
+}
+
+.btn-map button {
+    width: 100%;
+    height: 58px;
+    background: #81A349;
+    border: 1px solid #81A349;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    border-radius: 5px;
+}
+.head-home-page {
+    margin: 25px 0 30px;
+    font-size: 40px;
+    font-weight: 700;
+    color: #414141;
+}
+.box-home-shops {
+    height: 300px;
+    margin-bottom: 50px;
+}
+.bg-box-right-side{
+    background-image: url('../../assets/images/shop-home-page.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+.bg-box-left-side {
+    background: #F5F5F5;
+    height: auto;
+    word-break: break-word;
+    overflow: hidden;
+    padding: 25px 25px 0px;
+    position: relative;
+}
+.description-shop h4 {
+    font-size: 27px;
+    font-weight: 700;
+    color: #000000;
+}
+.description-shop p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+}
+.description-shop .location-store {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.description-shop .ph-number a,
+.description-shop .location-store a {
+    font-size: 17px;
+}
+.btn-box {
+    margin-top: 35px;
+}
+.btn-box a {
+    display: inline-block;
+    background: #B31D4D;
+    color: #fff;
+    text-decoration: none;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    padding-top: 8px;
+    border-radius: 5px;
+    margin-bottom: 11px;
+}
+/* End home page */
 
 
 /*============================================= Start auth pages  ==============================================*/
@@ -192,7 +296,7 @@ body {
 
 .search {
     position: relative;
-    width: 50%;
+    width: 45%;
 }
 
 .search input {
@@ -273,7 +377,52 @@ body {
     font-weight: 700;
 }
 
-
+.modal-body .form-group input,
+.modal-body .form-group textarea{
+    height: 50px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border: 1px solid #aaa;
+    font-size: 23px;
+    font-weight: 400;
+    color: #A8A8A8;
+}
+.modal-body .form-group textarea {
+    height: 120px;
+}
+.icon-messages {
+    font-size: 25px;
+    color: #000;
+    cursor: pointer;
+}
+.btn-login-home a {
+    background: #b31d4d;
+    color: #fff;
+    text-decoration: none;
+    height: 50px;
+    display: block;
+    width: 140px;
+    text-align: center;
+    padding-top: 12px;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 5px;
+}
+.btn-register-home a {
+    background: #fff;
+    border: 1px solid #b31d4d;
+    color: #b31d4d;
+    text-decoration: none;
+    height: 50px;
+    display: block;
+    width: 140px;
+    text-align: center;
+    padding-top: 12px;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 5px;
+}
 /* End navbar */
 
 /* start navbar-right-admin */
@@ -1107,3 +1256,55 @@ i.iconFavorite {
     padding-top: 10px;
 }
 /* End product view page */
+
+/* Start about us page */
+.about-us p {
+    font-size: 26px;
+    font-weight: 700;
+    color: #7E7E7E;
+    line-height: 2;
+}
+/* End about us page */
+
+/* Start wishlist page */
+.table-wishlist th,
+.table-wishlist td {
+    text-align: center;
+}
+.img-wishlist {
+    width: 24%;
+}
+.img-wishlist img {
+    height: 170px;
+    max-height: 170px;
+    width: 100%;
+}
+.desc-wishlist {
+    width: 27%;
+    text-align: right !important;
+}
+
+.desc-wishlist h2 {
+    font-size: 26px;
+    font-weight: 700;
+}
+.product-wishlist {
+    box-shadow: 1px 1px 10px -5px #aaa;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.desc-wishlist p {
+    font-size: 17px;
+    font-weight: 400;
+    color: #B1B1B1;
+}
+.product-wishlist td {
+    font-size: 26px;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+/* End wishlist page */

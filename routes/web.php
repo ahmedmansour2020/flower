@@ -81,3 +81,11 @@ Route::get('vendor-products', function () {
 Route::get('product-view', function () {
     return view('home/product-view');
 })->name('product-view');
+
+Route::get('about-us', function () {
+    return view('home/about-us');
+})->name('about-us');
+
+Route::get('wish-list', function () {
+    return view('home/wish-list');
+})->name('wish-list');
