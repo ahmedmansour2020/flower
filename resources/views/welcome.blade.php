@@ -5,44 +5,46 @@
 
 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
     <div class="carousel-inner">
-      <div class="carousel-item position-relative active">
-        <img class="d-block w-100" src="{{ URL::asset('resources/assets/images/img_nature_wide.jpg') }}"  alt="First slide">
-      </div>
-      <div class="text-slider position-absolute">
-        <h3>احصل على طلبك باقل تكلفة</h3>
-        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك </p>
-        <button type="button" class="btn">العروض</button>
-      </div>
+      
+  
+        @foreach($sliders as $slider)
 
-      <div class="carousel-item position-relative">
-        <img class="d-block w-100" src="{{ URL::asset('resources/assets/images/img_mountains_wide.jpg') }}" alt="Second slide">
-      </div>
-      <div class="text-slider position-absolute">
-        <h3>احصل على طلبك باقل تكلفة</h3>
-        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك </p>
-        <button type="button" class="btn">العروض</button>
-      </div>
+        <?php
+            $color='#333333';
+            $button_color='#333333';
+            if($slider->color!=null){
+                $color=$slider->color;
+            }
+            if($slider->button_color!=null){
+                $button_color=$slider->button_color;
+            }
+            ?>
+        <div class="carousel-item position-relative @if($loop->first) active @endif">
+            <img class="d-block w-100" src="{{$slider->image}}" alt="First slide">
+        </div>
+        <div class="text-slider position-absolute">
+            <div style="color:{{$color}}">{{$slider->content}}</div>
+            @if($slider->url!=null)
+            <a style="font-size:20px;font-weight:700;background:{{$button_color}}"
+                class="btn {{$slider->button_font}} px-5 py-2"
+                href="//{{$slider->url}}">{{$slider->button_title??'اضغط هنا'}}</a>
+            @endif
 
-      <div class="carousel-item position-relative">
-        <img class="d-block w-100" src="{{ URL::asset('resources/assets/images/img_snow_wide.jpg') }}" alt="Third slide">
-      </div>
-
-      <div class="text-slider position-absolute">
-        <h3>احصل على طلبك باقل تكلفة</h3>
-        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك </p>
-        <button type="button" class="btn">العروض</button>
-      </div>
+        </div>
+        @endforeach
 
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
     </button>
-  </div>
+</div>
 
 
 
@@ -110,7 +112,8 @@
                     <div class="bg-box-right-side">
 
                     </div>
-                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid" alt=""> --}}
+                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid"
+                    alt=""> --}}
                 </div>
                 <div class="col-6 pe-0">
                     <div class="bg-box-left-side">
@@ -123,8 +126,8 @@
                                 <a href="tel:01206039762">01206039762</a>
                             </div>
                             <div class="location-store">
-                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}" class="img-fluid"
-                                    alt="">
+                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
+                                    class="img-fluid" alt="">
                                 <a href="#">شارع صالح الشهابى و الفنان محمد حسن</a>
                             </div>
                             <div class="btn-box">
@@ -144,7 +147,8 @@
                     <div class="bg-box-right-side">
 
                     </div>
-                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid" alt=""> --}}
+                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid"
+                    alt=""> --}}
                 </div>
                 <div class="col-6 pe-0">
                     <div class="bg-box-left-side">
@@ -157,8 +161,8 @@
                                 <a href="tel:01206039762">01206039762</a>
                             </div>
                             <div class="location-store">
-                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}" class="img-fluid"
-                                    alt="">
+                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
+                                    class="img-fluid" alt="">
                                 <a href="#">شارع صالح الشهابى و الفنان محمد حسن</a>
                             </div>
                             <div class="btn-box">
@@ -179,7 +183,8 @@
                     <div class="bg-box-right-side">
 
                     </div>
-                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid" alt=""> --}}
+                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid"
+                    alt=""> --}}
                 </div>
                 <div class="col-6 pr-box">
                     <div class="bg-box-left-side">
@@ -192,8 +197,8 @@
                                 <a href="tel:01206039762">01206039762</a>
                             </div>
                             <div class="location-store">
-                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}" class="img-fluid"
-                                    alt="">
+                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
+                                    class="img-fluid" alt="">
                                 <a href="#">شارع صالح الشهابى و الفنان محمد حسن</a>
                             </div>
                             <div class="btn-box">
@@ -213,7 +218,8 @@
                     <div class="bg-box-right-side">
 
                     </div>
-                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid" alt=""> --}}
+                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid"
+                    alt=""> --}}
                 </div>
                 <div class="col-6 pr-box">
                     <div class="bg-box-left-side">
@@ -226,8 +232,8 @@
                                 <a href="tel:01206039762">01206039762</a>
                             </div>
                             <div class="location-store">
-                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}" class="img-fluid"
-                                    alt="">
+                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
+                                    class="img-fluid" alt="">
                                 <a href="#">شارع صالح الشهابى و الفنان محمد حسن</a>
                             </div>
                             <div class="btn-box">
@@ -258,9 +264,9 @@
 @section('page_js')
 
 <script>
-    $('.carousel').carousel();
-    $('.carousel').carousel({
-  interval: 5000
+$('.carousel').carousel();
+$('.carousel').carousel({
+    interval: 5000
 });
 .carousel('pause');
 .carousel('cycle');
@@ -268,9 +274,8 @@
 var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
+myModal.addEventListener('shown.bs.modal', function() {
+    myInput.focus()
 })
-
 </script>
 @endsection

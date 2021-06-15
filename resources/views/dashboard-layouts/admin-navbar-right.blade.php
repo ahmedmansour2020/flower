@@ -36,6 +36,15 @@
 
                 </div>
             </a>
+            <a href="{{ route('setting.sliders') }}"
+                class="link-sub-nav {{ request()->segment(1) == 'settings/sliders' ? 'active' : '' }}">
+                <div class="sub-nav">
+                    <img src="{{ URL::asset('resources/assets/images/icon-site.png') }}" class="img-fluid" alt="">
+                    اعدادات الصفحة الرئيسية
+
+                </div>
+            </a>
+                    
 
             <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">

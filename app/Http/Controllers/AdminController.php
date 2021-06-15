@@ -80,18 +80,7 @@ class AdminController extends Controller
             $login_image->value = $file_name;
             $login_image->save();
         }
-        if ($request->hasFile('ad_image')) {
-            Setting::where('key', 'ad_image')->delete();
-            $ad_image = new Setting();
-            $ad_image->type = 'images';
-            $ad_image->key = 'ad_image';
-            $file_extension = request('ad_image')->getClientOriginalExtension();
-            $file_name = "ad_image-" . time() . '.' . $file_extension;
-            $path = 'uploaded/';
-            $request->ad_image->move($path, $file_name);
-            $ad_image->value = $file_name;
-            $ad_image->save();
-        }
+
         return redirect()->back()->with('success', 'تم حفظ البيانات بنجاح');
     }
     public function users($type)

@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('page/{type}', [AdminController::class,'users'])->name('page_user_vendor');
     Route::post('save_settings', [AdminController::class, 'save_settings'])->name('save_settings');
     Route::post('delete_user', [AdminController::class, 'delete_user'])->name('delete_user');
+
+    Route::get('/settings/sliders', [SettingController::class, 'to_sliders'])->name('setting.sliders');
+    Route::get('/settings/sliders/create', [SettingController::class, 'create_slider'])->name('create.slider');
+    Route::get('/setting/slider/{id}', [SettingController::class, 'edit_slider']);
+    Route::get('/setting/slider/delete/{id}', [SettingController::class, 'delete_slider']);
+    Route::post('/settings/sliders/store', [SettingController::class, 'save_slider'])->name('save_slider');
+    Route::put('/settings/sliders/update/{id}', [SettingController::class, 'update_slider'])->name('update_slider');
+    Route::post('/settings/slider/delete/image', [SettingController::class, 'slider_delete_image'])->name('slider_delete_image');
+    Route::post('/change_slider_status', [SettingController::class, 'change_slider_status'])->name('change_slider_status');
 
 });
 Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function () {
