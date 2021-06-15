@@ -87,11 +87,13 @@ body {
     font-weight: 700;
     color: #000000;
 }
-.description-shop p {
+
+/* .description-shop p {
     font-size: 18px;
     font-weight: 400;
     color: #000;
-}
+} */
+
 .description-shop .location-store {
     margin-top: 15px;
     margin-bottom: 15px;

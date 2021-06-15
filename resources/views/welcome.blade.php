@@ -116,7 +116,6 @@
                     <div class="bg-box-left-side">
                         <div class="description-shop">
                             <h4>وردة الخريف</h4>
-                            <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من</p>
                             <div class="ph-number">
                                 <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
                                     alt="">
@@ -150,7 +149,6 @@
                     <div class="bg-box-left-side">
                         <div class="description-shop">
                             <h4>وردة الخريف</h4>
-                            <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من</p>
                             <div class="ph-number">
                                 <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
                                     alt="">
@@ -185,7 +183,7 @@
                     <div class="bg-box-left-side">
                         <div class="description-shop">
                             <h4>وردة الخريف</h4>
-                            <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من</p>
+                            {{-- <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من</p> --}}
                             <div class="ph-number">
                                 <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
                                     alt="">
@@ -219,7 +217,7 @@
                     <div class="bg-box-left-side">
                         <div class="description-shop">
                             <h4>وردة الخريف</h4>
-                            <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من</p>
+                            {{-- <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من</p> --}}
                             <div class="ph-number">
                                 <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
                                     alt="">

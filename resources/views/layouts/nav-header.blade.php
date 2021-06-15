@@ -5,7 +5,7 @@
                 <ul class="list-sub-nav">
                     <li><a href="#">عروض</a></li>
                     <li><a href="#">جديد        </a></li>
-                    <li><a href="#">من نحن        </a></li>
+                    <li><a href="{{ route('about-us') }}">من نحن        </a></li>
                     <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactUs">تواصل معنا</a></li>
                 </ul>
                 <div class="modal fade" id="contactUs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dir="ltr">
