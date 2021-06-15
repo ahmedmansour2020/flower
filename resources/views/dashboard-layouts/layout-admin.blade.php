@@ -11,11 +11,14 @@
     @yield('page_css')
     <script>
     var admin_url = "{{route('home').'/admin'}}";
+    var slider_delete_image = "{{route('slider_delete_image')}}";
+    var change_slider_status = "{{route('change_slider_status')}}";
+    var language = "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Arabic.json";
     </script>
 </head>
 
 <body>
-<form hidden method="post" action="{{ route('logout')}}">
+    <form hidden method="post" action="{{ route('logout')}}">
         @csrf
         <button type="submit" id="logout"></button>
     </form>
