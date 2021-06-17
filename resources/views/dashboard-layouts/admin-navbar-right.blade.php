@@ -1,4 +1,4 @@
-<aside class="navbar-right" id="accordion">
+<aside class="accordion accordion-flush" id="accordionFlushExample">
     <div class="sidebar card">
         <nav class="mt-2">
             <a href="{{ route('all-shops') }}"
@@ -9,25 +9,24 @@
 
                 </div>
             </a>
-
-
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn  btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                         <img src="{{ URL::asset('resources/assets/images/icon-users.png') }}" alt="">
                         العملاء
                     </button>
-                </h5>
-            </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    <a href="{{ route('page_user_vendor','users') }}" class="accordion-body accordion-dropdown {{ request()->segment(1) == 'page-users' ? 'accordion-active' : '' }}">مستخدم</a>
-                    <a href="{{ route('page_user_vendor','buyers') }}" class="accordion-body accordion-dropdown {{ request()->segment(1) == 'page-vendors' ? 'accordion-active' : '' }}">تاجر</a>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <a href="{{ route('page_user_vendor', 'users') }}"
+                            class="accordion-body accordion-dropdown {{ request()->segment(1) == 'page-users' ? 'accordion-active' : '' }}">مستخدم</a>
+                        <a href="{{ route('page_user_vendor', 'buyers') }}"
+                            class="accordion-body accordion-dropdown {{ request()->segment(1) == 'page-vendors' ? 'accordion-active' : '' }}">تاجر</a>
+                    </div>
                 </div>
             </div>
-
             <a href="{{ route('setting-pages') }}"
                 class="link-sub-nav {{ request()->segment(1) == 'setting-pages' ? 'active' : '' }}">
                 <div class="sub-nav">
@@ -44,26 +43,30 @@
 
                 </div>
             </a>
-                    
 
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn  btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-                        aria-controls="collapseTwo">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                         <img src="{{ URL::asset('resources/assets/images/icon-mail.png') }}" alt="">
                         البريد
                     </button>
-                </h5>
-            </div>
-
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                    <a href="{{ route('mail-messages') }}" class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'mail-messages' ? 'accordion-active' : '' }}">رسائل جديده</a>
-                    <a href="{{ route('incoming-mail') }}" class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'incoming-mail' ? 'accordion-active' : '' }}">البريد الوارد</a>
-                    <a href="{{ route('writing-messages') }}" class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'writing-messages' ? 'accordion-active' : '' }}">كتابة رساله</a>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <a href="{{ route('mail-messages') }}"
+                            class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'mail-messages' ? 'accordion-active' : '' }}">رسائل
+                            جديده</a>
+                        <a href="{{ route('incoming-mail') }}"
+                            class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'incoming-mail' ? 'accordion-active' : '' }}">البريد
+                            الوارد</a>
+                        <a href="{{ route('writing-messages') }}"
+                            class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'writing-messages' ? 'accordion-active' : '' }}">كتابة
+                            رساله</a>
+                    </div>
                 </div>
             </div>
-
             <a href="{{ route('statistics') }}"
                 class="link-sub-nav {{ request()->segment(1) == 'statistics' ? 'active' : '' }}">
                 <div class="sub-nav">
@@ -80,7 +83,8 @@
 
                 </div>
             </a>
+
         </nav>
     </div>
-
 </aside>
+

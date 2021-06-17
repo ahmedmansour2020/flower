@@ -101,19 +101,16 @@ body {
     color: #000000;
 }
 
-<<<<<<< HEAD
 /* .description-shop p {
     font-size: 18px;
     font-weight: 400;
     color: #000;
 } */
-=======
 .description-shop p {
     font-size: 18px;
     font-weight: 400;
     color: #000;
 }
->>>>>>> bda18cbe8ab29dfb1da35b329710ca9605be5e10
 
 .description-shop .location-store {
     margin-top: 15px;
@@ -461,8 +458,11 @@ body {
 
 
 /* start navbar-right-admin */
-
-#accordion .card-header {
+.accordion-button::after {
+    margin-right: auto;
+    margin-left: unset;
+}
+#accordionFlushExample .accordion-header {
     padding-right: 20px;
     padding-top: 21px;
     text-decoration: none !important;
@@ -476,18 +476,18 @@ body {
     padding: 0;
 }
 
-#accordion button {
+#accordionFlushExample button {
     width: 100%;
     text-align: right;
     height: 90px;
 }
 
-#accordion button img {
+#accordionFlushExample button img {
     margin-left: 20px;
     padding-right: 20px;
 }
 
-#accordion button {
+#accordionFlushExample button {
     text-decoration: none;
     font-size: 26px;
     font-weight: 700;
@@ -500,15 +500,15 @@ body {
     opacity: 0.5;
 }
 
-#accordion button:hover,
-#accordion button:active {
+#accordionFlushExample button:hover,
+#accordionFlushExample button:active {
     box-shadow: 0 3px 11px -4px #000;
     border-radius: 6px;
     background-color: #fff;
     opacity: 1;
 }
 
-#accordion button:hover .card-header {
+#accordionFlushExample button:hover .card-header {
     opacity: 1;
 }
 
