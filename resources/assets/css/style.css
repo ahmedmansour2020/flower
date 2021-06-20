@@ -101,11 +101,13 @@ body {
     color: #000000;
 }
 
+
 /* .description-shop p {
     font-size: 18px;
     font-weight: 400;
     color: #000;
 } */
+
 .description-shop p {
     font-size: 18px;
     font-weight: 400;
@@ -255,6 +257,12 @@ body {
     text-decoration: none !important;
 }
 
+.slider-container {
+    height: 70vh;
+    background-repeat: none !important;
+    background-size: cover;
+}
+
 
 /* end login page */
 
@@ -266,7 +274,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .acc-success img {
@@ -458,10 +465,12 @@ body {
 
 
 /* start navbar-right-admin */
+
 .accordion-button::after {
     margin-right: auto;
     margin-left: unset;
 }
+
 #accordionFlushExample .accordion-header {
     padding-right: 20px;
     padding-top: 21px;

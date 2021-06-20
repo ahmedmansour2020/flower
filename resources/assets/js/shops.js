@@ -8,6 +8,9 @@ $(document).ready(function() {
         "bInfo": false,
         "bFilter": false,
         "bLengthChange": false,
+        language: {
+            url: language,
+        },
         ajax: {
             url: admin_url + "/all-shops",
             type: "GET",

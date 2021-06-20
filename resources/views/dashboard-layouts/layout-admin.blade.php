@@ -10,6 +10,7 @@
     @include('dashboard-layouts.header')
     @yield('page_css')
     <script>
+    var home_url = "{{route('home')}}";
     var admin_url = "{{route('home').'/admin'}}";
     var slider_delete_image = "{{route('slider_delete_image')}}";
     var change_slider_status = "{{route('change_slider_status')}}";
@@ -29,6 +30,45 @@
                 @include('dashboard-layouts.admin-navbar-right')
             </div>
             <div class="col-sm-12 col-md-12 col-lg-9">
+
+            <div>
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success w-100 text-center ">
+                        {{ $message }}
+                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    @endif
+                    @if ($message = Session::get('alert'))
+                    <div class="alert alert-danger w-100 text-center ">
+                        {{ $message }}
+                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    @endif
+
+                    @if ($message = Session::get('error'))
+                    <div class="alert alert-danger ">
+                        {{ $message }}
+                        <button type="button" class="close white-text text-center" data-dismiss="alert"
+                            aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    @endif
+
+                    @if($errors->any())
+                    <div class="alert alert-danger text-center">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div><br />
+                    @endif
+                </div>
                 @yield('content')
             </div>
 

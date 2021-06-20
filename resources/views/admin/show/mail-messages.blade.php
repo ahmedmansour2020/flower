@@ -1,37 +1,23 @@
-@extends('dashboard-layouts.layout-admin')
+@extends($from=='admin'?'dashboard-layouts.layout-admin':'dashboard-layouts.layout')
 @section('title', isset($title) ? $title : '')
 @section('content')
-
-    <table class="table-management table-responsive products w-100 dataTable no-footer" id="datatable-activated" role="grid"
+@section('page_css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css"/>
+@endsection
+    <table class="table-management table-responsive products w-100 dataTable no-footer" id="{{$mail}}" role="grid"
         style="width: 1352px;">
         <thead>
             <tr role="row">
                 <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 222px;">اسم العميل</th>
                 <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 222px;">العنوان</th>
                 <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 222px;">التاريخ</th>
+                <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 222px;">الوقت</th>
                 <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 222px;">الحالة</th>
                 <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 222px;">عرض</th>
                 <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 222px;">حذف</th>
             </tr>
         </thead>
         <tbody>
-
-            <tr role="row" class="odd">
-                <td>معتز سمير</td>
-                <td>نسيت كلمة السر</td>
-                <td>03-06-2021</td>
-                <td class="text-primary">جديد</td>
-                <td><button type="button" class="btn btn-success">عرض</button></td>
-                <td><button type="button" class="btn btn-danger">حذف</button></td>
-            </tr>
-            <tr role="row" class="even">
-                <td>معتز سمير</td>
-                <td>نسيت كلمة السر</td>
-                <td>03-06-2021</td>
-                <td class="text-primary">جديد</td>
-                <td><button type="button" class="btn btn-success">عرض</button></td>
-                <td><button type="button" class="btn btn-danger">حذف</button></td>
-            </tr>
         </tbody>
     </table>
 
@@ -59,4 +45,12 @@
 
 
 
+@endsection
+@section('page_js')
+<script>
+var delete_message="{{route('delete_message')}}"
+</script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('resources/assets/js/messages.js')}}"></script>
 @endsection

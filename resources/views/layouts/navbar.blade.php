@@ -43,14 +43,19 @@
             </ul>
         </li>
 
-
+        @guest
         <li class="nav-item btn-login-home">
             <a href="{{ route('login-data') }}">تسجيل الدخول</a>
         </li>
         <li class="nav-item btn-register-home">
             <a href="{{ route('register') }}">حساب جديد</a>
         </li>
-
+        @endguest
+        @auth
+        <li class="nav-item btn-register-home">
+            <a href="#" class="logout">تسجيل الخروج</a>
+        </li>
+        @endauth
     </ul>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         dir="ltr">

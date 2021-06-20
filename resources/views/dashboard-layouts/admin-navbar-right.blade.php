@@ -56,7 +56,7 @@
                     data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <a href="{{ route('mail-messages') }}"
-                            class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'mail-messages' ? 'accordion-active' : '' }}">رسائل
+                            class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'incoming-mail?mail-messages=new' ? 'accordion-active' : '' }}">رسائل
                             جديده</a>
                         <a href="{{ route('incoming-mail') }}"
                             class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'incoming-mail' ? 'accordion-active' : '' }}">البريد
@@ -70,8 +70,8 @@
             <a href="{{ route('statistics') }}"
                 class="link-sub-nav {{ request()->segment(1) == 'statistics' ? 'active' : '' }}">
                 <div class="sub-nav">
-                    <img src="{{ URL::asset('resources/assets/images/icon-statistics.png') }}" class="img-fluid"
-                        alt=""> احصائيات
+                    <img src="{{ URL::asset('resources/assets/images/icon-statistics.png') }}" class="img-fluid" alt="">
+                    احصائيات
 
                 </div>
             </a>
@@ -87,4 +87,3 @@
         </nav>
     </div>
 </aside>
-

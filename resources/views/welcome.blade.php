@@ -1,7 +1,14 @@
 @extends("layouts.layout")
 @section('title', isset($title) ? $title : '')
 @section('content')
-
+@section('page_css')
+<style>
+.jconfirm-buttons {
+    width: 100% !important;
+    text-align: center !important;
+}
+</style>
+@endsection
 
 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
     <div class="carousel-inner">
@@ -20,16 +27,17 @@
             }
             ?>
         <div class="carousel-item position-relative @if($loop->first) active @endif">
-            <img class="d-block w-100" src="{{$slider->image}}" alt="First slide">
-        </div>
-        <div class="text-slider position-absolute">
-            <div style="color:{{$color}}">{{$slider->content}}</div>
-            @if($slider->url!=null)
-            <a style="font-size:20px;font-weight:700;background:{{$button_color}}"
-                class="btn {{$slider->button_font}} px-5 py-2"
-                href="//{{$slider->url}}">{{$slider->button_title??'اضغط هنا'}}</a>
-            @endif
+            <div class="slider-container"  style="background-image:url('{{$slider->image}}')">
+            <div class="text-slider position-absolute">
+                <div style="color:{{$color}}">{{$slider->content}}</div>
+                @if($slider->url!=null)
+                <a style="font-size:20px;font-weight:700;background:{{$button_color}}"
+                    class="btn {{$slider->button_font}} px-5 py-2"
+                    href="//{{$slider->url}}">{{$slider->button_title??'اضغط هنا'}}</a>
+                @endif
+            </div>
 
+            </div>
         </div>
         @endforeach
 
@@ -260,7 +268,12 @@
 
 
 @section('page_js')
-
+<script>
+var message = `{{$message}}`;
+var success_img = "{{ asset('resources/assets/images/done.png') }}";
+var change_message_status = "{{route('change_message_status')}}";
+</script>
+<script src="{{asset('resources/assets/js/buyer_message.js')}}"></script>
 <script>
 $('.carousel').carousel();
 $('.carousel').carousel({

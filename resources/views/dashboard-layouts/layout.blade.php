@@ -9,7 +9,13 @@
     <title>@yield('title')</title>
     @include('dashboard-layouts.header')
     @yield('page_css')
-
+    <script>
+    var home_url = "{{route('home')}}";
+    var admin_url = "{{route('home').'/admin'}}";
+    var slider_delete_image = "{{route('slider_delete_image')}}";
+    var change_slider_status = "{{route('change_slider_status')}}";
+    var language = "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Arabic.json";
+    </script>
 </head>
 
 <body>

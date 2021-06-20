@@ -28,14 +28,18 @@ Route::get('/', [HomeController::class, 'to_home'])->name('home');
 Route::get('/register/buyer', [UserController::class, 'buyer_register'])->name('register_buyer');
 Route::get('/register-1', [UserController::class, 'register_1'])->name('register_1');
 Route::post('/register-1/save', [UserController::class, 'save_buyer_info'])->name('save_buyer_info');
+Route::post('change_message_status', [HomeController::class, 'change_message_status'])->name('change_message_status');
 
-Route::get('acc-success', function () {
-    return view('auth/acc-success');
-})->name('acc-success');
+// Route::get('acc-success', function () {
+//     return view('auth/acc-success');
+// })->name('acc-success');
 
 Route::resource('message', MessageController::class);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('/',function(){
+        return redirect()->route('all-shops');
+    });
     Route::get('all-shops', [AdminController::class, 'all_shops'])->name('all-shops');
     Route::post('change_buyer_membership_status', [AdminController::class, 'change_buyer_membership_status'])->name('change_buyer_membership_status');
     Route::get('byerinfo/{id}', [AdminController::class, 'edit_user_data']);
@@ -57,11 +61,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 });
 Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function () {
     Route::resource('product', ProductController::class);
+    Route::get('/',function(){
+        return redirect()->route('store-data');
+    });
     Route::post('delete/product', [ProductController::class, 'destroy'])->name('delete.product');
     Route::get('store-data', [UserController::class, 'edit_user_data'])->name('store-data');
     Route::get('login-data', [UserController::class, 'user_info'])->name('login-data');
     Route::post('save_login_data', [UserController::class, 'change_user_info'])->name('save_login_data');
 });
+Route::get('writing-messages', [MessageController::class,'create'])->name('writing-messages');
 
 // Route::get('page-users', function () {
 //     return view('admin/show/page-users');
@@ -72,17 +80,10 @@ Route::get('statistics', function () {
     return view('admin/show/statistics');
 })->name('statistics');
 
-Route::get('mail-messages', function () {
-    return view('admin/show/mail-messages');
-})->name('mail-messages');
-
-Route::get('incoming-mail', function () {
-    return view('admin/show/incoming-mail');
-})->name('incoming-mail');
-
-Route::get('writing-messages', function () {
-    return view('admin/show/writing-messages');
-})->name('writing-messages');
+Route::get('incoming-mail?mail-messages=new', [MessageController::class,'index'])->name('mail-messages')->middleware(['auth']);
+Route::get('incoming-mail',[MessageController::class,'index'])->name('incoming-mail')->middleware(['auth']);
+Route::get('view-mail/{id}',[MessageController::class,'show'])->name('view-mail')->middleware(['auth']);
+Route::post('delete_message',[MessageController::class,'destroy'])->name('delete_message')->middleware(['auth']);
 
 Route::get('vendor-products', function () {
     return view('home/vendor-products');

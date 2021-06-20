@@ -13,7 +13,10 @@
 </head>
 
 <body>
-
+<form hidden method="post" action="{{ route('logout')}}">
+        @csrf
+        <button type="submit" id="logout"></button>
+    </form>
     @include("layouts.navbar")
     @include("layouts.nav-header")
 

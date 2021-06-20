@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $(document).on('click', '.logout', function(e) {
-        console.log();
+
         e.preventDefault();
         $('#logout').click();
     });
@@ -40,16 +40,16 @@ $('#image-btn1').on('click', function() {
     $('#image1').click();
 })
 $('#image1').on('change', function() {
-    var value = $(this).val();
-    var items = value.split('\\');
-    $('#image-label1').val(items[items.length - 1]);
+        var value = $(this).val();
+        var items = value.split('\\');
+        $('#image-label1').val(items[items.length - 1]);
 
-})
-// $('#divFavorite').on('click',function(){
-//     $('#favoriteIcon').toggle().css({'color':'red'});
-// });
+    })
+    // $('#divFavorite').on('click',function(){
+    //     $('#favoriteIcon').toggle().css({'color':'red'});
+    // });
 $("#favoriteIcon").click(function() {
     $(this).toggleClass('iconFavorite');
-  });
+});
 
 // iconFavorite
