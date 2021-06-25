@@ -7,3 +7,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <script src="{{ URL::asset('resources/assets/js/custom.js') }}"></script>
+<script>
+var add_to_favourite="{{route('favourite.store')}}";
+</script>
+<script src="{{asset('resources/assets/js/add_to_favourite.js')}}"></script>

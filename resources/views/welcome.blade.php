@@ -113,147 +113,45 @@
         <div class="col-12">
             <h2 class="head-home-page">جميع المتاجر</h2>
         </div>
-
+            @foreach ($all_buyers as $buyer)
         <div class="col-sm-12 col-md-12 col-lg-6 box-home-shops">
             <div class="row">
                 <div class="col-6 ps-0">
-                    <div class="bg-box-right-side">
+                <a href="{{route('vendor-products',$buyer->id)}}">
+                    <div class="bg-box-right-side" @if($buyer->buyer_logo!=null) style="background-image:url('{{$buyer->buyer_logo}}') !important" @endif>
 
                     </div>
-                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid"
-                    alt=""> --}}
+                </a>
+
                 </div>
                 <div class="col-6 pe-0">
-                    <div class="bg-box-left-side">
+                    <div class="bg-box-left-side" >
                         <div class="description-shop">
-                            <h4>وردة الخريف</h4>
+                        <a class="text-decoration-none" href="{{route('vendor-products',$buyer->id)}}">
+                            <h4 >وردة الخريف</h4>
+                        </a>
                             <div class="ph-number">
                                 <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
                                     alt="">
-                                <a href="tel:01206039762">01206039762</a>
+                                <a href="tel:{{$buyer->buyer_mobile}}">{{$buyer->buyer_mobile}}</a>
                             </div>
                             <div class="location-store">
                                 <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
                                     class="img-fluid" alt="">
-                                <a href="#">شارع صالح الشهابى و الفنان محمد حسن</a>
+                                {{$buyer->buyer_site}}
                             </div>
                             <div class="btn-box">
                                 <a href="#">العروض</a>
-                                <div class="icon-favorite" id="divFavorite">
+                                <!-- <div class="icon-favorite" id="divFavorite">
                                     <i class="fas fa-heart" class="" id="favoriteIcon"></i>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 box-home-shops">
-            <div class="row">
-                <div class="col-6 ps-0">
-                    <div class="bg-box-right-side">
-
-                    </div>
-                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid"
-                    alt=""> --}}
-                </div>
-                <div class="col-6 pe-0">
-                    <div class="bg-box-left-side">
-                        <div class="description-shop">
-                            <h4>وردة الخريف</h4>
-                            <div class="ph-number">
-                                <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
-                                    alt="">
-                                <a href="tel:01206039762">01206039762</a>
-                            </div>
-                            <div class="location-store">
-                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
-                                    class="img-fluid" alt="">
-                                <a href="#">شارع صالح الشهابى و الفنان محمد حسن</a>
-                            </div>
-                            <div class="btn-box">
-                                <a href="#">العروض</a>
-                                <div class="icon-favorite" id="divFavorite">
-                                    <i class="fas fa-heart" class="" id="favoriteIcon"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 box-home-shops">
-            <div class="row">
-                <div class="col-6 pl-box">
-                    <div class="bg-box-right-side">
-
-                    </div>
-                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid"
-                    alt=""> --}}
-                </div>
-                <div class="col-6 pr-box">
-                    <div class="bg-box-left-side">
-                        <div class="description-shop">
-                            <h4>وردة الخريف</h4>
-                            {{-- <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من</p> --}}
-                            <div class="ph-number">
-                                <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
-                                    alt="">
-                                <a href="tel:01206039762">01206039762</a>
-                            </div>
-                            <div class="location-store">
-                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
-                                    class="img-fluid" alt="">
-                                <a href="#">شارع صالح الشهابى و الفنان محمد حسن</a>
-                            </div>
-                            <div class="btn-box">
-                                <a href="#">العروض</a>
-                                <div class="icon-favorite" id="divFavorite">
-                                    <i class="fas fa-heart" class="" id="favoriteIcon"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 box-home-shops">
-            <div class="row">
-                <div class="col-6 pl-box">
-                    <div class="bg-box-right-side">
-
-                    </div>
-                    {{-- <img src="{{ URL::asset('resources/assets/images/shop-home-page.png') }}" class="img-fluid"
-                    alt=""> --}}
-                </div>
-                <div class="col-6 pr-box">
-                    <div class="bg-box-left-side">
-                        <div class="description-shop">
-                            <h4>وردة الخريف</h4>
-                            {{-- <p>بوكيه ورد طبيعى لا يوجد مثله في الوجود من</p> --}}
-                            <div class="ph-number">
-                                <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
-                                    alt="">
-                                <a href="tel:01206039762">01206039762</a>
-                            </div>
-                            <div class="location-store">
-                                <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
-                                    class="img-fluid" alt="">
-                                <a href="#">شارع صالح الشهابى و الفنان محمد حسن</a>
-                            </div>
-                            <div class="btn-box">
-                                <a href="#">العروض</a>
-                                <div class="icon-favorite" id="divFavorite">
-                                    <i class="fas fa-heart" class="" id="favoriteIcon"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+            @endforeach
 
 
     </div>

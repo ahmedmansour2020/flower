@@ -1,3 +1,7 @@
+<?php 
+use App\Http\Controllers\VisitController;
+VisitController::record_visit();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
