@@ -263,6 +263,10 @@ body {
     background-size: cover;
 }
 
+.disabled {
+    pointer-events: none !important;
+}
+
 
 /* end login page */
 

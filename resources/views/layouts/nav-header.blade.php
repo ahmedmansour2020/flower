@@ -1,3 +1,6 @@
+<?php 
+use App\Http\Controllers\VisitController;
+?>
 <div class="nav-header">
     <div class="container">
         <div class="row">
@@ -34,7 +37,7 @@
             <div class="col-4">
                 <div class="visitor-num">
                     <p>انت زائر رقم </p>
-                    <span>1</span>
+                    <span>{{VisitController::count_visits()}}</span>
                 </div>
             </div>
         </div>

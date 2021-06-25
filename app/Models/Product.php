@@ -16,10 +16,17 @@ class Product extends Model
     }
 
     public function images(){
-        $images=ItemImage::leftJoin('images','images.id','image_id')->where('item_id',$this->id)->where('item_type','product')->select('path','main','image_id')->get();
+        $images=ItemImage::leftJoin('images','images.id','image_id')->where('item_id',$this->id)->where('item_type','product')->select('name','main','image_id')->get();
+        $array=[];
         foreach($images as $image){
-            $image->path=asset('uploaded/'.$image->path);
+            $image->name=asset('uploaded/'.$image->name);
+            array_push($array,$image->name);
         }
-        return $images;
+        if(count($array)>0){
+            return $array[0];
+        }else{
+
+            return null;
+        }
     }
 }

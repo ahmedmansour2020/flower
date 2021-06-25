@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\FavouriteController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -35,6 +36,7 @@ Route::post('change_message_status', [HomeController::class, 'change_message_sta
 // })->name('acc-success');
 
 Route::resource('message', MessageController::class);
+Route::resource('favourite', FavouriteController::class);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/',function(){
@@ -84,18 +86,14 @@ Route::get('incoming-mail?mail-messages=new', [MessageController::class,'index']
 Route::get('incoming-mail',[MessageController::class,'index'])->name('incoming-mail')->middleware(['auth']);
 Route::get('view-mail/{id}',[MessageController::class,'show'])->name('view-mail')->middleware(['auth']);
 Route::post('delete_message',[MessageController::class,'destroy'])->name('delete_message')->middleware(['auth']);
+Route::get('about-us', [HomeController::class,'to_about_us'])->name('about-us');
 
-Route::get('vendor-products', function () {
-    return view('home/vendor-products');
-})->name('vendor-products');
+Route::get('products/{id}', [HomeController::class,'to_products'])->name('vendor-products');
 
 Route::get('product-view', function () {
     return view('home/product-view');
 })->name('product-view');
 
-Route::get('about-us', function () {
-    return view('home/about-us');
-})->name('about-us');
 
 Route::get('wish-list', function () {
     return view('home/wish-list');
