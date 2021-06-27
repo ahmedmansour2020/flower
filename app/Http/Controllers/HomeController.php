@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
-use App\Models\User;
-use App\Models\Slider;
-use App\Models\Product;
-use App\Models\Setting;
+use App\Models\Favourite;
 use App\Models\ItemImage;
+use App\Models\Product;
+use App\Models\Role;
+use App\Models\Setting;
+use App\Models\Slider;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\ProductResource;
 
 class HomeController extends Controller
 {
@@ -32,16 +32,16 @@ class HomeController extends Controller
                 }
             }
         }
-        $all_buyers=User::where('membership_status',1)->get();
-        foreach ($all_buyers as $buyer){
-            if($buyer->buyer_logo!=null){
-                $buyer->buyer_logo=asset('uploaded/' . $buyer->buyer_logo);
+        $all_buyers = User::where('membership_status', 1)->get();
+        foreach ($all_buyers as $buyer) {
+            if ($buyer->buyer_logo != null) {
+                $buyer->buyer_logo = asset('uploaded/' . $buyer->buyer_logo);
             }
-            if($buyer->buyer_banner!=null){
-                $buyer->buyer_banner=asset('uploaded/' . $buyer->buyer_banner);
+            if ($buyer->buyer_banner != null) {
+                $buyer->buyer_banner = asset('uploaded/' . $buyer->buyer_banner);
             }
         }
-        return view('welcome', compact('title', 'sliders', 'message','all_buyers'));
+        return view('welcome', compact('title', 'sliders', 'message', 'all_buyers'));
     }
     public function change_message_status(Request $request)
     {
@@ -54,32 +54,80 @@ class HomeController extends Controller
     }
     public function to_about_us()
     {
-        $title="من نحن";
-        $content="";
-        $about_us=Setting::where('key', 'who_we_are')->first();
-        if($about_us){
-            $content=$about_us->value;
+        $title = "من نحن";
+        $content = "";
+        $about_us = Setting::where('key', 'who_we_are')->first();
+        if ($about_us) {
+            $content = $about_us->value;
         }
 
-        return view('home/about-us',compact('title','content'));
+        return view('home/about-us', compact('title', 'content'));
     }
-    public function to_products($id){
-        $title="منتجات التاجر ";
-        $buyer=Role::where('name','تاجر')->orWhere('name', 'buyer')->first();
-        $user=User::where('id',$id)->where('role_id',$buyer->id)->where('membership_status',1)->firstOrFail();
-        $title.=$user->buyer_name;
-        if($user->buyer_logo!=null){
-            $user->buyer_logo=asset('uploaded/' . $user->buyer_logo);
+    public function to_products($id)
+    {
+        $title = "منتجات التاجر ";
+        $buyer = Role::where('name', 'تاجر')->orWhere('name', 'buyer')->first();
+        $user = User::where('id', $id)->where('role_id', $buyer->id)->where('membership_status', 1)->firstOrFail();
+        $title .= $user->buyer_name;
+        if ($user->buyer_logo != null) {
+            $user->buyer_logo = asset('uploaded/' . $user->buyer_logo);
         }
-        if($user->buyer_banner!=null){
-            $user->buyer_banner=asset('uploaded/' . $user->buyer_banner);
+        if ($user->buyer_banner != null) {
+            $user->buyer_banner = asset('uploaded/' . $user->buyer_banner);
         }
-        $products=Product::where('user_id',$id)->get();
-        foreach($products as $product){
-            $image=ItemImage::leftJoin('images','images.id','image_id')->where('item_id',$product->id)->where('item_type','product')->select('name','main','image_id')->first();
-            $product->image=asset('uploaded/' . $image->name);
+        $products = Product::where('user_id', $id)->get();
+        foreach ($products as $product) {
+            $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
+            $product->image = asset('uploaded/' . $image->name);
         }
-        
-        return view('home/vendor-products',compact('title','user','products'));
+
+        return view('home/vendor-products', compact('title', 'user', 'products'));
+    }
+    public function to_buyer_offers($id)
+    {
+        $title = "عروض التاجر ";
+        $buyer = Role::where('name', 'تاجر')->orWhere('name', 'buyer')->first();
+        $user = User::where('id', $id)->where('role_id', $buyer->id)->where('membership_status', 1)->firstOrFail();
+        $title .= $user->buyer_name;
+        if ($user->buyer_logo != null) {
+            $user->buyer_logo = asset('uploaded/' . $user->buyer_logo);
+        }
+        if ($user->buyer_banner != null) {
+            $user->buyer_banner = asset('uploaded/' . $user->buyer_banner);
+        }
+        $products = Product::where('user_id', $id)->whereNotNull('offer')->get();
+        foreach ($products as $product) {
+            $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
+            $product->image = asset('uploaded/' . $image->name);
+        }
+        $from="offers";
+        return view('home/vendor-products', compact('title', 'user', 'products','from'));
+    }
+    public function product_view($id)
+    {
+        $product = Product::findOrFail($id);
+        $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
+        $product->image = asset('uploaded/' . $image->name);
+        $title = $product->name;
+
+        $user = User::find($product->user_id);
+        if ($user->buyer_logo != null) {
+            $user->buyer_logo = asset('uploaded/' . $user->buyer_logo);
+        }
+        if ($user->buyer_banner != null) {
+            $user->buyer_banner = asset('uploaded/' . $user->buyer_banner);
+        }
+        return view('home/product-view', compact('user', 'product', 'title'));
+    }
+    public function wish_list()
+    {
+        $title = "قائمة المفضلات";
+        $user = Auth::user();
+        $products = Favourite::leftJoin('products', 'products.id', 'favourites.product_id')->where('favourites.user_id', $user->id)->select('products.*', 'favourites.id as favourite_id')->get();
+        foreach ($products as $product) {
+            $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
+            $product->image = asset('uploaded/' . $image->name);
+        }
+        return view('home/wish-list', compact('title', 'products'));
     }
 }

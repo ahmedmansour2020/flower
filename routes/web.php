@@ -89,12 +89,10 @@ Route::post('delete_message',[MessageController::class,'destroy'])->name('delete
 Route::get('about-us', [HomeController::class,'to_about_us'])->name('about-us');
 
 Route::get('products/{id}', [HomeController::class,'to_products'])->name('vendor-products');
+Route::get('buyer-offers/{id}', [HomeController::class,'to_buyer_offers'])->name('buyer_offers');
 
-Route::get('product-view', function () {
-    return view('home/product-view');
-})->name('product-view');
+Route::get('product-view/{id}', [HomeController::class,'product_view'])->name('product-view');
 
 
-Route::get('wish-list', function () {
-    return view('home/wish-list');
-})->name('wish-list');
+Route::get('wishlist', [HomeController::class,'wish_list'])->name('wish-list')->middleware(['auth']);
+Route::post('delete_favourite/{id}',[FavouriteController::class,'destroy'])->name('delete_favourite')->middleware(['auth']);

@@ -8,7 +8,7 @@ $(document).ready(function() {
         };
         $.post(add_to_favourite, data, function(response) {
             $(item).find('i').addClass('text-danger');
-            $(item).removeClass('add_to_favourite').addClass('disabled');
+            $(item).removeClass('add_to_favourite').addClass('fav-disabled').parents('div').attr('title', 'المنتج موجود في المفضلات');
         })
 
     })

@@ -25,7 +25,7 @@
 
 
         <li class="nav-item favorite ">
-            <a class="nav-link" href="#" role="button">
+            <a class="nav-link" href="{{route('wish-list')}}" role="button">
                 <img src="{{ URL::asset('resources/assets/images/valentines-heart.png') }}" alt="">
             </a>
         </li>

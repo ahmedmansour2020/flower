@@ -89,7 +89,8 @@ class FavouriteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Favourite::find($id)->delete();
+        return redirect()->back();
     }
     public static function check_favourite($id){
         $user=Auth::user();

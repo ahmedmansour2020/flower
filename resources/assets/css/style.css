@@ -267,6 +267,10 @@ body {
     pointer-events: none !important;
 }
 
+.fav-disabled {
+    cursor: not-allowed !important;
+}
+
 
 /* end login page */
 
@@ -1284,6 +1288,10 @@ a.btn-offers {
 
 .icon-favorite i {
     color: #C7C7C7;
+}
+
+.box-product {
+    position: relative;
 }
 
 i.iconFavorite {

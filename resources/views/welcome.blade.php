@@ -128,7 +128,7 @@
                     <div class="bg-box-left-side" >
                         <div class="description-shop">
                         <a class="text-decoration-none" href="{{route('vendor-products',$buyer->id)}}">
-                            <h4 >وردة الخريف</h4>
+                            <h4 >{{$buyer->buyer_name}}</h4>
                         </a>
                             <div class="ph-number">
                                 <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
@@ -141,7 +141,7 @@
                                 {{$buyer->buyer_site}}
                             </div>
                             <div class="btn-box">
-                                <a href="#">العروض</a>
+                                <a href="{{route('buyer_offers',$buyer->id)}}">العروض</a>
                                 <!-- <div class="icon-favorite" id="divFavorite">
                                     <i class="fas fa-heart" class="" id="favoriteIcon"></i>
                                 </div> -->
