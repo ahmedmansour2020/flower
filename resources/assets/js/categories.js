@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var shops = $(`#${type}`).DataTable({
+    var categories = $("#categories").DataTable({
         dom: "lBfrtip",
         processing: false,
         serverSide: true,
@@ -12,7 +12,7 @@ $(document).ready(function() {
             url: language,
         },
         ajax: {
-            url: admin_url + "/page/" + type,
+            url: admin_url + "/category",
             type: "GET",
         },
 
@@ -22,29 +22,17 @@ $(document).ready(function() {
             },
 
             {
-                data: "mobile",
-                name: "mobile"
-            },
-            {
-                data: "email",
-                name: "email"
-            },
-            {
-                data: "edit",
-                name: "edit",
+                data: "update",
+                name: "update",
                 render: function(d, t, r, m) {
-                    return `
-                    <a  class="btn btn-success" href="${admin_url}/buyerinfo/${r.id}">تعديل</a>
-                    `
+                    return `<a href="${admin_url}/category/${r.id}" class="btn btn-success">تعديل</a>`;
                 }
             },
             {
                 data: "delete",
                 name: "delete",
                 render: function(d, t, r, m) {
-                    return `
-                    <button type="button" data-status="0" data-id="${r.id}" class="btn btn-danger delete">حذف</button>
-                    `
+                    return `<button type="button" class="btn btn-danger delete" data-id="${r.id}">حذف</button>`;
                 }
             },
 
@@ -53,39 +41,48 @@ $(document).ready(function() {
 
         ],
         columnDefs: [{
-                targets: [0, 1, 2, 3],
+                targets: [0, 1, 2],
                 searchable: true
             },
 
         ],
         ordering: false,
     });
-    $(document).on('click', '.delete', function() {
+
+
+    $(document).on('click', ".delete", function(e) {
         var id = $(this).data('id');
         var data = {
             '_token': $('meta[name="csrf-token"]').attr('content'),
-            'id': id
+            'id': id,
         };
-        var status = $(this).data('status');
+        e.preventDefault();
         $.confirm({
-            title: 'تأكيد الإجراء',
-            content: 'هل أنت متأكد من حذف هذا الحساب ؟',
+            title: 'هل تريد حذف هذا العنصر ؟',
             type: 'red',
+            typeAnimated: true,
+
+            content: false,
             buttons: {
                 نعم: {
-                    btnClass: 'btn btn-primary',
+                    btnClass: 'btn-blue',
                     action: function() {
-                        $.post(delete_user, data, function(response) {
+                        $.post(delete_category, data, function(response) {
                             if (response.success) {
-                                shops.ajax.reload();
+                                $('table').DataTable().ajax.reload();
                             }
                         })
                     }
                 },
                 لا: {
-                    btnClass: 'btn btn-danger',
+                    btnClass: 'btn-red',
+                    action: function() {
+                        // $.alert('Canceled!');
+                    },
                 }
+
             }
-        })
-    })
+        });
+
+    });
 })

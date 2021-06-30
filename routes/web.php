@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FavouriteController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -42,9 +43,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/',function(){
         return redirect()->route('all-shops');
     });
+    Route::resource('category',CategoryController::class);
     Route::get('all-shops', [AdminController::class, 'all_shops'])->name('all-shops');
     Route::post('change_buyer_membership_status', [AdminController::class, 'change_buyer_membership_status'])->name('change_buyer_membership_status');
-    Route::get('byerinfo/{id}', [AdminController::class, 'edit_user_data']);
+    Route::post('delete_category', [CategoryController::class, 'destroy'])->name('delete_category');
+    Route::get('buyerinfo/{id}', [AdminController::class, 'edit_user_data']);
 
     Route::get('setting-pages', [AdminController::class, 'settings'])->name('setting-pages');
     Route::get('page/{type}', [AdminController::class,'users'])->name('page_user_vendor');
@@ -92,6 +95,8 @@ Route::get('products/{id}', [HomeController::class,'to_products'])->name('vendor
 Route::get('buyer-offers/{id}', [HomeController::class,'to_buyer_offers'])->name('buyer_offers');
 
 Route::get('product-view/{id}', [HomeController::class,'product_view'])->name('product-view');
+Route::get('offers', [HomeController::class,'to_offers'])->name('all_offers');
+Route::get('search', [HomeController::class,'search'])->name('search');
 
 
 Route::get('wishlist', [HomeController::class,'wish_list'])->name('wish-list')->middleware(['auth']);

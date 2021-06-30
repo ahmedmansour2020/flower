@@ -4,7 +4,10 @@
 <?php 
 use App\Http\Controllers\FavouriteController;
 ?>
-<section class="header-vendor-products">
+@if(isset($from))
+@if($from!='all_offers')
+    <section class="header-vendor-products" style="background-image:url('{{$user->buyer_banner}}')">
+
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3">
@@ -48,26 +51,31 @@ use App\Http\Controllers\FavouriteController;
 
     </div>
 </section>
+@endif
+@endif
 <div class="container">
     <div class="row">
         <div class="col-12">
             <div class="search-bar">
                 <form action="" method="">
-                    <select name="" id="">
+                    <select name="" id="category_id">
                         <option value="" disabled selected>التصنيفات</option>
-                        <option value="">التصنيفات</option>
-                        <option value="">التصنيفات</option>
+                        <option value="" >جميع التصنيفات</option>
+                        @foreach(App\Http\Controllers\CategoryController::get_categories() as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
 
                     </select>
                     <label for="">السعر</label>
-                    <input type="number" placeholder="من">
-                    <input type="number" placeholder="الي">
+                    <input type="number" placeholder="من" id="price_from">
+                    <input type="number" placeholder="الي" id="price_to">
                 </form>
             </div>
         </div>
 
         @foreach($products as $product)
-        <div class="col-sm-6 col-md-4 col-lg-3">
+       
+        <div class="col-sm-6 col-md-4 col-lg-3 productContainer" data-price="{{$product->price}}" data-category="{{$product->category_id}}">
             <div class="box-product">
                 <div class="container-image-product">
                     <a href="{{route('product-view',$product->id)}}">
@@ -87,7 +95,7 @@ use App\Http\Controllers\FavouriteController;
                         </a>
                     </div>
                 </div>
-                dsa
+               
                 <div class="row">
                     <div class="col-6">
                         <div class="name-product">
@@ -118,4 +126,7 @@ use App\Http\Controllers\FavouriteController;
 
 
 
+@endsection
+@section('page_js')
+<script src="{{asset('resources/assets/js/product-filtration.js')}}"></script>
 @endsection

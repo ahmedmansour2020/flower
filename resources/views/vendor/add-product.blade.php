@@ -21,6 +21,14 @@
             <input placeholder="اسم السلعة" type="text" name="name" value="{{$action=='update'?$item->name:''}}">
         </div>
         <div class="form-group">
+            <select placeholder="التصنيف" type="text" name="category" >
+            <option disabled selected>اختر التصنيف</option>
+            @foreach($categories as $category)
+                <option value="{{$category->id}}" @if($action=='update') @if($item->category_id==$category->id) selected @endif @endif>{{$category->name}}</option>
+            @endforeach
+            </select>
+        </div>
+        <div class="form-group">
         <textarea name="description" placeholder="وصف السلعة" >{{$action=='update'?$item->description:''}}</textarea>
         </div>
         <div class="form-group">

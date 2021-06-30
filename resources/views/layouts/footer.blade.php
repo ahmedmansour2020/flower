@@ -10,7 +10,7 @@
                 <h4 class="title-footer">الصفحات</h4>
                 <ul class="list-footer">
                     <li><a href="{{ route('home') }}">الرئسية</a></li>
-                    <li><a href="#">العروض</a></li>
+                    <li><a href="{{route('all_offers')}}">العروض</a></li>
                     <li><a href="#">جديد</a></li>
                 </ul>
             </div>

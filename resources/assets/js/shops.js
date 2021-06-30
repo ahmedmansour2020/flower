@@ -30,7 +30,7 @@ $(document).ready(function() {
                 name: "edit",
                 render: function(d, t, r, m) {
                     return `
-                    <a  class="btn btn-success" href="${admin_url}/byerinfo/${r.id}">تعديل</a>
+                    <a  class="btn btn-success" href="${admin_url}/buyerinfo/${r.id}">تعديل</a>
                     `
                 }
             },

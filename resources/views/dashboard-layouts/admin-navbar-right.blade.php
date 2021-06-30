@@ -27,6 +27,24 @@
                     </div>
                 </div>
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-hcategory">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-category" aria-expanded="false" aria-controls="flush-hcategory">
+                        <img src="{{ URL::asset('resources/assets/images/icon-users.png') }}" alt="">
+                        التصنيفات
+                    </button>
+                </h2>
+                <div id="flush-category" class="accordion-collapse collapse" aria-labelledby="flush-category"
+                    data-bs-parent="#flush-hcategory">
+                    <div class="accordion-body">
+                        <a href="{{ route('category.index')  }}"
+                            class="accordion-body accordion-dropdown {{ request()->segment(1) == 'category' ? 'accordion-active' : '' }}">كل التصنيفات</a>
+                        <a href="{{ route('category.create') }}"
+                            class="accordion-body accordion-dropdown {{ request()->segment(1) == 'category/create' ? 'accordion-active' : '' }}">إضافة</a>
+                    </div>
+                </div>
+            </div>
             <a href="{{ route('setting-pages') }}"
                 class="link-sub-nav {{ request()->segment(1) == 'setting-pages' ? 'active' : '' }}">
                 <div class="sub-nav">

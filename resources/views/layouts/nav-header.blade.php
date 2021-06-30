@@ -6,7 +6,7 @@ use App\Http\Controllers\VisitController;
         <div class="row">
             <div class="col-8">
                 <ul class="list-sub-nav">
-                    <li><a href="#">عروض</a></li>
+                    <li><a href="{{route('all_offers')}}">عروض</a></li>
                     <li><a href="#">جديد        </a></li>
                     <li><a href="{{ route('about-us') }}">من نحن        </a></li>
                     <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactUs">تواصل معنا</a></li>

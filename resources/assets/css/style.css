@@ -366,6 +366,7 @@ body {
     position: absolute;
     top: 19px;
     left: 30px;
+    cursor: pointer;
 }
 
 .navbar-bg-white .nav-item {
@@ -1168,6 +1169,9 @@ li.page-item {
 .header-vendor-products {
     background-color: #F0DFE4;
     padding: 40px 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .list-socials {

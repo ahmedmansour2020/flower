@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\ImageController;
-use App\Http\Resources\ProductResource;
-use App\Models\ItemImage;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\ItemImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\ProductResource;
+use App\Http\Controllers\ImageController;
 
 class ProductController extends Controller
 {
@@ -33,7 +34,8 @@ class ProductController extends Controller
     {
         $title = "إضافة منتج";
         $action = "add";
-        return view('vendor.add-product', compact('title', 'action'));
+        $categories=Category::get();
+        return view('vendor.add-product', compact('title', 'action','categories'));
     }
 
     /**
@@ -52,6 +54,7 @@ class ProductController extends Controller
         $item->qty = $request->qty;
         $item->price = $request->price;
         $item->offer = $request->offer;
+        $item->category_id=$request->category;
         $item->save();
         $util = new ImageController();
         if ($request->hasfile('images')) {
@@ -79,8 +82,9 @@ class ProductController extends Controller
         $title = "تعديل بيانات منتج";
         $action = "update";
         $item = new ProductResource(Product::find($id));
+        $categories=Category::get();
 
-        return view('vendor.add-product', compact('title', 'action', 'item'));
+        return view('vendor.add-product', compact('title', 'action', 'item','categories'));
     }
 
     /**
@@ -109,6 +113,8 @@ class ProductController extends Controller
         $item->qty = $request->qty;
         $item->price = $request->price;
         $item->offer = $request->offer;
+        $item->category_id=$request->category;
+
         $item->save();
         
         if ($request->hasfile('images')) {

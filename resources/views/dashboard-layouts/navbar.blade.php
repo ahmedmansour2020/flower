@@ -3,8 +3,8 @@
         <img src="{{ URL::asset('resources/assets/images/logo.png') }}" class="img-fluid logo" alt="Logo">
     </a>
     <a href="{{ route('home') }}" class="link-home">الرئيسية</a>
-    <form action="" class="search">
-        <input type="text" placeholder="ابحث  عن المنتج الذي تريده">
+    <form action="get" method="{{route('search')}}" class="search">
+        <input type="text" name="word" placeholder="ابحث  عن المنتج الذي تريده">
         <div class="search-icon">
             <img src="{{ URL::asset('resources/assets/images/search.png') }}" class="img-fluid" alt="">
         </div>

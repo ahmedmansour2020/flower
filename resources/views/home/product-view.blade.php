@@ -5,7 +5,7 @@
 <?php 
 use App\Http\Controllers\FavouriteController;
 ?>
-    <section class="header-vendor-products">
+    <section class="header-vendor-products" style="background-image:url('{{$user->buyer_banner}}')">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-3">
@@ -68,7 +68,7 @@ use App\Http\Controllers\FavouriteController;
                         <tr>
                             <td>النوع</td>
                             <td>:</td>
-                            <td>بوكية</td>
+                            <td>{{$product->category}}</td>
                         </tr>
                         <tr>
                             <td>البائع</td>
@@ -78,7 +78,7 @@ use App\Http\Controllers\FavouriteController;
                         <tr>
                             <td>الباقة</td>
                             <td>:</td>
-                            <td>رقم 1</td>
+                            <td>{{$product->name}}</td>
                         </tr>
 
 
