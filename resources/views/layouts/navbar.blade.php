@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-bg-white">
     <a class="navbar-brand" href="{{ route('home') }}">
         <img src="{{ URL::asset('resources/assets/images/logo.png') }}" class="img-fluid logo" alt="Logo">
@@ -31,17 +32,25 @@
         </li>
 
 
+        @auth
+        <?php 
+        $user=auth()->user();
+        ?>
+        @if($user->role_id==null)
         <li class="nav-item dropdown profile-name notifications">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="fas fa-envelope icon-messages"></i>
+                <span>{{App\Http\Controllers\MessageController::unread_msg()}}</span>
             </a>
-
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"> تم تغير
-                        الاسم كما تريد هل ...... </a></li>
+            @foreach(App\Http\Controllers\MessageController::get_all_messages() as $message)
+                <li><a class="dropdown-item open-message @if($message->msg_status==0)  msg-unread @endif" href="#" data-id="{{$message->m_id}}" data-message="{{$message->content}}">{{$message->subject}}</a></li>
+            @endforeach
             </ul>
         </li>
+        @endif
+        @endauth
 
         @guest
         <li class="nav-item btn-login-home">
@@ -52,12 +61,23 @@
         </li>
         @endguest
         @auth
-        <li class="nav-item btn-register-home">
-            <a href="#" class="logout">تسجيل الخروج</a>
+        <?php 
+        $user=auth()->user();
+        ?>
+        <li class="nav-item dropdown profile-name">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{$user->name}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li> <a class="dropdown-item" href="#"><i class="fas fa-user-alt pe-2 "></i> حسابي </a></li>
+        <li >
+            <a href="#" class="logout dropdown-item"><i class="fas fa-sign-out-alt pe-2"></i> تسجيل الخروج</a>
         </li>
+            </ul>
+          </li>
         @endauth
     </ul>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         dir="ltr">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -100,5 +120,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </nav>

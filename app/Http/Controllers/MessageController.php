@@ -134,7 +134,32 @@ class MessageController extends Controller
         }
         return redirect()->back()->with('success', 'تم إرسال الرسالة بنجاح');
     }
+public function home_message(Request $request){
+    $message=new Message();
+    $message->from=Auth::user()->id;
+    $message->subject=$request->subject;
+    $message->content=$request->content;
+    $message->save();
+    $admin=Role::where('name', 'مسئول')->orWhere('name', 'admin')->first();
+    $admin_user=User::where('role_id',$admin->id)->first();
+    $to=new ToMessage();
+    $to->to=$admin_user->id;
+    $to->message_id=$message->id;
+    $to->save();
+    return response()->json([
+        'success' => true,
+    ]);
+}
+public function msg_read(Request $request){
+    $id=$request->id;
+    $message=ToMessage::find($id);
+    $message->status=1;
+    $message->save();
 
+    return response()->json([
+        'success' => true,
+    ]);
+}
     /**
      * Display the specified resource.
      *
@@ -210,5 +235,26 @@ class MessageController extends Controller
         return response()->json([
             'success' => true
         ]);
+    }
+
+    public static function get_all_messages(){
+        $user=Auth::user();
+        if($user){
+            $messages=ToMessage::leftJoin('messages', 'messages.id','message_id')->where('to_messages.to',$user->id)->orderBy('messages.id', 'desc')->orderBy('to_messages.status','asc')->select('to_messages.id as m_id','to_messages.status as msg_status','messages.*')->get();
+            return $messages;
+        }else{
+            return null;
+        }
+    }
+    
+    public static function unread_msg(){
+        $user=Auth::user();
+        if($user){
+            $messages=ToMessage::where('to',$user->id)->where('status',0)->get();
+            return count($messages);
+        }else{
+            return 0;
+        }
+        
     }
 }

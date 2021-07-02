@@ -14,6 +14,20 @@ body {
 }
 
 
+/* framework */
+
+.msg-unread {
+    background: #860d34;
+}
+
+.jconfirm-buttons {
+    width: 100% !important;
+}
+
+
+/* End framework */
+
+
 /* Start home page */
 
 .text-slider {
@@ -64,6 +78,29 @@ body {
     font-size: 24px;
     font-weight: 400;
     border-radius: 5px;
+}
+
+.btn-messages {
+    width: 100%;
+    height: 58px;
+    background: #81A349;
+    border: 1px solid #81A349;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    border-radius: 5px;
+    position: relative;
+}
+
+.btn-messages::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #aaa;
 }
 
 .head-home-page {

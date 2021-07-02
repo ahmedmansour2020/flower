@@ -10,6 +10,10 @@
 <script src="{{ URL::asset('resources/assets/js/search.js') }}"></script>
 
 <script>
-var add_to_favourite="{{route('favourite.store')}}";
+    var add_to_favourite="{{route('favourite.store')}}";
+    var csrf_content='@csrf';
+    var home_message="{{route('home_message')}}" ;
+    var msg_read="{{route('msg_read')}}" ;
 </script>
 <script src="{{asset('resources/assets/js/add_to_favourite.js')}}"></script>
+<script src="{{ URL::asset('resources/assets/js/home-messages.js') }}"></script>

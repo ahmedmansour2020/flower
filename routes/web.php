@@ -101,3 +101,5 @@ Route::get('search', [HomeController::class,'search'])->name('search');
 
 Route::get('wishlist', [HomeController::class,'wish_list'])->name('wish-list')->middleware(['auth']);
 Route::post('delete_favourite/{id}',[FavouriteController::class,'destroy'])->name('delete_favourite')->middleware(['auth']);
+Route::post('home_message',[MessageController::class,'home_message'])->name('home_message')->middleware(['auth']);
+Route::post('msg_read',[MessageController::class,'msg_read'])->name('msg_read')->middleware(['auth']);
