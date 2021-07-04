@@ -14,6 +14,8 @@
     var csrf_content='@csrf';
     var home_message="{{route('home_message')}}" ;
     var msg_read="{{route('msg_read')}}" ;
+    var user_link="{{route('register')}}";
+    var buyer_link="{{route('register_buyer')}}";
 </script>
 <script src="{{asset('resources/assets/js/add_to_favourite.js')}}"></script>
 <script src="{{ URL::asset('resources/assets/js/home-messages.js') }}"></script>

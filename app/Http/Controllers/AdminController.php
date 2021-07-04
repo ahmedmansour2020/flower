@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -15,7 +17,7 @@ class AdminController extends Controller
         $title = 'كل المتاجر';
         if (request()->ajax()) {
             $buyer = Role::where('name', 'بائع')->orWhere('name', 'buyer')->first();
-            $shops = User::where('role_id', $buyer->id)->orderBy('id', 'desc')->get();
+            $shops = User::where('role_id', $buyer->id)->select('users.*',DB::raw('date(membership_date_to) as membership_date_to'))->orderBy('id', 'desc')->get();
             return datatables()->of($shops)->addIndexColumn()->make(true);
         }
         return view('admin/show/all-shops', compact('title'));
@@ -26,6 +28,8 @@ class AdminController extends Controller
         $user = User::find($id);
         if ($user->membership_status == 0) {
             $user->membership_status = 1;
+            $user->membership_date_from=date('Y-m-d H:i:s');
+            $user->membership_date_to=date('Y-m-d H:i:s', strtotime('+1 years'));;
         } else {
             $user->membership_status = 0;
         }
@@ -109,5 +113,34 @@ class AdminController extends Controller
             'success' => true,
         ]);
         
+    }
+    public function statistics(){
+        $title='احصائيات';
+        $buyer=Role::where('name', 'بائع')->orWhere('name', 'buyer')->first();
+        $shops=count(User::where('role_id',$buyer->id)->where('status',1)->get());
+        $products=count(Product::get());
+        return view('admin/show/statistics',compact('shops','products','title'));
+    }
+
+    public function change_password(Request $request){
+        $password=$request->password;
+        $id=$request->id;
+
+        $user=User::find($id);
+        $user->password=Hash::make($password);
+        $user->save();
+
+        return response()->json([
+            'success'=>true,
+        ]);
+    }
+    public static function change_buyer_membership_status_auto(){
+        $date=date('Y-m-d');
+        $users=User::where('membership_status',1)->where(DB::raw('date(membership_date_to)'),'<',$date)->get();
+        foreach($users as $item){
+            $user=User::find($item->id);
+            $user->membership_status=0;
+            $user->save();
+        }
     }
 }

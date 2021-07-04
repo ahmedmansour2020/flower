@@ -67,22 +67,7 @@
     </style>
 @endsection
 @section('content')
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success w-100 text-center">
-                {{ $message }}
-                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-        @endif
-        @if ($message = Session::get('alert'))
-            <div class="alert alert-danger w-100 text-center">
-                {{ $message }}
-                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-        @endif
+      
         <div class="row">
             <div class="col-sm-12 col-md-12">
                 <div class="section-search-product mt-5">

@@ -20,7 +20,7 @@ class BuyerMiddleware
     {
         $buyer=Role::where('name', 'بائع')->orWhere('name', 'buyer')->first();
         $user=Auth::user();
-        if($user->role_id==$buyer->id){
+        if($user->role_id==$buyer->id&&$user->status>0){
             return $next($request);
         }else{
             return redirect()->route('home');

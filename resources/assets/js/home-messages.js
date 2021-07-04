@@ -90,4 +90,25 @@ $(document).ready(function() {
             }
         })
     })
+
+    $(document).on('click', '.register', function(e) {
+        e.preventDefault();
+        $.confirm({
+            title: false,
+            content: `
+            <br>
+            <h3 class="w-100 text-center">تسجيل جديد كـ</h3>
+            <br>
+            <div class="row w-100">
+            <div class="col-6">
+            <a class="btn btn-primary w-100 " href="${buyer_link}">تاجر</a>
+            </div>
+            <div class="col-6">
+            <a class="btn btn-outline-primary w-100" href="${user_link}">مستخدم</a>
+            </div>
+            </div>
+            `,
+            buttons: false,
+        })
+    })
 })

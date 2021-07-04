@@ -34,7 +34,7 @@ $(document).ready(function() {
                 name: "edit",
                 render: function(d, t, r, m) {
                     return `
-                    <a  class="btn btn-success" href="${admin_url}/buyerinfo/${r.id}">تعديل</a>
+                    <button  class="btn btn-success change-password" data-id="${r.id}" data-name="${r.name}" type="button">تعديل كلمة المرور</button>
                     `
                 }
             },
@@ -86,6 +86,81 @@ $(document).ready(function() {
                     btnClass: 'btn btn-danger',
                 }
             }
+        })
+    })
+    $(document).on('click', '#confirmation', function() {
+        var id = $(this).data('id');
+        if ($('#password').val() == $('#confirm-password').val() && $('#password').val() != "" && $('#confirm-password').val() != "") {
+            $('.password-alarm').addClass('hidden');
+            var data = {
+                "_token": $('meta[name="csrf-token"]').attr('content'),
+                "id": id,
+                "password": $('#password').val(),
+            };
+            $.post(change_password, data, function(response) {
+                if (response.success) {
+                    $('.jconfirm-closeIcon').click();
+                    $.alert('تم تغيير كلمة المرور بنجاح')
+                }
+            })
+        } else if ($('#password').val() != $('#confirm-password').val()) {
+            $('.password-alarm').removeClass('hidden');
+            $('.password-alarm').text('كلمة المرور غير متطابقة');
+
+        } else if ($('#password').val() == "" || $('#confirm-password').val() == "") {
+            $('.password-alarm').removeClass('hidden');
+            $('.password-alarm').text('برجاء كتابة كلمة المرور');
+
+        }
+    })
+    $(document).on('click', '.change-password', function() {
+        var id = $(this).data('id');
+        var name = $(this).data('name');
+        var content = `
+        <div class="row px-2 text-right w-100">
+        <div class="col-12 form-group">
+        <label>كلمة المرور الجديدة</label>
+        <input type="password" id="password" class="form-control">
+        </div>
+        <div class="col-12 mt-2 form-group">
+        <label>تأكيد كلمة المرور </label>
+        <input type="password" id="confirm-password" class="form-control">
+        </div>
+        <div class="col-12 mt-2 text-danger hidden password-alarm">
+        
+        </div>
+        <div class="col-12 my-2 text-center">
+        <button class="btn btn-primary" data-id="${id}" type="button" id="confirmation">تأكيد</button>
+        </div>
+        </div>
+        
+        `
+        $.confirm({
+            title: "تغيير كلمة مرور" + ` ${name}`,
+            content: content,
+            buttons: false,
+            // buttons: {
+            //     'تأكيد': {
+            //         btnClass: 'btn btn-primary',
+            //         action: function() {
+            //             if ($('#password').val() == $('#confirm-password').val()) {
+            //                 $('.password-alarm').addClass('hidden');
+
+            //                 console.log($('#password').val());
+            //                 console.log($('#confirm-password').val());
+            //             } else {
+            //                 $('.password-alarm').removeClass('hidden');
+
+            //             }
+            //         }
+            //     },
+            //     'إلغاء': {
+            //         btnClass: 'btn btn-danger',
+            //         action: function() {
+
+            //         }
+            //     }
+            // }
         })
     })
 })

@@ -51,10 +51,10 @@
 
         @guest
         <li class="nav-item btn-login-home">
-            <a href="{{ route('login-data') }}">تسجيل الدخول</a>
+            <a href="{{ route('login') }}">تسجيل الدخول</a>
         </li>
         <li class="nav-item btn-register-home">
-            <a href="{{ route('register') }}">حساب جديد</a>
+            <a href="#" class="register">حساب جديد</a>
         </li>
         @endguest
         @auth
@@ -151,16 +151,17 @@
                     </ul>
                 </li>
 
-
+                @auth
+                    <?php $user = auth()->user(); ?>
+                @if ($user->role_id!=1)
                 <li class="nav-item favorite ">
                     <a class="nav-link" href="{{ route('wish-list') }}" role="button">
                         <img src="{{ URL::asset('resources/assets/images/valentines-heart.png') }}" alt="">
                     </a>
                 </li>
+                @endif
 
 
-                @auth
-                    <?php $user = auth()->user(); ?>
                     @if ($user->role_id == null)
                         <li class="nav-item dropdown profile-name notifications">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -182,10 +183,11 @@
 
                 @guest
                     <li class="nav-item btn-login-home">
-                        <a href="{{ route('login-data') }}">تسجيل الدخول</a>
+                        <a href="{{ route('login') }}">تسجيل الدخول</a>
                     </li>
                     <li class="nav-item btn-register-home">
-                        <a href="{{ route('register') }}">حساب جديد</a>
+                    <a href="#" class="register">حساب جديد</a>
+
                     </li>
                 @endguest
                 @auth
@@ -196,7 +198,7 @@
                             {{ $user->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li> <a class="dropdown-item" href="#"><i class="fas fa-user-alt pe-2 "></i> حسابي </a></li>
+                            <li> <a class="dropdown-item" href="{{$user->role_id==1?route('admin'):($user->role_id==2?route('buyer'):'')}}"><i class="fas fa-user-alt pe-2 "></i> حسابي </a></li>
                             <li>
                                 <a href="#" class="logout dropdown-item"><i class="fas fa-sign-out-alt pe-2"></i> تسجيل
                                     الخروج</a>
@@ -209,3 +211,4 @@
         </div>
     </div>
 </nav>
+

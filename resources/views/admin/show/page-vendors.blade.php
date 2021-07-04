@@ -3,6 +3,12 @@
 @section('content')
 @section('page_css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css"/>
+<style>
+.jconfirm-closeIcon{
+  right:unset !important;
+  left:10px !important;
+}
+</style>
 @endsection
     <table id="{{$type}}" class="table-management table-responsive products w-100 dataTable no-footer" id="datatable-activated" role="grid"
         style="width: 1352px;">

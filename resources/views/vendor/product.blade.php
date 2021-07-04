@@ -5,10 +5,11 @@
     <div class="row">
         <div class="col-12">
             <div class="search-products overflow-hidden">
-                <select name="" id="" class="categories">
+                <select name="" id="category_id" class="categories">
                     <option value="" selected disabled>التصنيفات</option>
-                    <option value="">بوكيهات</option>
-                    <option value="">بالونات</option>
+                    @foreach(App\Http\Controllers\CategoryController::get_categories() as $c)
+                        <option value="{{$c->id}}" @if($category!=null) @if($category==$c->id) selected @endif @endif>{{$c->name}}</option>
+                    @endforeach
                 </select>
                 <div class="form-group d-inline-block">
                     <a href="{{ route('product.create') }}" class="btn btn-add-product">اضافة منتج</a>

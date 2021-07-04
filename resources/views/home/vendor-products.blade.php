@@ -32,15 +32,15 @@ use App\Http\Controllers\FavouriteController;
 
                 </div>
                 <ul class="list-socials">
-                    @if($user->buyer_snapshat)<li><a target="_blank" href="//{{$user->buyer_snapshat}}"><i
+                    @if($user->buyer_snapshat)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_snapshat))}}"><i
                                 class="fab fa-snapchat-square"></i></a></li>@endif
-                    @if($user->buyer_twitter)<li><a target="_blank" href="//{{$user->buyer_twitter}}"><i
+                    @if($user->buyer_twitter)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_twitter))}}"><i
                                 class="fab fa-twitter"></i></a></li>@endif
-                    @if($user->buyer_instagram)<li><a target="_blank" href="//{{$user->buyer_instagram}}"><i
+                    @if($user->buyer_instagram)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_instagram))}}"><i
                                 class="fab fa-instagram-square"></i></a></li>@endif
-                    @if($user->buyer_whatsapp)<li><a target="_blank" href="//{{$user->buyer_whatsapp}}"><i
+                    @if($user->buyer_whatsapp)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_whatsapp))}}"><i
                                 class="fab fa-whatsapp"></i></a></li>@endif
-                    @if($user->buyer_facebook)<li><a target="_blank" href="//{{$user->buyer_facebook}}"><i
+                    @if($user->buyer_facebook)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_facebook))}}"><i
                                 class="fab fa-facebook-square"></i></a></li>@endif
                 </ul>
                 @if(!isset($from))
@@ -59,7 +59,6 @@ use App\Http\Controllers\FavouriteController;
             <div class="search-bar">
                 <form action="" method="">
                     <select name="" id="category_id">
-                        <option value="" disabled selected>التصنيفات</option>
                         <option value="" >جميع التصنيفات</option>
                         @foreach(App\Http\Controllers\CategoryController::get_categories() as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>

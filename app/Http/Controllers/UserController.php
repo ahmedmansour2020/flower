@@ -17,7 +17,8 @@ class UserController extends Controller
     }
     public function register_1()
     {
-        return view('auth.register-1');
+        $title="إكمال بيانات المتجر";
+        return view('auth.register-1',compact('title'));
     }
     public function edit_user_data()
     {$title = "بيانات المتجر";
@@ -66,7 +67,7 @@ class UserController extends Controller
         if (request('edit')) {
             return redirect()->back()->with('success', 'تم حفظ البيانات بنجاح');
         } else {
-            return redirect()->route('home')->with('success', 'تم حفظ البيانات بنجاح');
+            return redirect()->route('buyer')->with('success', 'تم حفظ البيانات بنجاح');
         }
     }
     public static function get_role_id($role = null)

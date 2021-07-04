@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    $(document).on('change', '#category_id', function() {
+        window.location.href = "?category=" + $(this).val()
+    })
+
+
     $(document).on('click', '.remove', function(e) {
         var id = $(this).data('id');
         e.preventDefault();

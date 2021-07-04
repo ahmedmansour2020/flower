@@ -42,7 +42,7 @@ Route::resource('favourite', FavouriteController::class);
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/',function(){
         return redirect()->route('all-shops');
-    });
+    })->name('admin');
     Route::resource('category',CategoryController::class);
     Route::get('all-shops', [AdminController::class, 'all_shops'])->name('all-shops');
     Route::post('change_buyer_membership_status', [AdminController::class, 'change_buyer_membership_status'])->name('change_buyer_membership_status');
@@ -63,12 +63,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::post('/settings/slider/delete/image', [SettingController::class, 'slider_delete_image'])->name('slider_delete_image');
     Route::post('/change_slider_status', [SettingController::class, 'change_slider_status'])->name('change_slider_status');
 
+    Route::post('change_password',[AdminController::class, 'change_password'])->name('change_password');
+
 });
 Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function () {
     Route::resource('product', ProductController::class);
     Route::get('/',function(){
         return redirect()->route('store-data');
-    });
+    })->name('buyer');
     Route::post('delete/product', [ProductController::class, 'destroy'])->name('delete.product');
     Route::get('store-data', [UserController::class, 'edit_user_data'])->name('store-data');
     Route::get('login-data', [UserController::class, 'user_info'])->name('login-data');
@@ -81,9 +83,7 @@ Route::get('writing-messages', [MessageController::class,'create'])->name('writi
 // })->name('page-users');
 
 
-Route::get('statistics', function () {
-    return view('admin/show/statistics');
-})->name('statistics');
+Route::get('statistics', [AdminController::class, 'statistics'])->name('statistics');
 
 Route::get('incoming-mail?mail-messages=new', [MessageController::class,'index'])->name('mail-messages')->middleware(['auth']);
 Route::get('incoming-mail',[MessageController::class,'index'])->name('incoming-mail')->middleware(['auth']);

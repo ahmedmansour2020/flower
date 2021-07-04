@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+App\Http\Controllers\AdminController::change_buyer_membership_status_auto();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -15,6 +17,7 @@
     var slider_delete_image = "{{route('slider_delete_image')}}";
     var change_slider_status = "{{route('change_slider_status')}}";
     var language = "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Arabic.json";
+ 
     </script>
 </head>
 
@@ -23,21 +26,27 @@
         @csrf
         <button type="submit" id="logout"></button>
     </form>
-    @include("dashboard-layouts.navbar")
+    @include("layouts.navbar")
+
     <div class="container-fluid">
         <div class="row">
+      
+    
             <div class="col-sm-12 col-md-12 col-lg-3 ">
                 @include('dashboard-layouts.navbar-right')
             </div>
+           
             <div class="col-sm-12 col-md-12 col-lg-9">
                 <div>
                     @if ($message = Session::get('success'))
-                    <div class="alert alert-success w-100 text-center ">
+                    
+                    <div class="alert alert-success alert-dismissible fade show text-center" role="alert" dir="rtl">
                         {{ $message }}
-                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="left:0 !important;right:unset !important">
+                    
                         </button>
                     </div>
+                    
                     @endif
                     @if ($message = Session::get('alert'))
                     <div class="alert alert-danger w-100 text-center ">
@@ -68,6 +77,7 @@
                     </div><br />
                     @endif
                 </div>
+                
                 @yield('content')
             </div>
 

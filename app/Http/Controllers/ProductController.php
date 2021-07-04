@@ -21,8 +21,14 @@ class ProductController extends Controller
     {
         $title = "منتجاتي";
         $user = Auth::user();
-        $products=Product::where('user_id',$user->id)->orderBy('id','desc')->paginate(4);
-        return view('vendor.product', compact('title','products'));
+        $category=null;
+        if(isset($_GET['category'])){
+            $category=$_GET['category'];
+            $products=Product::where('user_id',$user->id)->where('category_id',$_GET['category'])->orderBy('id','desc')->paginate(4);
+        }else{
+            $products=Product::where('user_id',$user->id)->orderBy('id','desc')->paginate(4);
+        }
+        return view('vendor.product', compact('title','products','category'));
     }
 
     /**

@@ -142,7 +142,7 @@ class HomeController extends Controller
     }
     public function product_view($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::leftJoin('users', 'users.id','user_id')->where('membership_status',1)->where('products.id',$id)->firstOrFail();
         $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
         $product->image = asset('uploaded/' . $image->name);
         $title = $product->name;

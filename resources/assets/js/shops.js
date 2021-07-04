@@ -55,12 +55,14 @@ $(document).ready(function() {
                 }
             },
             {
-                data: "membership",
-                name: "membership",
+                data: "membership_date_to",
+                name: "membership_date_to",
                 render: function(d, t, r, m) {
-                    return `
-                   باقي شهر على الاشتراك
-                    `
+                    if (r.membership_status == 1) {
+                        return d;
+                    } else {
+                        return null;
+                    }
                 }
             },
 
