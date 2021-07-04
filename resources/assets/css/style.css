@@ -35,10 +35,9 @@ body {
     right: 300px;
 }
 
-.text-slider h3 {
+.text-header-slider {
     font-size: 55px;
     font-weight: 700;
-    color: #ffffff;
     margin-bottom: 25px;
 }
 
@@ -50,14 +49,9 @@ body {
     line-height: 2;
 }
 
-.text-slider button {
-    background: #81A349;
-    border: 1px solid #81A349;
-    width: 100px;
-    height: 47px;
+.text-slider .button {
     border-radius: 5px;
     font-size: 20px;
-    color: #ffffff;
     font-weight: 400;
 }
 
@@ -240,7 +234,7 @@ body {
     font-size: 20px;
     font-weight: 700;
     color: #e80808;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     text-decoration: none !important;
     display: inline-block;
     transition: all 0.2s ease-in-out;
@@ -273,7 +267,7 @@ body {
     -moz-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
-    margin-bottom: 75px;
+    margin-bottom: 30px;
 }
 
 .fixed-style-btn:hover {
@@ -355,11 +349,12 @@ body {
 }
 
 .navbar-bg-white .navbar-brand {
-    width: 10% !important;
+    width: 5% !important;
+    margin-left: 20px;
 }
 
 .navbar .logo {
-    width: 43%;
+    width: 100%;
 }
 
 .link-home {
@@ -373,7 +368,7 @@ body {
 
 .search {
     position: relative;
-    width: 45%;
+    width: 65%;
 }
 
 .search input {
@@ -413,7 +408,7 @@ body {
 }
 
 .navbar-bg-white .nav-item:first-of-type {
-    margin-right: 50px;
+    margin-top: 9px;
 }
 
 .notifications .dropdown-toggle::after,
@@ -504,6 +499,14 @@ body {
     font-weight: 700;
     font-size: 17px;
     border-radius: 5px;
+}
+
+ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
+    margin-right: 0 !important;
+}
+
+li.nav-item.dropdown.notifications {
+    margin-top: 8px;
 }
 
 

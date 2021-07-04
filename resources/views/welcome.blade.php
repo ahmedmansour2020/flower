@@ -29,10 +29,10 @@
         <div class="carousel-item position-relative @if($loop->first) active @endif">
             <div class="slider-container"  style="background-image:url('{{$slider->image}}')">
             <div class="text-slider position-absolute">
-                <div style="color:{{$color}}">{{$slider->content}}</div>
+                <div style="color:{{$color}}" class="text-header-slider">{{$slider->content}}</div>
                 @if($slider->url!=null)
                 <a style="font-size:20px;font-weight:700;background:{{$button_color}}"
-                    class="btn {{$slider->button_font}} px-5 py-2"
+                    class="btn {{$slider->button_font}} button px-5 py-2"
                     href="//{{$slider->url}}">{{$slider->button_title??'اضغط هنا'}}</a>
                 @endif
             </div>
@@ -65,7 +65,7 @@
             <div class="search-bar">
                 <form action="" method="">
                     <div class="row filter-location">
-                        <div class="col-2">
+                        <div class="col-sm-6 col-md-4 col-lg-2">
                             <select name="" id="">
                                 <option value="" disabled selected>المدينه</option>
                                 <option value="">التصنيفات</option>
@@ -73,7 +73,7 @@
 
                             </select>
                         </div>
-                        <div class="col-2">
+                        <div class="col-sm-6 col-md-4 col-lg-2">
                             <select name="" id="">
                                 <option value="" disabled selected>الحى</option>
                                 <option value="">التصنيفات</option>
@@ -81,7 +81,7 @@
 
                             </select>
                         </div>
-                        <div class="col-2">
+                        <div class="col-sm-6 col-md-4 col-lg-2">
                             <select name="" id="">
                                 <option value="" disabled selected>التصنيفات</option>
                                 <option value="">التصنيفات</option>
@@ -89,7 +89,7 @@
 
                             </select>
                         </div>
-                        <div class="col-4">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="filte-price">
                                 <label for="">السعر</label>
                                 <input type="number" placeholder="من">
@@ -98,7 +98,7 @@
 
 
                         </div>
-                        <div class="col-2">
+                        <div class="col-sm-12 col-md-6 col-lg-2">
                             <div class="btn-map">
                                 <button type="button">الخرائط</button>
                             </div>
