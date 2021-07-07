@@ -66,22 +66,24 @@
                 <form action="" method="">
                     <div class="row filter-location">
                         <div class="col-sm-6 col-md-4 col-lg-2">
-                            <select name="" id="">
+                            <select name="" id="city">
                                 <option value="" disabled selected>المدينه</option>
-                                <option value="">التصنيفات</option>
-                                <option value="">التصنيفات</option>
+                                @foreach(App\Http\Controllers\LocationController::getCities() as $city)
+                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                @endforeach
 
                             </select>
                         </div>
                         <div class="col-sm-6 col-md-4 col-lg-2">
-                            <select name="" id="">
+                            <select name="" id="area">
                                 <option value="" disabled selected>الحى</option>
                                 <option value="">التصنيفات</option>
                                 <option value="">التصنيفات</option>
 
                             </select>
                         </div>
-                        <div class="col-sm-6 col-md-4 col-lg-2">
+
+                        <!-- <div class="col-sm-6 col-md-4 col-lg-2">
                             <select name="" id="">
                                 <option value="" disabled selected>التصنيفات</option>
                                 <option value="">التصنيفات</option>
@@ -102,7 +104,8 @@
                             <div class="btn-map">
                                 <button type="button">الخرائط</button>
                             </div>
-                        </div>
+                        </div> -->
+
                     </div>
 
                 </form>
@@ -111,10 +114,10 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h2 class="head-home-page">جميع المتاجر</h2>
+            <h2 class="head-home-page" id="shops-title">جميع المتاجر</h2>
         </div>
             @foreach ($all_buyers as $buyer)
-        <div class="col-sm-12 col-md-12 col-lg-6 box-home-shops">
+        <div class="col-sm-12 col-md-12 col-lg-6 box-home-shops shops-container" data-city="{{$buyer->city_id}}" data-area="{{$buyer->area_id}}">
             <div class="row">
                 <div class="col-6 ps-0">
                 <a href="{{route('vendor-products',$buyer->id)}}">
@@ -167,15 +170,15 @@
 
 @section('page_js')
 <script>
-var message = `{{$message}}`;
-var success_img = "{{ asset('resources/assets/images/done.png') }}";
+    var message = `{{$message}}`;
+    var success_img = "{{ asset('resources/assets/images/done.png') }}";
 var change_message_status = "{{route('change_message_status')}}";
 </script>
 <script src="{{asset('resources/assets/js/buyer_message.js')}}"></script>
 <script>
-$('.carousel').carousel();
-$('.carousel').carousel({
-    interval: 5000
+    $('.carousel').carousel();
+    $('.carousel').carousel({
+        interval: 5000
 });
 .carousel('pause');
 .carousel('cycle');
@@ -187,4 +190,5 @@ myModal.addEventListener('shown.bs.modal', function() {
     myInput.focus()
 })
 </script>
+<script src="{{asset('resources/assets/js/cities.js')}}"></script>
 @endsection
