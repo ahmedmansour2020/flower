@@ -18,10 +18,11 @@ class NotificationController extends Controller
     public function getNotifications(Request $request){
         $user=Auth::user();
         $n=Notification::where('user_id',$user->id)->orderBy('id','desc')->orderBy('status','asc')->get();
-        
+        $count=count(Notification::where('user_id',$user->id)->where('status',0)->get());
         return response()->json([
             'success'=>true,
-            'notifications'=>$n
+            'notifications'=>$n,
+            'count'=>$count
         ]);
     }
     public function read_notifications(Request $request){

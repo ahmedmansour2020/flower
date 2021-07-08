@@ -23,6 +23,7 @@
                     <a id="notification_btn" class="nav-link notifications dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ URL::asset('resources/assets/images/notifications.png') }}" alt="">
+                        <span id="notification_count"></span>
                     </a>
 
                     <ul id="notifications" class="dropdown-menu" aria-labelledby="navbarDropdown">
