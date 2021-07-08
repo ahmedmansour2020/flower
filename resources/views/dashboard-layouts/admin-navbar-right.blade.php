@@ -28,6 +28,24 @@
                 </div>
             </div>
             <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne1">
+                        <img src="{{ URL::asset('resources/assets/images/icon-users.png') }}" alt="">
+                        الأحياء
+                    </button>
+                </h2>
+                <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <a href="{{ route('areas') }}"
+                            class="accordion-body accordion-dropdown {{ request()->segment(1) == 'areas' ? 'accordion-active' : '' }}">الأحياء</a>
+                        <a href="{{ route('area.create') }}"
+                            class="accordion-body accordion-dropdown {{ request()->segment(1) == 'area/create' ? 'accordion-active' : '' }}">إضافة</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-hcategory">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#flush-category" aria-expanded="false" aria-controls="flush-hcategory">

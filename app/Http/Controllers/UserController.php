@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\NotificationController;
 
 class UserController extends Controller
 {
@@ -69,6 +70,9 @@ class UserController extends Controller
         if (request('edit')) {
             return redirect()->back()->with('success', 'تم حفظ البيانات بنجاح');
         } else {
+            $admin = Role::where('name', 'مسئول')->orWhere('name', 'admin')->first();
+            $admin_user = User::where('role_id',$admin->id)->first();
+            NotificationController::add_notification($admin_user->id,'تم تسجيل '.$user->buyer_name. ' تاجر جديد',route('all-shops'));
             return redirect()->route('buyer')->with('success', 'تم حفظ البيانات بنجاح');
         }
     }

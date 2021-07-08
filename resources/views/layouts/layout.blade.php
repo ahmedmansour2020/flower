@@ -15,7 +15,10 @@ App\Http\Controllers\AdminController::change_buyer_membership_status_auto();
     <title>@yield('title')</title>
     @include('layouts.header')
     @yield('page_css')
+<script>
+    var home_url = "{{route('home')}}";
 
+</script>
 </head>
 
 <body>
