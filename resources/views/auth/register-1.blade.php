@@ -39,12 +39,14 @@
                             class="required mr-2 text-danger">*</span>
                     </div>
                     <div class="form-group">
-                        <select name="" id="">
-                            <option value="" selected disabled>المدينة</option>
+                        <select name="city_id" id="city_id">
+                        @foreach(App\Http\Controllers\LocationController::getCities() as $city)
+                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <select name="" id="">
+                        <select name="area_id" id="area_id">
                             <option value=""selected disabled>الحي</option>
                         </select>
                     </div>
@@ -77,5 +79,10 @@
         </div>
     </div> -->
 
+    @endsection
+    @section('page_js')
+    <script>
+    var type="0";
+    </script>
     @endsection
 

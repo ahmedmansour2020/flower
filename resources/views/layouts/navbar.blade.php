@@ -20,14 +20,13 @@
                 @auth
 
                 <li class="nav-item dropdown notifications">
-                    <a class="nav-link notifications dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a id="notification_btn" class="nav-link notifications dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ URL::asset('resources/assets/images/notifications.png') }}" alt="">
                     </a>
 
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li> <a class="dropdown-item" href="#">تم التسجيل في الموقع بنجاح</a> </li>
-                        <li> <a class="dropdown-item" href="#">تم التسجيل في الموقع بنجاح</a> </li>
+                    <ul id="notifications" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        
                     </ul>
                 </li>
 

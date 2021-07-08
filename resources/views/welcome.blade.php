@@ -77,9 +77,6 @@
                         <div class="col-sm-6 col-md-4 col-lg-2">
                             <select name="" id="area">
                                 <option value="" disabled selected>الحى</option>
-                                <option value="">التصنيفات</option>
-                                <option value="">التصنيفات</option>
-
                             </select>
                         </div>
 
@@ -170,6 +167,7 @@
 
 @section('page_js')
 <script>
+var type=0;
     var message = `{{$message}}`;
     var success_img = "{{ asset('resources/assets/images/done.png') }}";
 var change_message_status = "{{route('change_message_status')}}";

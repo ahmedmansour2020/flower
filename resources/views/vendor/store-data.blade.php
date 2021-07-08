@@ -34,6 +34,18 @@
 
         </div>
         <div class="form-group">
+                        <select name="city_id" id="city_id">
+                        @foreach(App\Http\Controllers\LocationController::getCities() as $city)
+                                <option value="{{$city->id}}" @if($user->city_id==$city->id) selected @endif>{{$city->name}}</option>
+                                @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="area_id" id="area_id">
+                            <option value=""selected disabled>الحي</option>
+                        </select>
+       </div>
+        <div class="form-group">
             <input type="text" placeholder="الواتس اب" name="buyer_whatsapp" value="{{$user->buyer_whatsapp}}">
 
         </div>
@@ -64,4 +76,11 @@
 </div>
 
 
+
 @endsection
+    @section('page_js')
+    <script>
+    var type="1";
+    var selected_area="{{$user->area_id}}";
+    </script>
+    @endsection
