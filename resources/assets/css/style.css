@@ -25,6 +25,55 @@ body {
 }
 
 
+/* Style pagination */
+
+.pagination .previous,
+.pagination .next {
+    width: 80px;
+    background: transparent;
+    border: 1px solid;
+    border-radius: 6px;
+    height: 40px;
+    padding-top: 7px;
+    text-align: center;
+}
+
+.pagination .previous a,
+.pagination .next a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+}
+
+li.paginate_button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 10px;
+    padding-top: 7px;
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+li.paginate_button a {
+    color: #000;
+    text-decoration: none;
+}
+
+li.paginate_button:hover,
+li.paginate_button .active {
+    background: #b31d4d;
+}
+
+li.paginate_button:hover a,
+li.paginate_button .active a {
+    color: #fff;
+}
+
+
 /* End framework */
 
 
@@ -547,7 +596,7 @@ li.nav-item.dropdown.notifications {
 
 #accordionFlushExample button {
     text-decoration: none;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 700;
     color: #000000;
     transition: all 0.3s ease-in-out;
@@ -594,6 +643,7 @@ li.nav-item.dropdown.notifications {
 /* Start register-1 page */
 
 .create-acc-vendor .form-group input,
+.create-acc-vendor .form-group select,
 .form-upload input,
 .add-product .form-group input,
 .select-recipient {
@@ -612,6 +662,10 @@ li.nav-item.dropdown.notifications {
     font-weight: 400;
     color: #a8a8a8;
     margin-left: 5px;
+}
+
+.create-acc-vendor .form-group input::placeholder {
+    color: #a8a8a8 !important;
 }
 
 .create-acc-vendor h2 {
@@ -680,7 +734,7 @@ aside {
 
 .sub-nav {
     text-decoration: none;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 700;
     color: #000000;
     transition: all 0.3s ease-in-out;

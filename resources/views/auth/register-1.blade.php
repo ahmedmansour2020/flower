@@ -39,6 +39,19 @@
                             class="required mr-2 text-danger">*</span>
                     </div>
                     <div class="form-group">
+                        <select name="" id="">
+                            <option value="" selected disabled>المدينة</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="" id="">
+                            <option value=""selected disabled>الحي</option>
+                        </select>
+                    </div>
+                    
+                    
+                    
+                    <div class="form-group">
                         <input type="text" placeholder="الواتس اب" name="buyer_whatsapp">
                     </div>
                     <div class="form-group">
@@ -53,9 +66,9 @@
                     <div class="form-group">
                         <input type="text" placeholder="الفيس بوك" name="buyer_facebook">
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <input type="text" placeholder="تيك توك" name="buyer_tiktok">
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <button type="submit" class="btn fixed-style-btn w-25 m-auto mb-3 mt-2">حفظ</button>
                     </div>

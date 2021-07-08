@@ -27,7 +27,7 @@
         </tbody>
     </table>
 
-    <div class="col-12">
+    {{-- <div class="col-12">
         <nav aria-label="Page navigation example" class="nav-pagination">
             <ul class="pagination">
               <li class="page-item">
@@ -47,7 +47,7 @@
               </li>
             </ul>
           </nav>
-    </div>
+    </div> --}}
 
 
 
