@@ -20,7 +20,17 @@ $(document).ready(function() {
             "_token": $('meta[name="csrf-token"]').attr('content'),
             "id": id,
         };
+
         $.post(msg_read, data, function(response) {
+            if ($(item).hasClass('msg-unread')) {
+
+                var counter = $('#counter_messages').text();
+                if (counter == 1 || counter == 0) {
+                    $('#counter_messages').addClass('hidden');
+                } else {
+                    $('#counter_messages').text(--counter);
+                }
+            }
             $(item).removeClass('msg-unread');
         })
         $.confirm({
@@ -111,4 +121,10 @@ $(document).ready(function() {
             buttons: false,
         })
     })
+    var $counter_messages = $('#counter_messages');
+
+    if ($('#counter_messages').html() > 0) {
+        $('#counter_messages').css({ "display": "block" });
+    }
+
 })

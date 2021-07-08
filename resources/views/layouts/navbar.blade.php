@@ -42,16 +42,15 @@
 
 
                 @if ($user->role_id == null)
-                <li class="nav-item dropdown profile-name notifications">
+                <li class="nav-item dropdown profile-name notifications iconMessage">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-envelope icon-messages"></i>
-                        <span>{{ App\Http\Controllers\MessageController::unread_msg() }}</span>
+                        <span class="count_messages" id="counter_messages">{{ App\Http\Controllers\MessageController::unread_msg() }}</span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach (App\Http\Controllers\MessageController::get_all_messages() as $message)
-                        <li><a class="dropdown-item open-message @if ($message->msg_status
-                                            == 0) msg-unread @endif" href="#" data-id="{{ $message->m_id }}"
+                        <li><a class="dropdown-item open-message @if ($message->msg_status == 0) msg-unread @endif" href="#" data-id="{{ $message->m_id }}"
                                 data-message="{{ $message->content }}">{{ $message->subject }}</a></li>
                         @endforeach
                     </ul>
