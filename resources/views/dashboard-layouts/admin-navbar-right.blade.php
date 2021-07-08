@@ -86,14 +86,17 @@
                         data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                         <img src="{{ URL::asset('resources/assets/images/icon-mail.png') }}" alt="">
                         البريد
+                        <span class="nav-messages"  style="left:15%;top:50% !important;transform:translateY(-50%) !important">{{ App\Http\Controllers\MessageController::unread_msg() }}</span>
                     </button>
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                     data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <a href="{{ route('mail-messages') }}"
-                            class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'incoming-mail?mail-messages=new' ? 'accordion-active' : '' }}">رسائل
-                            جديده</a>
+                            class="accordion-body accordion-dropdown position-relative  {{ request()->segment(1) == 'incoming-mail?mail-messages=new' ? 'accordion-active' : '' }}">رسائل
+                            جديده
+                            <span class="nav-messages"  style="top:50% !important;transform:translateY(-50%) !important">{{ App\Http\Controllers\MessageController::unread_msg() }}</span>
+                        </a>
                         <a href="{{ route('incoming-mail') }}"
                             class="accordion-body accordion-dropdown  {{ request()->segment(1) == 'incoming-mail' ? 'accordion-active' : '' }}">البريد
                             الوارد</a>

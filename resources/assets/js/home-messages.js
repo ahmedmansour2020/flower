@@ -127,4 +127,8 @@ $(document).ready(function() {
         $('#counter_messages').css({ "display": "block" });
     }
 
+    if ($('.nav-messages').html() > 0) {
+        $('.nav-messages').css({ "display": "block" });
+    }
+
 })

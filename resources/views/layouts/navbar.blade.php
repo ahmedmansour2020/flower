@@ -20,7 +20,7 @@
                 @auth
 
                 <li class="nav-item dropdown notifications">
-                    <a id="notification_btn" class="nav-link notifications dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a id="notification_btn" class="nav-link notifications dropdown-toggle position-relative" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ URL::asset('resources/assets/images/notifications.png') }}" alt="">
                         <span id="notification_count"></span>

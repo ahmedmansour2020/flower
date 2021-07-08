@@ -442,7 +442,9 @@ li.paginate_button .active a {
     position: relative;
 }
 
-#counter_messages {
+#counter_messages,
+#notification_count,
+.nav-messages {
     position: absolute;
     top: 0;
     left: -10px;
@@ -1643,4 +1645,17 @@ i.iconFavorite {
 
 .nav-approval {
     position: relative;
+}
+
+.dt-buttons {
+    text-align: left;
+}
+
+.buttons-excel {
+    padding: 10px;
+    color: white;
+    background: #3ad;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
 }

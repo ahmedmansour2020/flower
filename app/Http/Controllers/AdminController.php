@@ -6,9 +6,11 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Setting;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\NotificationController;
 
 class AdminController extends Controller
 {
@@ -17,7 +19,7 @@ class AdminController extends Controller
         $title = 'كل المتاجر';
         if (request()->ajax()) {
             $buyer = Role::where('name', 'بائع')->orWhere('name', 'buyer')->first();
-            $shops = User::where('role_id', $buyer->id)->select('users.*',DB::raw('date(membership_date_to) as membership_date_to'))->orderBy('id', 'desc')->get();
+            $shops = User::where('role_id', $buyer->id)->select('users.*',DB::raw('date(membership_date_to) as membership_date_to'))->orderBy('membership_status', 'asc')->orderBy('id', 'desc')->get();
             return datatables()->of($shops)->addIndexColumn()->make(true);
         }
         return view('admin/show/all-shops', compact('title'));
@@ -142,5 +144,13 @@ class AdminController extends Controller
             $user->membership_status=0;
             $user->save();
         }
+        $near=User::where('membership_status',1)->where(DB::raw('date(membership_date_to)-date(NOW())'),'<',5)->get();
+        foreach ($near as $item){
+            $n=Notification::where('user_id',$item->id)->where('content','like','%'.date('Y-m-d',strtotime($item->membership_date_to)).'%')->first();
+            if(!$n){
+                NotificationController::add_notification($item->id,'تذكير بموعد تجديد الاشتراك في '.date('Y-m-d',strtotime($item->membership_date_to)),"#");
+            }
+        }
+
     }
 }

@@ -189,4 +189,5 @@ myModal.addEventListener('shown.bs.modal', function() {
 })
 </script>
 <script src="{{asset('resources/assets/js/cities.js')}}"></script>
+<script src="{{ URL::asset('resources/assets/js/fill_areas.js') }}"></script>
 @endsection

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Favourite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NotificationController;
 
 class FavouriteController extends Controller
 {
@@ -45,6 +47,9 @@ class FavouriteController extends Controller
             $favourite->product_id=$product_id;
             $favourite->save();
         }
+        $product=Product::find($product_id);
+        NotificationController::add_notification($product->user_id,'تم اضافة المنتج '. $product->name .' إلى قائمة إعجاب أحد المستخدمين',"#");
+
     }
 
     /**

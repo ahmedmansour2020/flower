@@ -1,9 +1,17 @@
 $(document).ready(function() {
     var getNotifications_url = home_url + "/getNotifications";
     var read_notifications_url = home_url + "/read_notifications";
-    $(document).on('click', '#notification_btn', function() {
+
+    setInterval(function() {
+
         $.get(getNotifications_url, function(response) {
             if (response.success) {
+                $('#notification_count').text(response.count)
+                if (response.count > 0) {
+                    $('#notification_count').css('display', 'block');
+                } else {
+                    $('#notification_count').css('display', 'none');
+                }
                 var items = "";
                 if (response.notifications.length > 0) {
                     for (var i = 0; i < response.notifications.length; i++) {
@@ -15,7 +23,8 @@ $(document).ready(function() {
                 $('ul#notifications').html(items);
             }
         })
-    })
+
+    }, 3000)
     $(document).on('click', '.notification-item', function(e) {
         e.preventDefault();
         var href = $(this).attr('href');

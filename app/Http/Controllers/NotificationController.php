@@ -17,7 +17,7 @@ class NotificationController extends Controller
     }
     public function getNotifications(Request $request){
         $user=Auth::user();
-        $n=Notification::where('user_id',$user->id)->orderBy('id','desc')->orderBy('status','asc')->get();
+        $n=Notification::where('user_id',$user->id)->orderBy('id','desc')->orderBy('status','asc')->limit(10)->get();
         $count=count(Notification::where('user_id',$user->id)->where('status',0)->get());
         return response()->json([
             'success'=>true,

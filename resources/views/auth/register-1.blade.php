@@ -84,5 +84,6 @@
     <script>
     var type="0";
     </script>
+    <script src="{{ URL::asset('resources/assets/js/fill_areas.js') }}"></script>
     @endsection
 

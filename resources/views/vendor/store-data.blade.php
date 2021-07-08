@@ -83,4 +83,5 @@
     var type="1";
     var selected_area="{{$user->area_id}}";
     </script>
+    <script src="{{ URL::asset('resources/assets/js/fill_areas.js') }}"></script>
     @endsection

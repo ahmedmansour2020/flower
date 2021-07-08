@@ -1,6 +1,13 @@
 $(document).ready(function() {
     var shops = $(`#${type}`).DataTable({
-        dom: "lBfrtip",
+        dom: 'Bfrtip',
+        buttons: [{
+                extend: 'excelHtml5',
+                title: type == 'users' ? 'المستخدمون' : 'التجار',
+            },
+
+
+        ],
         processing: false,
         serverSide: true,
         destroy: true,
