@@ -437,6 +437,25 @@ li.paginate_button .active a {
     padding-left: 45px;
 }
 
+.iconMessage {
+    padding: 0 !important;
+    position: relative;
+}
+
+#counter_messages {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f00;
+    text-align: center;
+    color: #fff;
+    display: none;
+}
+
 .search input::placeholder {
     font-size: 23px;
     font-weight: 400;
