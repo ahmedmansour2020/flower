@@ -20,3 +20,4 @@
 <script src="{{asset('resources/assets/js/add_to_favourite.js')}}"></script>
 <script src="{{ URL::asset('resources/assets/js/home-messages.js') }}"></script>
 <script src="{{ URL::asset('resources/assets/js/notifications.js') }}"></script>
+<script src="{{ URL::asset('resources/assets/js/fill_areas.js') }}"></script>

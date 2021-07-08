@@ -70,10 +70,11 @@ class LocationController extends Controller
         ]);
     }
     public function getAreas(Request $request){
-        $areas=Area::where("city_id",request('id'));
+        $areas=Area::where("city_id",request('id'))->get();
         return response()->json([
             "success" => true,
-            "areas"=>$areas
+            "areas"=>$areas,
+            "id"=>request('id')
         ]);
     }
 }

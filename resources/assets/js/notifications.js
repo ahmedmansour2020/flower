@@ -5,8 +5,12 @@ $(document).ready(function() {
         $.get(getNotifications_url, function(response) {
             if (response.success) {
                 var items = "";
-                for (var i = 0; i < response.notifications.length; i++) {
-                    items += `<li><a class="dropdown-item notification-item ${response.notifications[i].status==0?'msg-unread':''}" data-id="${response.notifications[i].id}" href="${response.notifications[i].url}">${response.notifications[i].content}</a></li>`
+                if (response.notifications.length > 0) {
+                    for (var i = 0; i < response.notifications.length; i++) {
+                        items += `<li><a class="dropdown-item notification-item ${response.notifications[i].status==0?'msg-unread':''}" data-id="${response.notifications[i].id}" href="${response.notifications[i].url}">${response.notifications[i].content}</a></li>`
+                    }
+                } else {
+                    items = "<p class='text-center text-light'>لا يوجد اشعارات</p>"
                 }
                 $('ul#notifications').html(items);
             }
