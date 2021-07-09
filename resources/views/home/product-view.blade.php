@@ -22,7 +22,7 @@ use App\Http\Controllers\FavouriteController;
                         <div class="ph-number">
                             <img src="{{ URL::asset('resources/assets/images/icon-phone.png') }}" class="img-fluid"
                                 alt="">
-                            <a href="tel:{{ $user->buyer_mobile}}">{{ $user->buyer_mobile}}</a>
+                            <a href="https://api.whatsapp.com/send?phone=2{{ $user->buyer_mobile}}">{{ $user->buyer_mobile}}</a>
                         </div>
                         <div class="location-store">
                             <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}" class="img-fluid"
