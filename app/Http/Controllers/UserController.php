@@ -91,6 +91,13 @@ class UserController extends Controller
         $title = "بيانات الدخول";
         return view('vendor/login-data', compact('user', 'title'));
     }
+    public function user_profile()
+    {
+        $user = Auth::user();
+        $title = "بيانات الدخول";
+        $from="user";
+        return view('vendor/login-data', compact('user', 'title','from'));
+    }
     public function change_user_info(Request $request)
     {
         $user = Auth::user();

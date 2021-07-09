@@ -4,8 +4,8 @@
 <?php 
 use App\Http\Controllers\FavouriteController;
 ?>
-@if(isset($from))
-@if($from!='all_offers')
+@if(!isset($from))
+
     <section class="header-vendor-products" style="background-image:url('{{$user->buyer_banner}}')">
 
     <div class="container">
@@ -38,7 +38,7 @@ use App\Http\Controllers\FavouriteController;
                                 class="fab fa-twitter"></i></a></li>@endif
                     @if($user->buyer_instagram)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_instagram))}}"><i
                                 class="fab fa-instagram-square"></i></a></li>@endif
-                    @if($user->buyer_whatsapp)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_whatsapp))}}"><i
+                    @if($user->buyer_whatsapp)<li><a target="_blank" href="https://api.whatsapp.com/send?phone=‎+966{{$user->buyer_whatsapp}}&text=مرحبًا"><i
                                 class="fab fa-whatsapp"></i></a></li>@endif
                     @if($user->buyer_facebook)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_facebook))}}"><i
                                 class="fab fa-facebook-square"></i></a></li>@endif
@@ -51,7 +51,7 @@ use App\Http\Controllers\FavouriteController;
 
     </div>
 </section>
-@endif
+
 @endif
 <div class="container">
     <div class="row">
@@ -78,7 +78,7 @@ use App\Http\Controllers\FavouriteController;
             <div class="box-product">
                 <div class="container-image-product">
                     <a href="{{route('product-view',$product->id)}}">
-                        <img src="{{ $product->image }}" class="img-fluid" alt="">
+                        <img src="{{ $product->image??asset('resources/assets/images/blank.png') }}" class="img-fluid" alt="">
                     </a>
                     @if( $product->offer!=null )
                     <div class="discount">

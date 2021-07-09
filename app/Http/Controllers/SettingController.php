@@ -112,4 +112,12 @@ class SettingController extends Controller
             'success' => true,
         ]);
     }
+    public static function getSettingValue($key){
+        $setting =Setting::where('key', $key)->first();
+        if(!$setting){
+            return null;
+        }else{
+            return $setting->value;
+        }
+    }
 }

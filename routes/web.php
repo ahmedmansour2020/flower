@@ -83,8 +83,8 @@ Route::group(['prefix' => 'buyer', 'middleware' => ['auth', 'buyer']], function 
     Route::post('delete/product', [ProductController::class, 'destroy'])->name('delete.product');
     Route::get('store-data', [UserController::class, 'edit_user_data'])->name('store-data');
     Route::get('login-data', [UserController::class, 'user_info'])->name('login-data');
-    Route::post('save_login_data', [UserController::class, 'change_user_info'])->name('save_login_data');
 });
+Route::post('save_login_data', [UserController::class, 'change_user_info'])->name('save_login_data');
 Route::get('writing-messages', [MessageController::class, 'create'])->name('writing-messages');
 Route::get('getNotifications',[NotificationController::class, 'getNotifications'])->name('notifications');
 Route::post('read_notifications',[NotificationController::class, 'read_notifications'])->name('read_notifications');
@@ -101,9 +101,12 @@ Route::get('buyer-offers/{id}', [HomeController::class, 'to_buyer_offers'])->nam
 
 Route::get('product-view/{id}', [HomeController::class, 'product_view'])->name('product-view');
 Route::get('offers', [HomeController::class, 'to_offers'])->name('all_offers');
+Route::get('new-products', [HomeController::class, 'to_new'])->name('new-products');
 Route::get('search', [HomeController::class, 'search'])->name('search');
 
 Route::get('wishlist', [HomeController::class, 'wish_list'])->name('wish-list')->middleware(['auth']);
 Route::post('delete_favourite/{id}', [FavouriteController::class, 'destroy'])->name('delete_favourite')->middleware(['auth']);
 Route::post('home_message', [MessageController::class, 'home_message'])->name('home_message')->middleware(['auth']);
 Route::post('msg_read', [MessageController::class, 'msg_read'])->name('msg_read')->middleware(['auth']);
+
+Route::get('user-profile',[UserController::class,'user_profile'])->name('user_profile')->middleware(['auth']);

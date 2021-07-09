@@ -7,7 +7,7 @@ use App\Http\Controllers\VisitController;
             <div class="col-sm-12 col-md-8">
                 <ul class="list-sub-nav">
                     <li><a href="{{route('all_offers')}}">عروض</a></li>
-                    <li><a href="#">جديد </a></li>
+                    <li><a href="{{route('new-products')}}">جديد </a></li>
                     <li><a href="{{ route('about-us') }}">من نحن </a></li>
                     @auth
                     <?php

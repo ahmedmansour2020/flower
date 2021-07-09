@@ -38,7 +38,7 @@ use App\Http\Controllers\FavouriteController;
                                 class="fab fa-twitter"></i></a></li>@endif
                     @if($user->buyer_instagram)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_instagram))}}"><i
                                 class="fab fa-instagram-square"></i></a></li>@endif
-                    @if($user->buyer_whatsapp)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_whatsapp))}}"><i
+                    @if($user->buyer_whatsapp)<li><a target="_blank" href="https://api.whatsapp.com/send?phone=‎+966{{$user->buyer_whatsapp}}&text=مرحبًا"><i
                                 class="fab fa-whatsapp"></i></a></li>@endif
                     @if($user->buyer_facebook)<li><a target="_blank" href="//{{str_replace('http://','',str_replace('https://','',$user->buyer_facebook))}}"><i
                                 class="fab fa-facebook-square"></i></a></li>@endif
@@ -92,7 +92,7 @@ use App\Http\Controllers\FavouriteController;
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <button type="button" class="bg-red-btn btn-product-view add-favorite @if(FavouriteController::check_favourite($product->id)!=1) disabled @else add_to_favourite @endif" data-id="{{$product->id}}">أضف إلى قائمة الاعجابات</button>
-                <a href="https://api.whatsapp.com/send?phone={{$user->buyer_whatsapp}}&text=hello!" target="_blank" class="bg-green-btn btn-product-view text-vendor">تواصل مع التاجر</a>
+                <a href="https://api.whatsapp.com/send?phone=‎+966{{$user->buyer_whatsapp}}&text=مرحبًا" target="_blank" class="bg-green-btn btn-product-view text-vendor">تواصل مع التاجر</a>
             </div>
 
 

@@ -118,14 +118,7 @@ class HomeController extends Controller
     {
         $title = "جميع العروض";
         $buyer = Role::where('name', 'تاجر')->orWhere('name', 'buyer')->first();
-        // $user = User::where('id', $id)->where('role_id', $buyer->id)->where('membership_status', 1)->firstOrFail();
-        
-        // if ($user->buyer_logo != null) {
-        //     $user->buyer_logo = asset('uploaded/' . $user->buyer_logo);
-        // }
-        // if ($user->buyer_banner != null) {
-        //     $user->buyer_banner = asset('uploaded/' . $user->buyer_banner);
-        // }
+
         $products = Product::leftJoin('users','users.id','user_id')->where('users.role_id', $buyer->id)->where('membership_status', 1)->whereNotNull('offer')->select('products.*')->get();
         foreach ($products as $product) {
             $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
@@ -137,6 +130,32 @@ class HomeController extends Controller
             }
         }
         $from="all_offers";
+        
+        return view('home/vendor-products', compact('title', 'products','from'));
+    }
+    public function to_new()
+    {
+        $title = "المنتجات الجديدة";
+        $buyer = Role::where('name', 'تاجر')->orWhere('name', 'buyer')->first();
+
+        $products = Product::leftJoin('users','users.id','user_id')
+        ->where('users.role_id', $buyer->id)
+        ->where('membership_status', 1)
+        ->select('products.*')
+        ->orderBy('products.id','desc')
+        ->limit(12)
+        ->get();
+
+        foreach ($products as $product) {
+            $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
+            if($image){
+                $product->image = asset('uploaded/' . $image->name);
+ 
+            }else{
+             $product->image=null;
+            }
+        }
+        $from="new";
         
         return view('home/vendor-products', compact('title', 'products','from'));
     }

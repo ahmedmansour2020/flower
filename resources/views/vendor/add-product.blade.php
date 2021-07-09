@@ -14,7 +14,7 @@
 
         <div class="form-upload">
             <input type="text" placeholder="صورة السلعة" id="image-label" required readonly />
-            <input type="file" class="d-none" id="image" name="images[]">
+            <input type="file" class="d-none" id="image" name="images[]" >
             <button type="button" class="image-upload" id="image-btn">اختر الصوره</button>
         </div>
         <div class="form-group">

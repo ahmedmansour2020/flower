@@ -18,7 +18,8 @@
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 @auth
-
+                <?php $user = auth()->user(); ?>
+                @if ($user->role_id!=null)
                 <li class="nav-item dropdown notifications">
                     <a id="notification_btn" class="nav-link notifications dropdown-toggle position-relative" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,8 +31,7 @@
                         
                     </ul>
                 </li>
-
-                <?php $user = auth()->user(); ?>
+                @endif
                 @if ($user->role_id!=1)
                 <li class="nav-item favorite ">
                     <a class="nav-link" href="{{ route('wish-list') }}" role="button">
@@ -77,7 +77,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li> <a class="dropdown-item"
-                                href="{{$user->role_id==1?route('admin'):($user->role_id==2?route('buyer'):'')}}"><i
+                                href="{{$user->role_id==1?route('admin'):($user->role_id==2?route('buyer'):route('user_profile'))}}"><i
                                     class="fas fa-user-alt pe-2 "></i> حسابي </a></li>
                         <li>
                             <a href="#" class="logout dropdown-item"><i class="fas fa-sign-out-alt pe-2"></i> تسجيل

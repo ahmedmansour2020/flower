@@ -53,11 +53,20 @@ class AdminController extends Controller
         $title = 'إعدادات الموقع الالكتروني';
         $buyers_message = Setting::where('key', 'buyers_message')->first();
         $who_we_are = Setting::where('key', 'who_we_are')->first();
-        return view('admin/show/setting-pages', compact('title', 'who_we_are', 'buyers_message'));
+        $admin_phone = Setting::where('key', 'admin_phone')->first();
+        return view('admin/show/setting-pages', compact('title', 'who_we_are', 'buyers_message','admin_phone'));
     }
     public function save_settings(Request $request)
     {
         Setting::where('type', 'data')->delete();
+
+        if ($request->admin_phone) {
+            $admin_phone = new Setting();
+            $admin_phone->type = 'data';
+            $admin_phone->key = 'admin_phone';
+            $admin_phone->value = $request->admin_phone;
+            $admin_phone->save();
+        }
 
         if ($request->buyers_message) {
             $buyers_message = new Setting();
