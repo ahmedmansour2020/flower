@@ -45,10 +45,10 @@ class HomeController extends Controller
   
         return view('welcome', compact('title', 'sliders', 'message', 'all_buyers'));
     }
-    function add_location(Request $request){
+    function add_location(){
       
-        $lat = request('lat');
-        $lng = request('lng');
+        $lat = $_GET['lat'];
+        $lng = $_GET['lng'];
   
      $user=auth()->user();
      if($user){
@@ -56,7 +56,7 @@ class HomeController extends Controller
          $buyer->lng=$lng;
          $buyer->lat=$lat;
          $buyer->save();
-         return response()->json(['success'=>true]);
+         return response()->json(['success'=>true,]);
         }else{
          return response()->json(['success'=>false]);
      }

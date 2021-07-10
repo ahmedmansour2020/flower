@@ -9,10 +9,12 @@
         }
 
         #map {
-            height: 100%;
+            height: 700px;
+            width: 100%;
         }
 
     </style>
+    
 @endsection
 
 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
@@ -101,7 +103,7 @@
                     -->
                         <div class="col-sm-12 col-md-6 col-lg-2">
                             <div class="btn-map">
-                                <button type="button">الخرائط</button>
+                                <button type="button" id="map_btn">الخرائط</button>
                             </div>
                         </div>
 
@@ -171,31 +173,33 @@
 </script>
 <script src="{{ asset('resources/assets/js/buyer_message.js') }}"></script>
 <script>
-    $('.carousel').carousel();
-    $('.carousel').carousel({
-        interval: 5000
-    });
-    .carousel('pause');
-    .carousel('cycle');
+    // $('.carousel').carousel();
+    // $('.carousel').carousel({
+    //     interval: 5000
+    // });
+    // .carousel('pause');
+    // .carousel('cycle');
 
-    var myModal = document.getElementById('myModal')
-    var myInput = document.getElementById('myInput')
+    // var myModal = document.getElementById('myModal')
+    // var myInput = document.getElementById('myInput')
 
-    myModal.addEventListener('shown.bs.modal', function() {
-        myInput.focus()
-    })
-
+    // myModal.addEventListener('shown.bs.modal', function() {
+    //     myInput.focus()
+    // })
+    var red_icon =  'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ;
     var locations=[];
     @foreach($all_buyers as $buyer)
     locations.push({
-        id:"{{ $buyer->id }}",
-        lng:"{{ $buyer->lng }}",
-        lat:"{{ $buyer->lat }}",
-        buyer_name:"{{ $buyer->buyer_name }}",
+        id:"{{$buyer->id}}",
+        lng:"{{$buyer->lng}}",
+        lat:"{{$buyer->lat}}",
+        buyer_name:"{{$buyer->buyer_name}}",
     })
     @endforeach
 </script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry"></script>
 
+<script src="{{ asset('resources/assets/js/maps.js') }}"></script>
 <script src="{{ asset('resources/assets/js/cities.js') }}"></script>
 <script src="{{ URL::asset('resources/assets/js/fill_areas.js') }}"></script>
 @endsection
