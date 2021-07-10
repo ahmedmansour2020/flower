@@ -42,7 +42,24 @@ class HomeController extends Controller
                 $buyer->buyer_banner = asset('uploaded/' . $buyer->buyer_banner);
             }
         }
+  
         return view('welcome', compact('title', 'sliders', 'message', 'all_buyers'));
+    }
+    function add_location(Request $request){
+      
+        $lat = request('lat');
+        $lng = request('lng');
+  
+     $user=auth()->user();
+     if($user){
+         $buyer=User::find($user->id);
+         $buyer->lng=$lng;
+         $buyer->lat=$lat;
+         $buyer->save();
+         return response()->json(['success'=>true]);
+        }else{
+         return response()->json(['success'=>false]);
+     }
     }
     public function change_message_status(Request $request)
     {
@@ -161,7 +178,7 @@ class HomeController extends Controller
     }
     public function product_view($id)
     {
-        $product = Product::leftJoin('users', 'users.id','user_id')->where('membership_status',1)->where('products.id',$id)->firstOrFail();
+        $product = Product::leftJoin('users', 'users.id','user_id')->where('membership_status',1)->where('products.id',$id)->select('products.*')->firstOrFail();
         $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
         $product->image = asset('uploaded/' . $image->name);
         $title = $product->name;
@@ -182,7 +199,9 @@ class HomeController extends Controller
     {
         $title = "قائمة المفضلات";
         $user = Auth::user();
-        $products = Favourite::leftJoin('products', 'products.id', 'favourites.product_id')->where('favourites.user_id', $user->id)->select('products.*', 'favourites.id as favourite_id')->get();
+        $products = Favourite::leftJoin('products', 'products.id', 'favourites.product_id')
+        ->leftJoin('users','users.id','products.user_id')
+        ->where('favourites.user_id', $user->id)->select('products.*', 'favourites.id as favourite_id','buyer_name','users.id')->get();
         foreach ($products as $product) {
             $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
             if($image){

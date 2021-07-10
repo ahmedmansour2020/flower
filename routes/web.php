@@ -103,7 +103,7 @@ Route::get('product-view/{id}', [HomeController::class, 'product_view'])->name('
 Route::get('offers', [HomeController::class, 'to_offers'])->name('all_offers');
 Route::get('new-products', [HomeController::class, 'to_new'])->name('new-products');
 Route::get('search', [HomeController::class, 'search'])->name('search');
-
+Route::post('add_location',[HomeController::class,'add_location'])->name('add_location')->middleware(['auth']);
 Route::get('wishlist', [HomeController::class, 'wish_list'])->name('wish-list')->middleware(['auth']);
 Route::post('delete_favourite/{id}', [FavouriteController::class, 'destroy'])->name('delete_favourite')->middleware(['auth']);
 Route::post('home_message', [MessageController::class, 'home_message'])->name('home_message')->middleware(['auth']);

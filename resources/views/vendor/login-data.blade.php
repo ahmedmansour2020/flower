@@ -1,4 +1,4 @@
-@extends('dashboard-layouts.layout-admin')
+@extends('dashboard-layouts.layout')
 @section('title', isset($title) ? $title : '')
 @if(isset($from))
 @section('variables')

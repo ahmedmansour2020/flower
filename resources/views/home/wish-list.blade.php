@@ -25,7 +25,8 @@
                            <a href="{{route('product-view',$product->id)}}"> <img src="{{ $product->image }}" class="img-fluid" alt=""></a>
                         </td>
                         <td class="desc-wishlist">
-                            <h2>{{$product->name}}</h2>
+                            <h2 class="mb-3"><a href="{{ route('vendor-products',$product->user_id) }}" class="text-info text-decoration-none">{{$product->buyer_name}}</a></h2>
+                            <h4>{{$product->name}}</h4>
                             <p>{{$product->description}}</p>
                         </td>
                         <td class="pt-5">{{$product->price}} ريال</td>

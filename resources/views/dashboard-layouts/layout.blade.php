@@ -20,23 +20,26 @@ App\Http\Controllers\AdminController::change_buyer_membership_status_auto();
  
     </script>
 </head>
-
+@yield('variables')
 <body>
     <form hidden method="post" action="{{ route('logout')}}">
         @csrf
         <button type="submit" id="logout"></button>
     </form>
     @include("layouts.navbar")
-
     <div class="container-fluid">
         <div class="row">
-      
-    
+            
+            
+            @if(!isset($register_1))
             <div class="col-sm-12 col-md-12 col-lg-3 ">
                 @include('dashboard-layouts.navbar-right')
             </div>
+            @endif
            
-            <div class="col-sm-12 col-md-12 col-lg-9">
+
+            <div class=" @if(!isset($register_1)) col-sm-12 col-md-12 col-lg-9 @else  col-sm-6 mx-auto @endif">
+
                 <div>
                     @if ($message = Session::get('success'))
                     
