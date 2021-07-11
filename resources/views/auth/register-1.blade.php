@@ -18,6 +18,7 @@
     <div class="form-group">
         <input type="text" placeholder="اسم المتجر" name="buyer_name" required /><span
             class="required mr-2 text-danger">*</span>
+            
     </div>
     <div class="form-group">
         <input type="text" placeholder="رقم التواصل" name="mobile" required /><span

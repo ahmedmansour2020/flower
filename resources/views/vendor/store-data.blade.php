@@ -12,25 +12,28 @@
         <input type="hidden" name="id" value="{{isset($from)?$user->id:0}}">
 
         <div class="form-group">
-            <input type="text" placeholder="اسم المتجر" name="buyer_name" value="{{$user->buyer_name}}" required />
+            <input type="text" readonly placeholder="اسم المتجر" name="buyer_name" value="{{$user->buyer_name}}" required />
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="رقم التواصل" name="mobile" value="{{$user->buyer_mobile}}" required />
+            <input type="text" readonly placeholder="رقم التواصل" name="mobile" value="{{$user->buyer_mobile}}" required />
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
 
         </div>
         <div class="form-upload">
-            <input type="text" placeholder="شعار المتجر" id="image-label" required readonly />
+            <input type="text" readonly placeholder="شعار المتجر" id="image-label" required readonly />
             <input type="file" class="d-none" id="image" name="buyer_logo">
             <button type="button" class="image-upload" id="image-btn">تحميل الصوره</button>
             <span class="required mr-2 text-danger">*</span>
         </div>
         <div class="form-upload">
-            <input type="text" placeholder="لوحة المتجر" id="image-label1" readonly required />
+            <input type="text" readonly placeholder="لوحة المتجر" id="image-label1" readonly required />
             <input type="file" class="d-none" id="image1" name="buyer_banner">
             <button type="button" class="image-upload" id="image-btn1">تحميل الصوره</button>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="الموقع" required name="buyer_site" value="{{$user->buyer_site}}" />
+            <input type="text" readonly placeholder="الموقع" required name="buyer_site" value="{{$user->buyer_site}}" />
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
 
         </div>
         <div class="form-group">
@@ -46,28 +49,33 @@
             </select>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="الواتس اب" name="buyer_whatsapp" value="{{$user->buyer_whatsapp}}">
+            <input type="text" readonly placeholder="الواتس اب" name="buyer_whatsapp" value="{{$user->buyer_whatsapp}}">
+            <button type="button"class="btn btn-success btn-edit-input">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="اسناب شات" name="buyer_snapshat" value="{{$user->buyer_snapshat}}">
+            <input type="text" readonly placeholder="اسناب شات" name="buyer_snapshat" value="{{$user->buyer_snapshat}}">
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="الانستغرام" name="buyer_instagram" value="{{$user->buyer_instagram}}">
+            <input type="text" readonly placeholder="الانستغرام" name="buyer_instagram" value="{{$user->buyer_instagram}}">
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="توتير" name="buyer_twitter" value="{{$user->buyer_twitter}}">
+            <input type="text" readonly placeholder="توتير" name="buyer_twitter" value="{{$user->buyer_twitter}}">
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="الفيس بوك" name="buyer_facebook" value="{{$user->buyer_facebook}}">
+            <input type="text" readonly placeholder="الفيس بوك" name="buyer_facebook" value="{{$user->buyer_facebook}}">
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
 
         </div>
         {{--
         <div class="form-group">
-            <input type="text" placeholder="تيك توك" name="buyer_tiktok" value="{{$user->buyer_tiktok}}">
+            <input type="text" readonly placeholder="تيك توك" name="buyer_tiktok" value="{{$user->buyer_tiktok}}">
 
 </div>
 --}}

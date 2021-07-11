@@ -715,8 +715,14 @@ li.nav-item.dropdown.notifications {
     border: 1px solid #81a349;
 }
 
+.btn-edit-input {
+    position: absolute;
+    left: 30px;
+    top: 8px;
+}
 
-/* Start register-1 page */
+
+/* End register-1 page */
 
 
 /* Start aside */

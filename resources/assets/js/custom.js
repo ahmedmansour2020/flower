@@ -53,3 +53,9 @@ $("#favoriteIcon").click(function() {
 });
 
 // iconFavorite
+
+// Start edit btn
+
+$(".btn-edit-input").on('click', function() {
+    $(this).siblings('input').removeAttr('readonly').focus();
+});
