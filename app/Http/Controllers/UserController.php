@@ -44,6 +44,8 @@ class UserController extends Controller
         $user->buyer_twitter = $request->buyer_twitter;
         $user->buyer_facebook = $request->buyer_facebook;
         $user->buyer_tiktok = $request->buyer_tiktok;
+        $user->lng = $request->lng;
+        $user->lat = $request->lat;
         $user->city_id = $request->city_id;
         $user->area_id = $request->area_id;
         if (request('edit') == null) {

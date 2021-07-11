@@ -92,7 +92,8 @@ App\Http\Controllers\AdminController::change_buyer_membership_status_auto();
 
 
     @include('layouts.footer')
-
+    <input type="hidden" id="current_lng">
+    <input type="hidden" id="current_lat">
     @include('layouts.scripts')
     @yield('page_js')
 

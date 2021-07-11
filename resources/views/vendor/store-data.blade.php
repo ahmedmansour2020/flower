@@ -34,17 +34,17 @@
 
         </div>
         <div class="form-group">
-                        <select name="city_id" id="city_id">
-                        @foreach(App\Http\Controllers\LocationController::getCities() as $city)
-                                <option value="{{$city->id}}" @if($user->city_id==$city->id) selected @endif>{{$city->name}}</option>
-                                @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <select name="area_id" id="area_id">
-                            <option value=""selected disabled>الحي</option>
-                        </select>
-       </div>
+            <select name="city_id" id="city_id">
+                @foreach(App\Http\Controllers\LocationController::getCities() as $city)
+                <option value="{{$city->id}}" @if($user->city_id==$city->id) selected @endif>{{$city->name}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="area_id" id="area_id">
+                <option value="" selected disabled>الحي</option>
+            </select>
+        </div>
         <div class="form-group">
             <input type="text" placeholder="الواتس اب" name="buyer_whatsapp" value="{{$user->buyer_whatsapp}}">
 
@@ -65,23 +65,35 @@
             <input type="text" placeholder="الفيس بوك" name="buyer_facebook" value="{{$user->buyer_facebook}}">
 
         </div>
+        {{--
         <div class="form-group">
             <input type="text" placeholder="تيك توك" name="buyer_tiktok" value="{{$user->buyer_tiktok}}">
 
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn fixed-style-btn w-25 m-auto mb-3 mt-2">حفظ</button>
-        </div>
-    </form>
+</div>
+--}}
+<div class="form-group">
+    <div id="map"></div>
+    <input type="hidden" name="lng" id="lng">
+    <input type="hidden" name="lat" id="lat">
+</div>
+<div class="form-group">
+    <button type="submit" class="btn fixed-style-btn w-25 m-auto mb-3 mt-2">حفظ</button>
+</div>
+</form>
 </div>
 
 
 
 @endsection
-    @section('page_js')
-    <script>
-    var type="1";
-    var selected_area="{{$user->area_id}}";
-    </script>
-    <script src="{{ URL::asset('resources/assets/js/fill_areas.js') }}"></script>
-    @endsection
+@section('page_js')
+<script>
+var type = "1";
+var selected_area = "{{$user->area_id}}";
+var saved_lng="{{$user->lng}}";
+var saved_lat="{{$user->lat}}";
+</script>
+
+<script src="{{ URL::asset('resources/assets/js/fill_areas.js') }}"></script>
+<script src="{{ asset('resources/assets/js/select_map.js') }}"></script>
+
+@endsection

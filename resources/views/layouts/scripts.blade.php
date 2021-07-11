@@ -9,6 +9,10 @@
 <script src="{{ URL::asset('resources/assets/js/custom.js') }}"></script>
 <script src="{{ URL::asset('resources/assets/js/search.js') }}"></script>
 
+<!-- google maps -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry"></script>
+<!-- end google maps -->
+
 <script>
     var add_to_favourite="{{route('favourite.store')}}";
     var csrf_content='@csrf';
@@ -16,6 +20,22 @@
     var msg_read="{{route('msg_read')}}" ;
     var user_link="{{route('register')}}";
     var buyer_link="{{route('register_buyer')}}";
+    var red_icon =  'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ;
+    var blue_icon =  'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' ;
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        console.log('not supported')
+    }
+}
+
+function showPosition(position) {
+    $('#current_lat').val(position.coords.latitude);
+    $('#current_lng').val(position.coords.longitude)
+}
+
+getLocation()
 </script>
 <script src="{{asset('resources/assets/js/add_to_favourite.js')}}"></script>
 <script src="{{ URL::asset('resources/assets/js/home-messages.js') }}"></script>

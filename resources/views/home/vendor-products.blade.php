@@ -27,7 +27,7 @@ use App\Http\Controllers\FavouriteController;
                     <div class="location-store">
                         <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}" class="img-fluid"
                             alt="">
-                        <a href="#">{{ $user->buyer_site}}</a>
+                        <a href="#" class="buyer_map" data-lng="{{$user->lng}}" data-lat="{{$user->lat}}">{{ $user->buyer_site}}</a>
                     </div>
 
                 </div>
@@ -128,4 +128,6 @@ use App\Http\Controllers\FavouriteController;
 @endsection
 @section('page_js')
 <script src="{{asset('resources/assets/js/product-filtration.js')}}"></script>
+<script src="{{ asset('resources/assets/js/vendor_map.js') }}"></script>
+
 @endsection

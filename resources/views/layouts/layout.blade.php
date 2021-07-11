@@ -15,10 +15,9 @@ App\Http\Controllers\AdminController::change_buyer_membership_status_auto();
     <title>@yield('title')</title>
     @include('layouts.header')
     @yield('page_css')
-<script>
+    <script>
     var home_url = "{{route('home')}}";
-
-</script>
+    </script>
 </head>
 
 <body>
@@ -54,6 +53,8 @@ App\Http\Controllers\AdminController::change_buyer_membership_status_auto();
 
 
     @include('layouts.footer')
+    <input type="hidden" id="current_lng">
+    <input type="hidden" id="current_lat">
     @include('layouts.scripts')
     @yield('page_js')
 

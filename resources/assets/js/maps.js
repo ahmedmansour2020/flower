@@ -11,6 +11,7 @@ $(document).ready(function() {
         setTimeout(function() {
 
             initMap();
+
         }, 200)
     })
 })
@@ -18,13 +19,17 @@ $(document).ready(function() {
 
 
 function initMap() {
+
+    var current_lat = $('#current_lat').val() * 1;
+    var current_lng = $('#current_lng').val() * 1;
+
     var zoom;
     var marker;
     var myLatlng = {
-        lat: 23.287950042659276,
-        lng: 42.17937272907407
+        lat: current_lat,
+        lng: current_lng
     };
-    zoom = 6;
+    zoom = 8;
 
 
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -38,7 +43,13 @@ function initMap() {
     //     position: myLatlng,
     // });
     // infoWindow.open(map);
-    //
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(current_lat, current_lng),
+        map: map,
+        icon: blue_icon,
+        title: "موقعي"
+    });
+
     for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i].lat, locations[i].lng),

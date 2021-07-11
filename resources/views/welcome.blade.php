@@ -7,12 +7,6 @@
             width: 100% !important;
             text-align: center !important;
         }
-
-        #map {
-            height: 700px;
-            width: 100%;
-        }
-
     </style>
     
 @endsection
@@ -186,7 +180,7 @@
     // myModal.addEventListener('shown.bs.modal', function() {
     //     myInput.focus()
     // })
-    var red_icon =  'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ;
+
     var locations=[];
     @foreach($all_buyers as $buyer)
     locations.push({
@@ -197,7 +191,7 @@
     })
     @endforeach
 </script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry"></script>
+
 
 <script src="{{ asset('resources/assets/js/maps.js') }}"></script>
 <script src="{{ asset('resources/assets/js/cities.js') }}"></script>
