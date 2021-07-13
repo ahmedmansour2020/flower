@@ -15,18 +15,26 @@
 
 
         <div class="form-group">
-            <input type="text" placeholder="اسم المستخدم" name="name" required value="{{$user->name}}" />
-        </div>
-        <div class="form-group">
-            <input type="email" placeholder="البريد الالكترونى" name="email" required value="{{$user->email}}" />
+            <input type="text" readonly placeholder="اسم المستخدم" name="name" required value="{{$user->name}}" />
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
 
         </div>
         <div class="form-group">
-            <input type="text" placeholder="رقم الجوال" required name="mobile" value="{{$user->mobile}}" />
+            <input type="email" readonly placeholder="البريد الالكترونى" name="email" required value="{{$user->email}}" />
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
+
 
         </div>
         <div class="form-group">
-            <input type="password" placeholder="كلمة المرور" name="password">
+            <input type="text" readonly placeholder="رقم الجوال" required name="mobile" value="{{$user->mobile}}" />
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
+
+
+        </div>
+        <div class="form-group">
+            <input type="password" readonly placeholder="كلمة المرور" name="password">
+            <button type="button" class="btn btn-success btn-edit-input">تعديل</button>
+
 
         </div>
 

@@ -60,6 +60,9 @@
     .list-sub-nav {
         text-align: right;
     }
+    aside {
+        height: 100%;
+    }
 }
 
 @media(max-width:577px) {
