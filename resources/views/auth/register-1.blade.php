@@ -11,7 +11,7 @@
 <form action="{{ route('save_buyer_info') }}" method="POST" class="create-acc-vendor mt-5"
     enctype="multipart/form-data">
 
-    @csrf
+    {{ csrf_field() }} 
 
     <h2>انشاء حساب كتاجر</h2>
 

@@ -79,7 +79,7 @@
                             @endif
                         </div>
                         <form method="POST" action="{{ route('password.email') }}">
-                            @csrf
+                            {{ csrf_field() }} 
 
                             <div class="form-group">
                                

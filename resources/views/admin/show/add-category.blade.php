@@ -14,7 +14,7 @@
 <form method="post" action="{{route('category.update',$category->id)}}" enctype="multipart/form-data">
 @method('PUT')
 @endif
-@csrf
+{{ csrf_field() }} 
 <div class="form-group col-12">
 <input type="text" name="name" class="form-control" placeholder="اسم التصنيف" value="{{$action=='update'?$category->name:""}}" />
 </div>

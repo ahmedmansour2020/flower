@@ -79,7 +79,7 @@
                             @endif
                         </div>
                         <form method="POST" action="{{ route('password.update') }}">
-                            @csrf
+                            {{ csrf_field() }} 
 
                             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 

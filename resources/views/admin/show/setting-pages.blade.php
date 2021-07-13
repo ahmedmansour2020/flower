@@ -5,7 +5,7 @@
 
 <form action="{{route('save_settings')}}" method="POST" class="add-product mt-5 text-center" enctype="multipart/form-data">
 
-    @csrf
+    {{ csrf_field() }} 
 <div class="form-group mt-5">
     <input type="text" placeholder="رقم التواصل" required name="admin_phone" value="{{isset($admin_phone)?$admin_phone->value:''}}">
 </div>

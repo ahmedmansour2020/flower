@@ -8,7 +8,7 @@
 <form action="{{route('message.store')}}" method="POST" class="add-product mt-5 text-center"
     enctype="multipart/form-data">
 
-    @csrf
+    {{ csrf_field() }} 
 
 
     <div class="form-group">

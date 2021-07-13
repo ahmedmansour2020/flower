@@ -11,7 +11,7 @@
     <form action="{{route('save_login_data')}}" method="POST" class="create-acc-vendor store-data mt-5"
         enctype="multipart/form-data">
 
-        @csrf
+        {{ csrf_field() }} 
 
 
         <div class="form-group">

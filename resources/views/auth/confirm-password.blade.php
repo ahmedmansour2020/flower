@@ -11,7 +11,7 @@
         <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('password.confirm') }}">
-            @csrf
+            {{ csrf_field() }} 
 
             <div>
                 <x-jet-label for="password" value="{{ __('Password') }}" />

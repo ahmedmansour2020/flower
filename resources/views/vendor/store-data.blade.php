@@ -7,7 +7,7 @@
     <form action="{{ route('save_buyer_info') }}" method="POST" class="create-acc-vendor store-data mt-5"
         enctype="multipart/form-data">
 
-        @csrf
+        {{ csrf_field() }} 
         <input type="hidden" name="edit" value="edit">
         <input type="hidden" name="id" value="{{isset($from)?$user->id:0}}">
 

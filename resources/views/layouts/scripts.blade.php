@@ -15,7 +15,7 @@
 
 <script>
     var add_to_favourite="{{route('favourite.store')}}";
-    var csrf_content='@csrf';
+    var csrf_content='{{ csrf_field() }} ';
     var home_message="{{route('home_message')}}" ;
     var msg_read="{{route('msg_read')}}" ;
     var user_link="{{route('register')}}";

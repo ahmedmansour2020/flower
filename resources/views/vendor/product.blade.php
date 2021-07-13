@@ -22,7 +22,7 @@
                 <div class="container-image-product">
                     <img src="{{ App\Http\Controllers\ImageController::view_product_image($product->id) }}" class="img-fluid" alt="">
                     <form id="form-{{$product->id}}" method="post" action="{{route('delete.product')}}">
-                        @csrf
+                        {{ csrf_field() }} 
                     <div class="icon-edit"><a href="{{route('product.show',$product->id)}}"><i class="fas fa-pencil-alt"></i></a>
                         <input type="hidden" name="id" value="{{$product->id}}" />
                         <button data-id="{{$product->id}}" class="btn remove"><i class="fas fa-trash text-danger"></i></button>

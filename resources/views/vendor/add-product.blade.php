@@ -9,7 +9,7 @@
     <form method="post"  class="add-product mt-5 text-center" action="{{route('product.update',$item->id)}}" enctype="multipart/form-data">
         @method('PUT')
         @endif
-        @csrf
+        {{ csrf_field() }} 
 
 
         <div class="form-upload">
