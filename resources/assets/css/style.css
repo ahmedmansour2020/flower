@@ -492,14 +492,30 @@ li.paginate_button .active a {
 }
 
 .navbar .dropdown-menu {
-    width: 320px;
+    width: 230px;
     max-height: 270px;
-    overflow: auto;
     background: #b31d4d;
     margin-top: 30px;
     text-align: right;
+}
+
+.inp-category {
+    width: 95%;
+    height: 55px;
+    padding-right: 20px;
+    border-radius: 15px;
+    margin: 50px 0;
+}
+
+.navbar #notifications {
+    width: auto;
+    max-height: 270px;
+    background: #b31d4d;
+    margin-top: 30px;
+    text-align: center;
     word-break: break-all;
     overflow-y: auto;
+    overflow-x: clip;
 }
 
 .navbar .dropdown-menu a {
@@ -669,7 +685,8 @@ li.nav-item.dropdown.notifications {
 .create-acc-vendor .form-group select,
 .form-upload input,
 .add-product .form-group input,
-.select-recipient {
+.select-recipient,
+.add-product select {
     width: 98%;
     height: 55px;
     padding-right: 20px;
@@ -732,7 +749,7 @@ li.nav-item.dropdown.notifications {
 aside {
     background: #fff;
     box-shadow: 1px 7px 15px 1px #ddd;
-    height: 100vh;
+    height: 100%;
 }
 
 .link-sub-nav {
@@ -862,7 +879,8 @@ footer {
 }
 
 .add-product .form-group input,
-.select-recipient {
+.select-recipient,
+.add-product select {
     width: 52%;
 }
 

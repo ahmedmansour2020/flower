@@ -74,6 +74,17 @@
         display: block;
         margin-bottom: 15px;
     }
+    .add-product .form-upload input,
+    .add-product .form-group input,
+    .select-recipient,
+    .add-product select,
+    .add-product textarea {
+        width: 95%;
+    }
+    .add-product .image-upload {
+        width: 40%;
+        margin-bottom: 20px;
+    }
 }
 
 @media(max-width:577px) {
