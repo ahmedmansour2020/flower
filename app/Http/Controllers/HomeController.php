@@ -201,7 +201,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $products = Favourite::leftJoin('products', 'products.id', 'favourites.product_id')
         ->leftJoin('users','users.id','products.user_id')
-        ->where('favourites.user_id', $user->id)->select('products.*', 'favourites.id as favourite_id','buyer_name','users.id')->get();
+        ->where('favourites.user_id', $user->id)->select('products.*', 'favourites.id as favourite_id','buyer_name')->get();
         foreach ($products as $product) {
             $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
             if($image){
