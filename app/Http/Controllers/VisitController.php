@@ -17,11 +17,11 @@ class VisitController extends Controller
             $visits->value=0;
             $visits->save();
         }
-        if(!request()->session()->exists('flowers')){
-            session(['flowers' => 'visit']);
+        if(!isset($_COOKIE['visitor'])) {
+            setcookie('visitor', 'flowers', time() + (86400 * 365*10), "/");
             $visits->value+=1;
             $visits->save();
-        }
+          } 
     }
 
     public static function count_visits(){

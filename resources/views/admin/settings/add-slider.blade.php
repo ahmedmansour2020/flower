@@ -38,7 +38,7 @@
                                 enctype="multipart/form-data">
                                 @method('PUT')
                     @endif
-                    @csrf
+                    {{ csrf_field() }} 
 
                     <div class="upload-image">
                         <label for="file-upload">

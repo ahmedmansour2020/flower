@@ -14,7 +14,7 @@
 <form method="post" action="{{route('area.update',$area->id)}}" enctype="multipart/form-data">
 @method('PUT')
 @endif
-@csrf
+{{ csrf_field() }} 
 <div class="form-group col-12">
 <select name="city_id" class="form-control">
 <option value="" selected disabled>اختر المدينة</option>

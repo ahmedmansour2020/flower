@@ -16,7 +16,7 @@
             <x-jet-validation-errors class="mb-4" />
 
             <form method="POST" action="{{ route('two-factor.login') }}">
-                @csrf
+                {{ csrf_field() }} 
 
                 <div class="mt-4" x-show="! recovery">
                     <x-jet-label for="code" value="{{ __('Code') }}" />

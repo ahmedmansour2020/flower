@@ -10,13 +10,16 @@
 <script src="{{ URL::asset('resources/assets/js/search.js') }}"></script>
 
 <!-- google maps -->
-{{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js/?libraries=places,geometry"></script> --}}
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSMCkxhkOaL1zZ1HND-GxUr3WsBGV2qm8&callback=initMap"></script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry"></script> -->
+
+<script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSMCkxhkOaL1zZ1HND-GxUr3WsBGV2qm8">
+</script>
 <!-- end google maps -->
 
 <script>
     var add_to_favourite="{{route('favourite.store')}}";
-    var csrf_content='@csrf';
+    var csrf_content='{{ csrf_field() }} ';
     var home_message="{{route('home_message')}}" ;
     var msg_read="{{route('msg_read')}}" ;
     var user_link="{{route('register')}}";

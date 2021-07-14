@@ -22,7 +22,7 @@ App\Http\Controllers\AdminController::change_buyer_membership_status_auto();
 
 <body>
     <form hidden method="post" action="{{ route('logout')}}">
-        @csrf
+        {{ csrf_field() }} 
         <button type="submit" id="logout"></button>
     </form>
     @include("layouts.navbar")

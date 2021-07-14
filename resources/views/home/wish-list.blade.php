@@ -32,7 +32,7 @@
                         <td class="pt-5">{{$product->price}} ريال</td>
                         <td class="pt-5">
                         <form method="post" action="{{ route('delete_favourite',$product->favourite_id)}}">
-                        @csrf
+                        {{ csrf_field() }} 
                         <button class="btn btn-transparent">    <i class="fas fa-trash text-danger" class="" ></i></button>
                         </form>
                         </td>
