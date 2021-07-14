@@ -10,7 +10,11 @@
 <script src="{{ URL::asset('resources/assets/js/search.js') }}"></script>
 
 <!-- google maps -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry"></script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry"></script> -->
+
+<script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSMCkxhkOaL1zZ1HND-GxUr3WsBGV2qm8">
+</script>
 <!-- end google maps -->
 
 <script>

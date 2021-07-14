@@ -12,7 +12,6 @@ $(document).ready(function() {
             buttons: false
         })
         setTimeout(function() {
-
             initMap(lng, lat);
 
         }, 200)
@@ -88,6 +87,7 @@ function initMap(vendor_lng, vendor_lat) {
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, origin, destination) {
+
     directionsService.route({
         origin: `${origin.lat},${origin.lng}`,
         destination: `${destination.lat},${destination.lng}`,
