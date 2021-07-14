@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('home') }}" class="footer-logo">
                     <img src=" {{ URL::asset('resources/assets/images/logo.png') }}" class="img-fluid" alt="">
                 </a>
             </div>

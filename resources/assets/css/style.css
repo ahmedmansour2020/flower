@@ -498,14 +498,16 @@ li.paginate_button .active a {
     background: #b31d4d;
     margin-top: 30px;
     text-align: right;
+    word-break: break-all;
+    overflow-y: auto;
 }
 
 .navbar .dropdown-menu a {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 400;
     color: #ffffff;
     height: 45px;
-    padding-top: 3px;
+    padding-top: 8px;
     margin-bottom: 10px;
 }
 
