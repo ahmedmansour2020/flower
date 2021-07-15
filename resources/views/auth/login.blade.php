@@ -80,6 +80,10 @@
                 </div>
                         <form method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }} 
+                            @csrf
+
+
+                            {{ method_field('POST') }}
                             <h3>تسجيل الدخول</h3>
                             <div class="form-group">
                                 <input type="email" name="email" placeholder="البريد الإلكتروني">
