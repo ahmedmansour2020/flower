@@ -77,9 +77,7 @@
                     </div><br />
                     @endif
                 </div>
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
-
+                        <form method="POST" action="{{ route('register') }}">z
                             {{ csrf_field() }} 
                             <input type="hidden" name="role_id" value="{{App\Http\Controllers\UserController::get_role_id(isset($from)?'buyer':'')}}"/>
                             @if(isset($from))
