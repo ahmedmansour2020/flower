@@ -254,12 +254,12 @@ li.paginate_button .active a {
 .right-side {
     text-align: right;
     direction: rtl;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .right-side h3 {
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 32px;
     font-weight: 700;
     color: #b31d4d;

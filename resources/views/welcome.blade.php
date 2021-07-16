@@ -95,7 +95,7 @@
 
                         </div>
                     -->
-                        <div class="col-sm-12 col-md-6 col-lg-2">
+                        <div class="col-sm-12 col-md-4 col-lg-2">
                             <div class="btn-map">
                                 <button type="button" id="map_btn">الخرائط</button>
                             </div>

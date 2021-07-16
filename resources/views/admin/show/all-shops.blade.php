@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-    <table class="table-management table-responsive products w-100 dataTable no-footer" id="shops" role="grid"
+    <table class="table table-management table-responsive products w-100 dataTable no-footer" id="shops" role="grid"
         style="width: 1352px;">
         <thead>
             <tr role="row">

@@ -4,7 +4,7 @@
 @section('page_css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css"/>
 @endsection
-    <table class="table-management table-responsive products w-100 dataTable no-footer" id="{{$mail}}" role="grid"
+    <table class="table table-management table-responsive products w-100 dataTable no-footer" id="{{$mail}}" role="grid"
         style="width: 1352px;">
         <thead>
             <tr role="row">

@@ -10,7 +10,7 @@
 }
 </style>
 @endsection
-    <table id="{{$type}}" class="table-management table-responsive products w-100 dataTable no-footer" id="datatable-activated" role="grid"
+    <table id="{{$type}}" class="table table-management table-responsive products w-100 dataTable no-footer" id="datatable-activated" role="grid"
         style="width: 1352px;">
         <thead>
             <tr role="row">

@@ -30,11 +30,11 @@
         <button type="button" class="image-upload" id="image-btn">تحميل الصوره</button>
         <span class="required mr-2 text-danger">*</span>
     </div>
-    <div class="form-upload">
+    {{-- <div class="form-upload">
         <input type="text" placeholder="لوحة المتجر" id="image-label1" readonly required />
         <input type="file" class="d-none" id="image1" name="buyer_banner">
         <button type="button" class="image-upload" id="image-btn1">تحميل الصوره</button>
-    </div>
+    </div> --}}
     <div class="form-group">
         <input type="text" placeholder="الموقع" required name="buyer_site" /><span
             class="required mr-2 text-danger">*</span>

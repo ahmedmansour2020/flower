@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 <a class="btn btn-info" href="{{route('area.create')}}">إضافة حي</a>
-    <table class="table-management table-responsive products w-100 dataTable no-footer" id="areas" role="grid"
+    <table class="table table-management table-responsive products w-100 dataTable no-footer" id="areas" role="grid"
         style="width: 1352px;">
         <thead>
             <tr role="row">

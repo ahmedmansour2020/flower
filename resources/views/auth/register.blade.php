@@ -33,7 +33,7 @@
                 </div>
 
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="container">
                     <div class="right-side text-right">
                         <div class="logo-login">
