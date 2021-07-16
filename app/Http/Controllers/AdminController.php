@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Message;
 use App\Models\Product;
 use App\Models\Setting;
+use App\Models\Favourite;
+use App\Models\ToMessage;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -117,7 +120,20 @@ class AdminController extends Controller
 
     public function delete_user(Request $request){
         $id=request('id');
+        $products=Product::where('user_id',$id)->get();
+        foreach($products as $item){
+            Favourite::where('product_id',$item->id)->delete();
+        }
         Product::where('user_id',$id)->delete();
+        
+        Favourite::where('user_id',$id)->delete();
+        
+        $messages=Message::where('from',$id)->get();
+        ToMessage::where('to',$id)->delete();
+        foreach($messages as $item){
+            ToMessage::where('message_id',$item->id)->delete();
+        }
+        Message::where('from',$id)->delete();
         User::find($id)->delete();
 
         return response()->json([

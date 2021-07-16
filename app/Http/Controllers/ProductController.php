@@ -149,6 +149,7 @@ class ProductController extends Controller
     {
         $id=$request->id;
         ItemImage::where('item_type','product')->where('item_id', $id)->delete();
+        Favourite::where('product_id',$id)->delete();
         Product::where('id',$id)->delete();
         return redirect()->back()->with('success','تم حذف المنتج بنجاح');
     }

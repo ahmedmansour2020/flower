@@ -4,6 +4,8 @@ $(document).ready(function() {
         e.preventDefault();
         var lng = $(this).data('lng') * 1;
         var lat = $(this).data('lat') * 1;
+        console.log(lng);
+        console.log(lat);
         $.confirm({
             backgroundDismiss: true,
             columnClass: 'col-9',

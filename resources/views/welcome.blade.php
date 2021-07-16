@@ -137,7 +137,8 @@
                                 <div class="location-store">
                                     <img src="{{ URL::asset('resources/assets/images/icon-location.png') }}"
                                         class="img-fluid" alt="">
-                                    {{ $buyer->buyer_site }}
+                                        <a href="#" class="buyer_map" data-lng="{{$buyer->lng}}" data-lat="{{$buyer->lat}}">{{ $buyer->buyer_site}}</a>
+                                    
                                 </div>
                                 <div class="btn-box">
                                     <a href="{{ route('buyer_offers', $buyer->id) }}">العروض</a>
@@ -192,7 +193,7 @@
     @endforeach
 </script>
 
-
+<script src="{{ asset('resources/assets/js/vendor_map.js') }}"></script>
 <script src="{{ asset('resources/assets/js/maps.js') }}"></script>
 <script src="{{ asset('resources/assets/js/cities.js') }}"></script>
 <script src="{{ URL::asset('resources/assets/js/fill_areas.js') }}"></script>
