@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('resources/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('resources/assets/css/media.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 
 </head>
 
@@ -89,14 +90,20 @@
                             </div>
                             <a href="{{ route('password.request') }}" class="forget-password"> نسيت كلمة المرور؟</a>
                             <button type="submit" class="fixed-style-btn btn">تسجيل الدخول</button>
-                            <p class="dt-acc">ليس لديك حساب ! <a href="{{route('register')}}" class="create-acc">أنشئ حساب</a></p>
+                            <p class="dt-acc">ليس لديك حساب ! <a href="#" class="create-acc register">أنشئ حساب</a></p>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        var csrf_content='{{ csrf_field() }} ';
+        var user_link="{{route('register')}}";
+    var buyer_link="{{route('register_buyer')}}";
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
@@ -105,6 +112,8 @@
         integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
     </script>
     <script src="{{ URL::asset('resources/assets/js/custom.js') }}"></script>
+<script src="{{ URL::asset('resources/assets/js/home-messages.js') }}"></script>
+
 
 </body>
 
