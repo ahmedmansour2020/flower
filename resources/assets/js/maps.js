@@ -10,7 +10,7 @@ $(document).ready(function() {
         })
         setTimeout(function() {
 
-            initMap();
+            initMap_all();
 
         }, 200)
     })
@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 
 
-function initMap() {
+function initMap_all() {
 
     var current_lat = $('#current_lat').val() * 1;
     var current_lng = $('#current_lng').val() * 1;
