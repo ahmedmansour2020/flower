@@ -120,7 +120,12 @@ class AdminController extends Controller
 
     public function delete_user(Request $request){
         $id=request('id');
+        $products=Product::where('user_id',$id)->get();
+        foreach($products as $item){
+            Favourite::where('product_id',$item->id)->delete();
+        }
         Product::where('user_id',$id)->delete();
+        
         Favourite::where('user_id',$id)->delete();
         
         $messages=Message::where('from',$id)->get();
