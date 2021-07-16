@@ -96,6 +96,9 @@
     .right-side .form-group input {
         width: 100%;
     }
+    .right-side .fixed-style-btn {
+        width: 100%;
+    }
     /* End login page  */
 }
 
