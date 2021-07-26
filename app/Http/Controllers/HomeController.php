@@ -180,7 +180,10 @@ class HomeController extends Controller
     {
         $product = Product::leftJoin('users', 'users.id','user_id')->where('membership_status',1)->where('products.id',$id)->select('products.*')->firstOrFail();
         $image = ItemImage::leftJoin('images', 'images.id', 'image_id')->where('item_id', $product->id)->where('item_type', 'product')->select('name', 'main', 'image_id')->first();
-        $product->image = asset('uploaded/' . $image->name);
+        $product->image=null;
+        if($image){
+            $product->image = asset('uploaded/' . $image->name);
+        }
         $title = $product->name;
         $category=Category::find($product->category_id);
         if($category){
