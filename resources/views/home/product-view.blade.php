@@ -55,7 +55,7 @@ use App\Http\Controllers\FavouriteController;
 
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="img-product-view">
-                    <img src="{{ $product->image}}" class="img-fluid" alt="">
+                    <img src="{{ $product->image??asset('resources/assets/images/blank.png') }}" class="img-fluid" alt="">
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6">
