@@ -87,7 +87,7 @@ use App\Http\Controllers\FavouriteController;
                     @endif
                     <div
                         title="{{FavouriteController::check_favourite($product->id)==1?'اضف الى المفضلات':(FavouriteController::check_favourite($product->id)==-1?'سجل الدخول أولا':'المنتج موجود في المفضلات')}}">
-                        <a class="icon-favorite @if(FavouriteController::check_favourite($product->id)!=1) fav-disabled @else add_to_favourite @endif"
+                        <a class="icon-favorite @if(FavouriteController::check_favourite($product->id)==-1) login-first @endif @if(FavouriteController::check_favourite($product->id)!=1) fav-disabled @else add_to_favourite @endif "
                             data-id="{{ $product->id }}">
                             <i
                                 class="fas fa-heart @if(FavouriteController::check_favourite($product->id)==0) text-danger @endif"></i>

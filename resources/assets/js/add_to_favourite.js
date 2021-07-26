@@ -12,4 +12,14 @@ $(document).ready(function() {
         })
 
     })
+
+    $(document).on('click', '.login-first', function() {
+        $.confirm({
+            title: false,
+            content: `
+            <h3 class="my-5 text-center w-100">برجاء التسجيل الدخول أولا</h3>
+            <p class="text-center"><a class="btn btn-info" href="${login_url}">سجل الدخول</a></p>`,
+            buttons: false
+        })
+    })
 })

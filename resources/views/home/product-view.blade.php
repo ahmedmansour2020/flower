@@ -91,7 +91,7 @@ use App\Http\Controllers\FavouriteController;
                 </table>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6">
-                <button type="button" class="bg-red-btn btn-product-view add-favorite @if(FavouriteController::check_favourite($product->id)!=1) disabled @else add_to_favourite @endif" data-id="{{$product->id}}">أضف إلى قائمة الاعجابات</button>
+                <button type="button" class="bg-red-btn btn-product-view add-favorite @if(FavouriteController::check_favourite($product->id)!=1) @if(FavouriteController::check_favourite($product->id)==-1) login-first @else disabled @endif  @else add_to_favourite @endif" data-id="{{$product->id}}">أضف إلى قائمة الاعجابات</button>
                 <a href="https://api.whatsapp.com/send?phone=‎+966{{$user->buyer_whatsapp}}&text=مرحبًا" target="_blank" class="bg-green-btn btn-product-view text-vendor">تواصل مع التاجر</a>
             </div>
 

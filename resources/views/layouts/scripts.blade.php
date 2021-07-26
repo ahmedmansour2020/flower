@@ -26,6 +26,7 @@
     var buyer_link="{{route('register_buyer')}}";
     var red_icon =  'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ;
     var blue_icon =  'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' ;
+    var login_url="{{route('login')}}";
     function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
