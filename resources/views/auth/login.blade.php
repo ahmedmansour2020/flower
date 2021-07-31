@@ -24,8 +24,8 @@
             <div class="col-sm-12 col-md-6 p-0">
                 <div class="login-leftSide position-relative">
                     <div class="img-leftSide">
-                        <img src="{{App\Http\Controllers\SettingController::get_login_image()!=null?App\Http\Controllers\SettingController::get_login_image():URL::asset('resources/assets/images/right-img-auth.png')}}" class="img-fluid"
-                            alt="login-image">
+                        <img src="{{App\Http\Controllers\SettingController::get_login_image()!=null?App\Http\Controllers\SettingController::get_login_image():URL::asset('resources/assets/images/right-img-auth.png')}}"
+                            class="img-fluid" alt="login-image">
                     </div>
                     <div class="desc-text position-absolute">
                         <p class="position-absolute" style=" right: 0; bottom: 75px; ">أقرب ورد</p>
@@ -42,45 +42,45 @@
                         </div>
                         <div class="w-75">
 
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success w-100 text-center ">
-                        {{ $message }}
-                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    @endif
-                    @if ($message = Session::get('alert'))
-                    <div class="alert alert-danger w-100 text-center ">
-                        {{ $message }}
-                        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    @endif
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success w-100 text-center ">
+                                {{ $message }}
+                                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            @endif
+                            @if ($message = Session::get('alert'))
+                            <div class="alert alert-danger w-100 text-center ">
+                                {{ $message }}
+                                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            @endif
 
-                    @if ($message = Session::get('error'))
-                    <div class="alert alert-danger ">
-                        {{ $message }}
-                        <button type="button" class="close white-text text-center" data-dismiss="alert"
-                            aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    @endif
+                            @if ($message = Session::get('error'))
+                            <div class="alert alert-danger ">
+                                {{ $message }}
+                                <button type="button" class="close white-text text-center" data-dismiss="alert"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            @endif
 
-                    @if($errors->any())
-                    <div class="alert alert-danger text-center">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div><br />
-                    @endif
-                </div>
+                            @if($errors->any())
+                            <div class="alert alert-danger text-center">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div><br />
+                            @endif
+                        </div>
                         <form method="POST" action="{{ route('login') }}">
-                            {{ csrf_field() }} 
+                            {{ csrf_field() }}
                             <h3>تسجيل الدخول</h3>
                             <div class="form-group">
                                 <input type="email" name="email" placeholder="البريد الإلكتروني">
@@ -88,6 +88,15 @@
                             <div class="form-group">
                                 <input type="password" name="password" placeholder="كلمة المرور">
                             </div>
+                            <div class="row col-6 mb-2">
+                                <div class="col-2 d-flex align-items-center">
+                                    <input type="checkbox" name="remember" class="form-check-input" id="remember">
+                                </div>
+                                <div class="col-10  p-0">
+                                    <label class="create-acc  p-0" for="remember">تذكرني</label>
+                                </div>
+                            </div>
+
                             <a href="{{ route('password.request') }}" class="forget-password"> نسيت كلمة المرور؟</a>
                             <button type="submit" class="fixed-style-btn btn">تسجيل الدخول</button>
                             <p class="dt-acc">ليس لديك حساب ! <a href="#" class="create-acc register">أنشئ حساب</a></p>
@@ -98,11 +107,12 @@
         </div>
     </section>
     <script>
-        var csrf_content='{{ csrf_field() }} ';
-        var user_link="{{route('register')}}";
-    var buyer_link="{{route('register_buyer')}}";
+    var csrf_content = '{{ csrf_field() }} ';
+    var user_link = "{{route('register')}}";
+    var buyer_link = "{{route('register_buyer')}}";
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -112,7 +122,7 @@
         integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
     </script>
     <script src="{{ URL::asset('resources/assets/js/custom.js') }}"></script>
-<script src="{{ URL::asset('resources/assets/js/home-messages.js') }}"></script>
+    <script src="{{ URL::asset('resources/assets/js/home-messages.js') }}"></script>
 
 
 </body>
